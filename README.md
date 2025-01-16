@@ -1,1 +1,1 @@
-# VideregaaendeSandsynlighedsTeori
+# Videregående sandsynlighedsteori
