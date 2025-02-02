@@ -1,0 +1,219 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\usepackage{amsmath} 
+\usepackage{hyperref}
+% \usepackage{calrsfs}
+\usepackage{mathrsfs}
+\usepackage{aligned-overset}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[mathscr]{euscript}
+\usepackage{tikz}
+\usepackage{bbm}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\1}{\mathbbm{1}}
+\newcommand{\X}{\mathsf{X}}
+\newcommand{\Y}{\mathsf{Y}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\lclass}{\mathcal{L}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\deriv}{\operatorname{d}}
+\newcommand{\icomp}{\operatorname{i}}
+\newcommand{\varx}{\varphi_\X}
+\newcommand{\pfield}{(\Omega, \mathcal{F}, P)}
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{definition}[theorem]{Definition} 
+\newtheorem{lemma}[theorem]{Lemma} 
+\newtheorem{corollary}[theorem]{Korollar} 
+\newtheorem{remark}[theorem]{Bemærkning} 
+\newtheorem{proposition}[theorem]{Sætning} 
+\newtheorem{example}[theorem]{Eksempel} 
+
+\usepackage{geometry}
+    \geometry{
+        a4paper,
+        left=3.5cm,
+        right=3.5cm   ,
+    }
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\newtcolorbox{theorem-box}{
+    colback=gray!10, % Light grey background
+    colframe=black,  % Black frame
+    sharp corners,   % Square corners
+    boxrule=0.8pt,   % Border thickness
+    before skip=10pt, % Space before the box
+    after skip=10pt,  % Space after the box
+}
+
+\newtheoremstyle{boxed}  % Define a new theorem style
+  {10pt}   % Space above
+  {10pt}   % Space below
+  {}       % Body font
+  {}       % Indent amount
+  {\bfseries} % Theorem head font (bold)
+  {.}      % Punctuation after theorem head
+  { }      % Space after theorem head
+  {\thmname{#1}~\thmnumber{#2}\thmnote{ (#3)}}  % Theorem head spec
+
+\theoremstyle{boxed}
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\usepackage{graphicx} % Required for inserting images
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\title{Noter - Videregående sandsynlighedsteori}
+\begin{document}
+
+\section{Fourier-transformation og karakteristiske funktioner}
+\subsection{Definition og indledende bemærkninger}
+\begin{theorem-box}
+\begin{definition}
+    Lad $\mu$ være et sandsynlighedsmål på $(\R^d, \mathcal{B}(\R^d))$. Den Fourier-transofrmerede af $\mu$ er funktionen $\hat{\mu}:\R^d\rightarrow \mathbb{C}$ givet ved 
+    $$\hat{\mu}(t)=\int_{\R^d}e^{\operatorname{i}\langle t,x\rangle}\mu(\operatorname{d}x)=\int_{\R^d}\cos(\langle t,x\rangle)\mu \operatorname{d}x+\operatorname{i}\int_{\R^d}\sin(\langle t,x\rangle)\mu \operatorname{d}x$$
+    for ethvert $t$ i $\R^d$. I tilfældet $d=1$ ser vi specielt, at 
+    $$\hat{\mu}(t)=\int_{\R}e^{\operatorname{i}tx}\mu(\operatorname{d}x)=\int_{\R}\cos(tx)\mu \operatorname{d}x+\operatorname{i}\int_{\R}\sin(tx)\mu \operatorname{d}x$$
+    for ethvert $t$ i $\R$
+\end{definition}
+\end{theorem-box}
+
+    \begin{remark}
+        Antag, at $\mu$ er et sandsynlighedsmål på $(\R, \B(\R))$ med tæthed $f$ fra $\lclass^1(\lambda)^+$ med hensyn til $\lambda$. Det følger da for ethvert $t$ i $\R$, at 
+        $$\hat{\mu}(t)=\int_{\R}e^{\operatorname{i}tx}\mu(\operatorname{d}x)=\int_{\R}e^{\operatorname{i}tx}f(x)\lambda(\operatorname{d}x)=\sqrt{2\pi}\hat{f}(-t),$$
+        hvor $\hat{f}$ betegner den Fourier-transformerede af $f$ (jvf. Definition 12.1.1 i [M\&I])
+    \end{remark}
+\begin{example}[Den Fourier-transformerede af normalfordelingen]
+    Vi har
+    $$\widehat{N(\xi, \sigma^2)}(t)=e^{\operatorname{i}t\xi}e^{-\sigma^2t^2/2}$$
+    for ethvert $t$ i $\R$
+\end{example}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\mu$ og $\nu$ være ssh.-mål på $(\R^d, \B(\R^d))$ hhv. $(\R^m, \B(\R^m))$. Da gælder følgende udsagn:
+        \begin{enumerate}
+            \item[(i)] $|\hat{\mu}(t)|\leq \hat{\mu}(0) = 1 $ for alle $t$ i $\R^d$
+            \item[(ii)] $\hat{\mu}:\R^d \rightarrow \C$ er en kontinuert funktion.
+            \item[(iii)] $\hat{\mu}(-t)=\overline{\hat{\mu}(t)}$ for alle $t$ i $\R^d$
+            \item[(iv)] Hvis $d=m$ gælder der, at 
+            $$\int_{\R^d}\hat{\mu}(t)\nu(\deriv t)=\int_{\R^d}\hat{\nu}(t)\mu(\deriv t)$$ 
+            \item[(v)]$\widehat{\mu\otimes\nu}(t,s)=\hat{\mu}(t)\hat{\nu}(s)$ for alle $(t,s)$ i $\R^d\times\R^m=\R^{d+m}$
+            \item[(vi)] $\widehat{\mu * \nu}(t,s)=\hat{\mu}(t)\cdot\hat{\nu}(t)$ for alle $t$ i $\R^d$
+        \end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+
+\begin{theorem-box}
+    \begin{definition} 
+        Lad $\mathsf{X}$ være en d-dimensionel stokastisk vektor defineret op sandsynlighedsfeltet $\pfield$. Den karakteristiske funktion for $\mathsf{X}$ er funktionen $\varphi_{\mathsf{X}}:\R^d\rightarrow \C$ givet ved 
+        $$\varphi_\mathsf{X}=\hat{P_\X}, \quad \text{hvor }P_\X=P \circ \X^{-1}$$
+        For ethvert $t$ i $\R^d$ hat vi altså, at
+        $$\varphi_\X(t)=\int_{\R^d}e^{\icomp \langle t,x\rangle}P_\X(\deriv x) = \int_{\Omega}e^{\icomp \langle t, \X(\omega)\rangle}P(\deriv\omega)=\E[e^{\icomp \langle t,x\rangle}]$$
+    \end{definition}
+\end{theorem-box}
+\begin{example}
+    Hvis $\X$ er normalfordelt, så har vi
+    $$\varphi_\X(t)=\widehat{N(\xi, \sigma^2)}(t)=e^{\icomp t\xi}e^{-\sigma^2t^2/2}$$
+    for alle t i $\R$
+\end{example}
+\begin{theorem-box}
+    \begin{corollary}[Egenskaber ved den karakteristiske funktion]
+        Lad $\X$ og $\Y$ være hhv. d- og m-dimensionale stokastiske vektorere definerede på $\pfield$. Da gælder følgende udsagn:
+        \begin{enumerate}
+            \item[(i)] $|\varphi_\X(t)|\leq \varphi_\X(0)=1$ for alle t i $\R^d$
+            \item[(ii)] Funktionen $\varphi_\X:\R^d\rightarrow \C$ er kontinuert.
+            \item[(iii)] $\varphi_\X(-t)=\varphi_{-\X}(t)=\overline{\varx(t)}$ for alle t i $\R^d$
+            \item[(iv)] For enhver $m\times n$ matrix A og enhver vektor b i $\R^m$ gælder formlen:
+            $$\varphi_{A\X+b}(s)=e^{\icomp\langle s,b\rangle}\varx (A^Ts), \quad (s\in\R^m)$$
+            \item[(v)] Hvis $d=m$, gælder formlen: $\E[\varphi_\Y(\X)]=\E[\varx(\Y)]$
+            \item[(vi)] Hvis $\X$ og $\Y$ er uafhængige, gælder formlen: 
+            $$\varphi_{(\X,\Y)}(t,s)=\varx(t)\varphi_\Y(s), \quad (t\in\R^d,s\in\R^m)$$ 
+            \item[(vii)] Hvis $d=m$, og $\X$ og $\Y$ er uafhængige, gælder formlen:
+            $$\varphi_{\X+\Y}(t)=\varx(t)\varphi_\Y(t)=\varphi_{(\X,\Y)}(t,t), \quad (t\in\R^d)$$
+        \end{enumerate}
+    \end{corollary}
+\end{theorem-box}
+\subsection{Entydighed og Inversionsætningen for karakteristiske funktioner}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $\mu$ og $\nu$ være to mål på $(\R^d, \B(\R^d))$ og antag at $\mu((-n,n)^d)<\infty$ for alle n i $\N$, samt at
+        $$\int_{\R^d}\psi \deriv \mu =\int_{\R^d}\psi \deriv \nu\quad \text{for alle }\psi \text{ i } C_c(\R^d,\R)^+$$
+        Da gælder der, at $\mu=\nu$
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $\X$ og $\Y$ være uafhængiged d-dimensionale stokastiske vektorer definerede på sandsynlighedsfeltet $\pfield$, og antag, at $\X$ er absolut kontinuert med tæthed $f_\X$ (med hensyn til $\lambda_d$).
+
+        Da er $\X+\Y$ ligeledes absolut kontinuert med $\lambda_d$-tæthed $f_{\X+\Y}$ givet ved
+        $$f_{\X+\Y}(z)=\int_{\R^d}f_\X(z-y)P_\Y(\deriv y), \quad (z\in\R^d)$$
+    \end{lemma}
+\end{theorem-box}
+
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $\X$ og $\mathsf{U}$ være uafhængige d-dimensionale stokastiske vektorer på sandsynlighedsfeltet $\pfield$, og antag, at $\mathsf{U}=(\mathsf{U}_1, \dots, \mathsf{U}_d)$, hvor $\mathsf{U}_1, \dots, \mathsf{U}_d$ er uafhængige identisk $N(0,1)$-fordelte stokastiske variable. 
+        
+        For ethvert $\sigma$ i $(0,\infty)$ gælder der da, at $\X+\sigma\mathsf{U}$ er absolut kontinuert med tæthed $f_{\X+\sigma\mathsf{U}}$ givet ved:
+        $$f_{\X+\sigma\mathsf{U}}(t)=(2\pi)^{-d}\int_{\R^d}e^{-\frac{1}{2}\sigma^2\|s\|^2}e^{-\icomp \langle t,s\rangle}\varx(s)\lambda_d(\deriv s), \quad (t\in\R^d),$$
+        hvor $\varx$ er den karakteristiske funktion for $\X$
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $\X$ og $\mathsf{U}$ være d-dimensionale stokastiske vektorer defineret på $\pfield$, og betragt for ethvert n i $\N$ den stokastiske vektor $\X+\frac{1}{n}\mathsf{U}$.
+
+        For enhver funktion $\psi$ fra $C_b(\R^d,\C)$ gælder der da, at 
+        $$\int_{\R^d}\psi(t)P_{\X+\frac{1}{n}\mathsf{U}}(\deriv t)\xrightarrow[n\rightarrow \infty]{} \int_{\R^d}\psi(t)P_\X(\deriv t)$$
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        \begin{enumerate}
+            \item[(i)] Lad $\X$ og $\Y$ være d-dimensionale stokastiske vektorer. Da gælder implikationen $$\varx=\varphi_\Y\Longrightarrow \X\sim\Y$$
+            \item[(ii)] Lad $\mu$ og $\nu$ være sandsynlighedsmål på $(\R^d, \B(\R^d))$. Da gælder implikationen:
+            $$\hat{\mu}=\hat{\nu}\Longrightarrow \mu = \nu$$ 
+        \end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{remark}
+    $\X$ og $\Y$ behøver ikke at være defineret på samme sandsynlighedsfelt. Der kan derfor findes stokastiske variable $\tilde{\X}, \tilde{\Y}$ således at $\tilde{\X}\sim \X$ og $\tilde{\Y}\sim \Y$ og ræssonere:$$\varx = \varphi_\Y \Longleftrightarrow \varphi_{\tilde{\X}}=\varphi_{\tilde{\Y}}\Longrightarrow \tilde{\X}\sim \tilde{\Y} \Longrightarrow \X \sim \Y$$
+\end{remark}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\X$ og $\Y$ være hhv. d- og m-dimensionale stokastiske vektorer definerede på sandsynlighedsfeltet $\pfield$. Da er $\X$ og $\Y$ uafhængige, hvis og kun hvis der gælder, at $$\varphi_{(\X,\Y)}(t,s)=\varx(t)\varphi_\Y(s)\quad \text{for alle }t\text{ i }\R^d, \text{og }s\text{ i }\R^m$$
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\X$ være en d-dimensional stokastisk vektor på sandsynlighedsfeltet $\pfield$, og antag, at dens karakteristiske funktion $\varx$ er element i $\lclass^1_{\C}(\lambda_d)$. Da er $P_\X$ absolut kontinuert med tæthed $f_\X$ givet ved:
+        $$f_\X(t)=(2\pi)^{-d}\int_{\R^d}e^{\icomp \langle t,s\rangle}\varx(s)\lambda_d(\deriv s), \quad (t\in\R^d)$$
+    \end{proposition}
+\end{theorem-box}
+\end{document}
