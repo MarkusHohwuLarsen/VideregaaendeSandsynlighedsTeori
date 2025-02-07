@@ -1,0 +1,285 @@
+\documentclass{Class}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\usepackage{amsmath} 
+\usepackage{hyperref}
+% \usepackage{calrsfs}
+\usepackage{mathrsfs}
+\usepackage{aligned-overset}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[mathscr]{euscript}
+\usepackage{tikz}
+\usepackage{bbm}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\1}{\mathbbm{1}}
+\newcommand{\X}{\mathsf{X}}
+\newcommand{\Y}{\mathsf{Y}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\lclass}{\mathcal{L}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\deriv}{\operatorname{d}}
+\newcommand{\icomp}{\operatorname{i}}
+\newcommand{\varx}{\varphi_\X}
+\newcommand{\pfield}{(\Omega, \mathcal{F}, P)}
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{definition}[theorem]{Definition} 
+\newtheorem{lemma}[theorem]{Lemma} 
+\newtheorem{corollary}[theorem]{Korollar} 
+\newtheorem{remark}[theorem]{Bemærkning} 
+\newtheorem{proposition}[theorem]{Sætning} 
+\newtheorem{example}[theorem]{Eksempel} 
+\usepackage{geometry}
+    \geometry{
+        a4paper,
+        left=3.5cm,
+        right=3.5cm   ,
+    }
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\newtcolorbox{theorem-box}{
+    colback=gray!10, % Light grey background
+    colframe=black,  % Black frame
+    sharp corners,   % Square corners
+    boxrule=0.8pt,   % Border thickness
+    before skip=10pt, % Space before the box
+    after skip=10pt,  % Space after the box
+}
+
+\newtheoremstyle{boxed}  % Define a new theorem style
+  {10pt}   % Space above
+  {10pt}   % Space below
+  {}       % Body font
+  {}       % Indent amount
+  {\bfseries} % Theorem head font (bold)
+  {.}      % Punctuation after theorem head
+  { }      % Space after theorem head
+  {\thmname{#1}~\thmnumber{#2}\thmnote{ (#3)}}  % Theorem head spec
+
+\theoremstyle{boxed}
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\title{Uge 2}
+\author{Markus Alexander Hohwü Larsen}
+\begin{document}
+\problem{Exercise 13.8[M\&I]}
+Assume that $X$ and $Y$ are two independent random variables defined on a probability space ( $\Omega, \mathcal{F}, P$ ). Assume additionally that $X$ and $Y$ are absolutely continuous with the same distribution.
+\begin{enumerate}
+  \item  Show that $P(\mathrm{X}=\mathrm{Y})=0$.
+  \item Show that $P(\mathrm{X}<\mathrm{Y})=\frac{1}{2}=P(\mathrm{X}>\mathrm{Y})$.
+  \end{enumerate}
+\solution
+\begin{enumerate}
+  \item Ifølge Eksempel 13.5.7 (A) i [M\&I] er vektoren $(X, Y)$ absolut kontinuert. Dvs. at hvis $A \in \mathcal{B}\left(\mathbb{R}^2\right)$, således at $\lambda_2(A)=0$, så gælder der, at $\mathbb{P}((X, Y) \in A)=0$. Vi bemærker, at
+
+  $$
+  \mathbb{P}(X=Y)=\mathbb{P}((X, Y) \in A)
+  $$
+  
+  hvor $A=\left\{(x, y) \in \mathbb{R}^2 \mid x=y\right\}$. Vi regner $\lambda_2(A)$ vha. Sætning 6.3 .7 (ii) i [M\&I]:
+  
+  $$
+  \lambda_2(A)=\int_{\mathbb{R}} \lambda(\{y \in \mathbb{R} \mid(x, y) \in A\}) \lambda(\mathrm{d} x)=\int_{\mathbb{R}} \lambda(\{x\}) \lambda(\mathrm{d} x)=0
+  $$
+  
+  
+  Dette viser, at $\mathbb{P}(X=Y)=0$.
+
+  \item Pr. symmetri har vi, at $\mathbb{P}(X<Y)=\mathbb{P}(X>Y)$. Ved at benytte (a) ser vi nu,
+
+  $$
+  1=\mathbb{P}(X=Y)+\mathbb{P}(X<Y)+\mathbb{P}(X>Y)=2 \mathbb{P}(X<Y) .
+  $$
+  
+  
+  Dermed far vi, at $\mathbb{P}(X<Y)=\frac{1}{2}=\mathbb{P}(X>Y)$, som ønsket.
+\end{enumerate}
+
+
+
+\problem{Exercise 1.2}
+Lad $\X$ og $\Y$ være to uafhængige d-dimensionale stokastiske vektorer definerede på sandsynlighedsfeltet $\pfield$, og betragt endvidere deres fordelinger $P_\X$ og $P_\Y$ på $(\R^d, \B(\R^d))$
+\begin{enumerate}
+  \item Vis, at foldningen $P_\X * P_\Y$ er fordelingen $P_{\X+\Y}$ af den stokastiske vektor $\X+\Y$.
+  \item Benyt (a) og Sætning 1.1.4(vi) til at give et alternativt bevis for Sætning 1.1.7(vii)
+\end{enumerate}
+\solution
+\begin{enumerate}
+\item Let $A\in\B(\R^d), S(x,y)=x+y, S:\R^{2d}\rightarrow \R^d$, we note:
+$$P_{\X+\Y}(A)=P(\X+\Y\in A)=P_{(\X,\Y)}(S\in A)=(\P_\X \otimes P_\Y)\circ S^{-1}(A)=P_\X*P_\Y(A)$$ 
+\item $pf:\phi_{\X+\Y}=\phi_{\X}\phi_\Y$
+$$\phi_{\X+\Y}=\hat{P}_{\X+\Y}=\hat{P_{\X}*P_{\Y}}=\hat{P_\X}\hat{P_\Y}=\phi_\X\phi_\Y$$
+\end{enumerate}
+
+
+\problem{Exercise 1.5}
+Lad $\X_1$ og $\X_2$ være to uafhængige stokastiske variable definerede på sandsynlighedsfeltet $\pfield$. Benyt da Opgave 1.4, Eksempel 1.1.3 og Sætning 1.2.5 til at bevise følgende udsagn:
+\begin{enumerate}
+  \item Hvis $\X_1$ og $\X_2$ er binomialfordelte med samme sandsynligehdsparameter $p$ og med antalsparametre hhv. $n_1$ og $n_2$, da er $\X_1+\X_2$ binomialfordelt med sandsynlighedsparameter $p$ og antalsparameter $n_1+n_2.$
+  \item Hvis $\X_1$ og $\X_2$ er Possion-fordelte med parametre hhv. $\mathit{l}_1$ og $\mathit{l}_2$, da er $\X_1+\X_2$ Poisson-fordelt med parameter $\mathit{l}_1+\mathit{l}_2.$
+  \item Hvis $\X_1\sim N(\xi_1,\sigma_1^2),$ og $\X_2\sim N(\xi_2,\sigma_2^2),$ da er $\X_1+\X_2\sim N(\xi_1+\xi_2, \sigma_1^2+\sigma_2^2)$-fordelt.
+\end{enumerate}
+\solution
+\begin{enumerate}
+  \item Jf. Sætning 1.2.5 er det nok at vise, at den karakteristiske funktion for $X_1+X_2$ er den karakteristiske funktion for en binomialfordeling med de påståede parametre. Idet $X_1$ og $X_2$ er uafhængige giver Korollar 1.1.7(vii), at $\varphi_{X_1+X_2}(t)=\varphi_{X_1}(t) \varphi_{X_2}(t)$. \\Vi bruger nu den karakteristiske funktion fundet i Opgave 1.4 (a)
+  $$
+  \varphi_{X_1+X_2}(t)=\left(1-p+p e^{i t}\right)^{n_1}\left(1-p+p e^{i t}\right)^{n_2}=\left(1-p+p e^{i t}\right)^{n_1+n_2}
+  $$
+  hvilket netop viser det ønskede.
+  \item Vi bruger samme fremgangsmåde som i (a). Vi ser således, at
+    $$\varphi_{X_1+X_2}(t)=\exp \left(\ell_1\left(e^{\mathrm{i} t}-1\right)\right) \exp \left(\ell_2\left(e^{\mathrm{i} t}-1\right)\right)=\exp \left(\left(\ell_1+\ell_2\right)\left(e^{\mathrm{i} t}-1\right)\right)$$
+  \item Igen benytter vi samme fremgangsmåde. Her husker vi, at hvis $X \sim N\left(\xi, \sigma^2\right)$, så er $\varphi_X(t)=e^{i t \xi} e^{-\sigma^2 t^2 / 2}$ jf. Eksempel 1.1.3. Vi ser nu, at
+  $$
+  \varphi_{X_1+X_2}(t)=e^{i t \xi_1} e^{-\sigma_1^2 t^2 / 2} e^{i t \xi_2} e^{-\sigma_2^2 t^2 / 2}=e^{i t\left(\xi_1+\xi_2\right)} e^{-\left(\sigma_1^2+\sigma_2^2\right) t^2 / 2}
+  $$
+  Dette viser, at $X_1+X_2 \sim N\left(\xi_1+\xi_2, \sigma_1^2+\sigma_2^2\right)$.
+\end{enumerate}
+
+\problem{Exercise 1.3}
+\begin{enumerate}
+  \item Lad $f:\R\rightarrow [0,\infty)$ være en funktion fra $\lclass^1(\lambda)^+$, og antag at dens Fourier-transformerede $\hat{f}$ er element i $\lclass_\C^1(\lambda)$. Benyt da Sætning 1.2.8 til at vise, at 
+  \begin{align}
+    f(x)=\frac{1}{\sqrt{2\pi}}\int_\R\hat{f}(t)e^{\icomp tx}\lambda(\deriv t), \quad \text{for }\lambda-\text{n.a. }x\in\R
+  \end{align}
+  \item Lad $f$ være en funktion fra $\lclass_\C^1(\lambda)$ og betragt funktonerne $g_+, g_-,h_+,h_-\in\lclass^1(\lambda)$ givet ved $$g_\pm=\operatorname{Re}(f)^\pm, \quad h_\pm=\operatorname{Im}(f)^\pm.$$
+  Vis da, at $\hat{f}=\hat{g}_+-\hat{g}_-+\icomp(\hat{h}_+-\hat{h}_-).$ Benyt endvidere (a) til at udlede, at (1) også gælder for det her betragtede $f$, såfremt $\hat{g}_\pm, \hat{h}_\pm\in\lclass_\C^1(\lambda).$
+\end{enumerate}
+\solution
+\begin{enumerate}
+  \item Vi husker, at $\hat{f}(t)=\frac{1}{\sqrt{2 \pi}} \int_{\mathbb{R}} f(x) e^{-\mathrm{i} x t} \lambda(\mathrm{~d} x)$. Specielt ser vi, at hvis $f=0\; \lambda$-n.o., så er $\hat{f}(t)=0$ for alle $t$. Dermed er (1) opfyldt i dette tilfælde. Antag derfor, at $\lambda(\{f>0\})>0$ (dvs. at $f$ ikke er 0 n.o.). Så er $\int_{\mathbb{R}} f(x) \lambda(\mathrm{d} x) \in(0, \infty)$, og vi sætter $c=\left(\int_{\mathbb{R}} f(x) \lambda(\mathrm{d} x)\right)^{-1}$. Da er $c f$ en sandsynlighedstæthed, og vi lader $X$ være en absolut kontinuert stokastisk variabel med tæthed $f_X=c f$. Bemærk nu, at
+  $$
+  \varphi_X(t)=\int_{\mathbb{R}} e^{\mathrm{i} t x} f_X(x) \lambda(\mathrm{d} x)=c \int_{\mathbb{R}} e^{\mathrm{itx}} f(x) \lambda(\mathrm{d} x)=c \sqrt{2 \pi} \hat{f}(-t)
+  $$
+  Idet $\hat{f} \in \mathcal{L}_{\C}^1(\lambda)$ følger det, at $\varphi_X \in \mathcal{L}_{\C}^1(\lambda)$. Da giver Sætning 1.2.8, at
+  $$
+  \begin{aligned}
+  f_X(x) & =\frac{1}{2 \pi} \int_{\mathbb{R}} e^{-\mathrm{i} x s} \varphi_X(s) \lambda(\mathrm{d} s) \\
+  & =\frac{1}{2 \pi} \int_{\mathbb{R}} e^{-\mathrm{i} x s} c \sqrt{2 \pi} \hat{f}(-s) \lambda(\mathrm{d} s) \\
+  & =\frac{c}{\sqrt{2 \pi}} \int_{\mathbb{R}} e^{\mathrm{i} x t} \hat{f}(t) \lambda(\mathrm{d} t)
+  \end{aligned}
+  $$
+  for $\lambda$-n.a. $x$. I sidste lighed har vi benyttet substitutionen $t=-s$. Vi bemærker, at vi nu har vist $(1)$, idet $f(x)=\frac{1}{c} f_X(x)$.
+  \item Vi kan skrive $f=\operatorname{Re}(f)+\mathrm{i} \operatorname{Im}(f)=g_{+}-g_{-}+\mathrm{i}\left(h_{+}-h_{-}\right)$. Det følger direkte fra definitionen af Fourier-transformationen, at det er en lineær afbildning. Dvs. at hvis $f_1, f_2 \in \mathcal{L}_{\mathbb{C}}^1(\lambda)$ og $\alpha_1, \alpha_2 \in \mathbb{C}$, så er $\left(\alpha_1 \widehat{f}_1+\alpha_2 f_2\right)=\alpha_1 \hat{f}_1+\alpha_2 \hat{f}_2$. Specielt gælder der, at $\hat{f}=\hat{g}_{+}-\hat{g}_{-}+\mathrm{i}\left(\hat{h}_{+}-\hat{h}_{-}\right)$.
+
+  Antag nu, at $\hat{g}_{ \pm}, \hat{h}_{ \pm} \in \mathcal{L}_C^1(\lambda)$. Da er (1) opfyldt med $f$ erstattet med hhv. $g_{+}, g_{-}, h_{+}$og $h_{-}$. Vi har derfor, at
+  
+  $$
+  \begin{aligned}
+  f(x)= & g_{+}(x)-g_{-}(x)+\mathrm{i}\left(h_{+}(x)-h_{-}(x)\right) \\
+  = & \frac{1}{\sqrt{2 \pi}} \int_{\mathbb{R}} \hat{g}_{+}(t) e^{\mathrm{i} t x} \lambda(\mathrm{~d} t)-\frac{1}{\sqrt{2 \pi}} \int_{\mathbb{R}} \hat{g}_{-}(t) e^{\mathrm{i} t x} \lambda(\mathrm{~d} t) \\
+  & +\mathrm{i}\left(\frac{1}{\sqrt{2 \pi}} \int_{\mathbb{R}} \hat{h}_{+}(t) e^{\mathrm{i} t x} \lambda(\mathrm{~d} t)-\frac{1}{\sqrt{2 \pi}} \int_{\mathbb{R}} \hat{h}_{-}(t) e^{\mathrm{i} t x} \lambda(\mathrm{~d} t)\right) \\
+  = & \frac{1}{\sqrt{2 \pi}} \int_{\mathbb{R}}\left(\hat{g}_{+}(t)-\hat{g}_{-}(t)+\mathrm{i}\left(\hat{h}_{+}(t)-\hat{h}_{-}(t)\right)\right) e^{\mathrm{i} t x} \lambda(\mathrm{~d} t) \\
+  = & \frac{1}{\sqrt{2 \pi}} \int_{\mathbb{R}} \hat{f}(t) e^{\mathrm{i} t x} \lambda(\mathrm{~d} t),
+  \end{aligned}
+  $$
+  
+  for $\lambda$-n.a. $x$.
+\end{enumerate}
+
+
+
+
+
+
+\problem{Exercise 2.5[M\&I]}
+Lad $(S, \rho)$ være et metrisk rum, og lad $M$ være en ikke-tom delmængde af $S$. Vi definerer da afbildningen $\rho(\cdot, M): S \rightarrow[0, \infty)$ ved
+$$
+\rho(x, M)=\inf \{\rho(x, y): y \in M\}, \quad(x \in S) .
+$$
+\begin{enumerate}
+  \item Vis, at der for alle $x, z$ i $S$ gælder, at
+  $$
+  |\rho(x, M)-\rho(z, M)| \leq \rho(x, z)
+  $$
+  \item Vis, at der for ethvert $x$ i $S$ gælder, at
+  $$
+  \rho(x, M)=0 \quad \Longleftrightarrow \quad x \in \bar{M} .
+  $$
+  \item Vis, at der for enhver lukket delmængde $F$ af $S$ findes en følge $\left(G_n\right)_{n \in \mathbb{N}}$ af åbne delmængder af $S$, således at $G_1 \supseteq G_2 \supseteq G_3 \supseteq \cdots, \operatorname{og} F=\bigcap_{n \in \mathbb{N}} G_n$.
+\end{enumerate}
+\solution
+\begin{enumerate}
+  \item Lad $x, z \in S$. For ethvert $y \in M$ gælder der, at
+  $$
+  \rho(x, M) \leq \rho(x, y) \leq \rho(x, z)+\rho(z, y)
+  $$
+  Ved at tage infimum over $y \in M$, får vi da, at
+  $$
+  \rho(x, M) \leq \rho(x, z)+\rho(z, M)
+  $$
+  Dvs. at
+  \begin{align}
+    \rho(x, M)-\rho(z, M) \leq \rho(x, z)
+  \end{align}
+  Pr. symmetri har vi, at
+  \begin{align}
+    \rho(z, M)-\rho(x, M) \leq \rho(z, x)=\rho(x, z)
+  \end{align}
+  Ved at kombinere (2) og (3) får vi, at
+  $$
+  |\rho(x, M)-\rho(z, M)| \leq \rho(x, z)
+  $$
+  som ønsket.
+  \item Lad $x \in S$, og antag først, at $\rho(x, M)=0$. Da findes en følge $\left(y_n\right)_{n \in\N}$ i $M$, således at $\rho\left(x, y_n\right) \rightarrow \rho(x, M)=0$ for $n \rightarrow \infty$. Dvs. at $y_n \rightarrow x$, hvilket viser, at $x \in \bar{M}$.
+  Antag nu, at $x \in \bar{M}$. Da findes en følge $\left(y_n\right)_{n \geq 1} \mathrm{i} \mathrm{M}$, således at $y_n \rightarrow x$ for $n \rightarrow \infty$. Det betyder, at $\rho\left(x, y_n\right) \rightarrow 0$. For ethvert $\epsilon>0$ kan vi derfor finde $N \in \mathbb{N}$ med $\rho\left(x, y_N\right)<\epsilon$. Dette medfører, at $\rho(x, M) \leq \rho\left(x, y_N\right)<\epsilon$. Idet $\epsilon$ kan vælges vilkårligt småt, viser dette, at $\rho(x, M)=0$.
+  \item Lad $F \subseteq S$ være lukket. I (a) har vi set, at afbildningen $\rho_F=\rho(\cdot, F)$ er kontinuert. For ethvert $n \geq 1$ definerer vi nu $G_n:=\rho_F^{-1}((-\infty, 1 / n))$. Idet $(-\infty, 1 / n)$ er åben, er $G_n$ ligeledes åben. Desuden er $(-\infty, 1 / n) \supseteq(-\infty, 1 /(n+1))$, og dermed er $G_n \supseteq G_{n+1}$ som ønsket. Vi bemærker, at $x \in \bigcap_{n \geq 1} G_n$, hvis og kun hvis $\rho(x, F)<1 / n$ for alle $n \geq 1$. Dvs. at $x \in \bigcap_{n \geq 1} G_n$, hvis og kun hvis $\rho(x, F)=0$. Kombinerer vi dette med (b), ser vi, at $x \in \bigcap_{n \geq 1} G_n$, hvis og kun hvis $x \in \bar{F}$. Dermed har vi, at
+  $$
+  \bigcap_{n \geq 1} G_n=\bar{F}=F
+  $$
+  idet $F$ er lukket.
+\end{enumerate}
+
+
+
+
+
+
+\problem{Exercise 4.19[M\&I]}
+$\operatorname{Lad}(S, \rho)$ være et metrisk rum, lad $G$ være en åben delmængde af $S$, og betragt funktionen $x \mapsto \rho\left(x, G^c\right)$ indført i Opgave 2.5.
+\begin{enumerate}
+  \item Vis, at der for ethvert $x$ i $S$ gælder, at
+  \begin{align}
+    \left(k \rho\left(x, G^c\right)\right) \wedge 1 \uparrow \mathbf{1}_G(x) \quad \text { for } k \rightarrow \infty
+  \end{align}
+  \item  Konkludér, at der findes en følge $\left(f_n\right)_{n \in \mathbb{N}}$ af uniformt kontinuerte funktioner $f_n: S \rightarrow[0,1]$, således at $f_n(x) \rightarrow \mathbf{1}_G(x)$ for alle $x$ i $S$.
+\end{enumerate}
+\solution
+\begin{enumerate}
+  \item Vi bemærker først, at $G^{\mathrm{c}}$ er lukket. Dvs. at $\rho\left(x, G^{\mathrm{c}}\right)=0$, hvis og kun hvis $x \in G^{\mathrm{c}}$ jf. Opgave 2.5 (b). Betragt nu $x \in S$ og antag, at $x \in G$. Da er $\rho\left(x, G^{\mathrm{c}}\right)>0$, så $k \rho\left(x, G^{\mathrm{c}}\right) \uparrow \infty$, hvilket medfører, at $\left(k \rho\left(x, G^{\mathrm{c}}\right)\right) \wedge 1 \uparrow 1=1_G(x)$. Antag omvendt, at $x \in G^{\mathrm{c}}$. Da er $\left(k \rho\left(x, G^{\mathrm{c}}\right)\right) \wedge 1=0=1_G(x)$ for alle $k$, så specielt holder konvergensen i (4).
+  \item Lad $f_n(x)=\left(n \rho\left(x, G^{\mathrm{c}}\right)\right) \wedge 1$. Ifølge (a) gælder der, at $f_n(x) \rightarrow 1_G(x)$ for alle $x \in S$, så vi mangler blot at vise, at $f_n$ er uniformt kontinuert for ethvert $n \geq 1$. Fra Opgave 2.5 (a) følger det, at
+
+  $$
+  \left|n \rho\left(x, G^{\mathrm{c}}\right)-n \rho\left(z, G^{\mathrm{c}}\right)\right| \leq n \rho(x, z)
+  $$
+  
+  for alle $x, z \in S$ og $n \geq 1$. Dette viser, at funktionen $g_n: x \mapsto n \rho\left(x, G^{\mathrm{c}}\right)$ er uniformt kontinuert for alle $n \geq 1$. Det følger nu let, at $f_n=g_n \wedge 1$ er uniformt kontinuert: Tjek tilfældene $g_n(x)>1$ og $g_n(x)>1, g_n(x)>1$ og $g_n(x) \leq 1$ osv.
+\end{enumerate}
+\end{document}

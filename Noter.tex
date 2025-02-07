@@ -40,6 +40,7 @@
 \newtheorem{remark}[theorem]{Bemærkning} 
 \newtheorem{proposition}[theorem]{Sætning} 
 \newtheorem{example}[theorem]{Eksempel} 
+\newtheorem{problemstilling}[theorem]{Problemstilling} 
 
 \usepackage{geometry}
     \geometry{
@@ -118,13 +119,13 @@
     \begin{proposition}
         Lad $\mu$ og $\nu$ være ssh.-mål på $(\R^d, \B(\R^d))$ hhv. $(\R^m, \B(\R^m))$. Da gælder følgende udsagn:
         \begin{enumerate}
-            \item[(i)] $|\hat{\mu}(t)|\leq \hat{\mu}(0) = 1 $ for alle $t$ i $\R^d$
-            \item[(ii)] $\hat{\mu}:\R^d \rightarrow \C$ er en kontinuert funktion.
-            \item[(iii)] $\hat{\mu}(-t)=\overline{\hat{\mu}(t)}$ for alle $t$ i $\R^d$
-            \item[(iv)] Hvis $d=m$ gælder der, at 
+            \item[\textnormal{(i)}] $|\hat{\mu}(t)|\leq \hat{\mu}(0) = 1 $ for alle $t$ i $\R^d$
+            \item[\textnormal{(ii)}] $\hat{\mu}:\R^d \rightarrow \C$ er en kontinuert funktion.
+            \item[\textnormal{(iii)}] $\hat{\mu}(-t)=\overline{\hat{\mu}(t)}$ for alle $t$ i $\R^d$
+            \item[\textnormal{(iv)}] Hvis $d=m$ gælder der, at 
             $$\int_{\R^d}\hat{\mu}(t)\nu(\deriv t)=\int_{\R^d}\hat{\nu}(t)\mu(\deriv t)$$ 
-            \item[(v)]$\widehat{\mu\otimes\nu}(t,s)=\hat{\mu}(t)\hat{\nu}(s)$ for alle $(t,s)$ i $\R^d\times\R^m=\R^{d+m}$
-            \item[(vi)] $\widehat{\mu * \nu}(t,s)=\hat{\mu}(t)\cdot\hat{\nu}(t)$ for alle $t$ i $\R^d$
+            \item[\textnormal{(v)}]$\widehat{\mu\otimes\nu}(t,s)=\hat{\mu}(t)\hat{\nu}(s)$ for alle $(t,s)$ i $\R^d\times\R^m=\R^{d+m}$
+            \item[\textnormal{(vi)}] $\widehat{\mu * \nu}(t,s)=\hat{\mu}(t)\cdot\hat{\nu}(t)$ for alle $t$ i $\R^d$
         \end{enumerate}
     \end{proposition}
 \end{theorem-box}
@@ -146,15 +147,15 @@
     \begin{corollary}[Egenskaber ved den karakteristiske funktion]
         Lad $\X$ og $\Y$ være hhv. d- og m-dimensionale stokastiske vektorere definerede på $\pfield$. Da gælder følgende udsagn:
         \begin{enumerate}
-            \item[(i)] $|\varphi_\X(t)|\leq \varphi_\X(0)=1$ for alle t i $\R^d$
-            \item[(ii)] Funktionen $\varphi_\X:\R^d\rightarrow \C$ er kontinuert.
-            \item[(iii)] $\varphi_\X(-t)=\varphi_{-\X}(t)=\overline{\varx(t)}$ for alle t i $\R^d$
-            \item[(iv)] For enhver $m\times n$ matrix A og enhver vektor b i $\R^m$ gælder formlen:
+            \item[\textnormal{(i)}] $|\varphi_\X(t)|\leq \varphi_\X(0)=1$ for alle t i $\R^d$
+            \item[\textnormal{(ii)}] Funktionen $\varphi_\X:\R^d\rightarrow \C$ er kontinuert.
+            \item[\textnormal{(iii)}] $\varphi_\X(-t)=\varphi_{-\X}(t)=\overline{\varx(t)}$ for alle t i $\R^d$
+            \item[\textnormal{(iv)}] For enhver $m\times n$ matrix A og enhver vektor b i $\R^m$ gælder formlen:
             $$\varphi_{A\X+b}(s)=e^{\icomp\langle s,b\rangle}\varx (A^Ts), \quad (s\in\R^m)$$
-            \item[(v)] Hvis $d=m$, gælder formlen: $\E[\varphi_\Y(\X)]=\E[\varx(\Y)]$
-            \item[(vi)] Hvis $\X$ og $\Y$ er uafhængige, gælder formlen: 
+            \item[\textnormal{(v)}] Hvis $d=m$, gælder formlen: $\E[\varphi_\Y(\X)]=\E[\varx(\Y)]$
+            \item[\textnormal{(vi)}] Hvis $\X$ og $\Y$ er uafhængige, gælder formlen: 
             $$\varphi_{(\X,\Y)}(t,s)=\varx(t)\varphi_\Y(s), \quad (t\in\R^d,s\in\R^m)$$ 
-            \item[(vii)] Hvis $d=m$, og $\X$ og $\Y$ er uafhængige, gælder formlen:
+            \item[\textnormal{(vii)}] Hvis $d=m$, og $\X$ og $\Y$ er uafhængige, gælder formlen:
             $$\varphi_{\X+\Y}(t)=\varx(t)\varphi_\Y(t)=\varphi_{(\X,\Y)}(t,t), \quad (t\in\R^d)$$
         \end{enumerate}
     \end{corollary}
@@ -167,6 +168,7 @@
         Da gælder der, at $\mu=\nu$
     \end{lemma}
 \end{theorem-box}
+Altså at $\psi$ tilhører alle kontinuerte funktioner med kompakt støtte.
 \begin{theorem-box}
     \begin{lemma}
         Lad $\X$ og $\Y$ være uafhængiged d-dimensionale stokastiske vektorer definerede på sandsynlighedsfeltet $\pfield$, og antag, at $\X$ er absolut kontinuert med tæthed $f_\X$ (med hensyn til $\lambda_d$).
@@ -196,8 +198,8 @@
 \begin{theorem-box}
     \begin{proposition}
         \begin{enumerate}
-            \item[(i)] Lad $\X$ og $\Y$ være d-dimensionale stokastiske vektorer. Da gælder implikationen $$\varx=\varphi_\Y\Longrightarrow \X\sim\Y$$
-            \item[(ii)] Lad $\mu$ og $\nu$ være sandsynlighedsmål på $(\R^d, \B(\R^d))$. Da gælder implikationen:
+            \item[\textnormal{(i)}] Lad $\X$ og $\Y$ være d-dimensionale stokastiske vektorer. Da gælder implikationen $$\varx=\varphi_\Y\Longrightarrow \X\sim\Y$$
+            \item[\textnormal{(ii)}] Lad $\mu$ og $\nu$ være sandsynlighedsmål på $(\R^d, \B(\R^d))$. Da gælder implikationen:
             $$\hat{\mu}=\hat{\nu}\Longrightarrow \mu = \nu$$ 
         \end{enumerate}
     \end{proposition}
@@ -211,9 +213,166 @@
     \end{corollary}
 \end{theorem-box}
 \begin{theorem-box}
-    \begin{proposition}
+    \begin{proposition}[Inversionssætningen for karakteristiske funktioner]
         Lad $\X$ være en d-dimensional stokastisk vektor på sandsynlighedsfeltet $\pfield$, og antag, at dens karakteristiske funktion $\varx$ er element i $\lclass^1_{\C}(\lambda_d)$. Da er $P_\X$ absolut kontinuert med tæthed $f_\X$ givet ved:
         $$f_\X(t)=(2\pi)^{-d}\int_{\R^d}e^{\icomp \langle t,s\rangle}\varx(s)\lambda_d(\deriv s), \quad (t\in\R^d)$$
+    \end{proposition}
+\end{theorem-box}
+\begin{proof}
+    Proof
+\end{proof}
+\subsection{Differentiabilitet og Taylor-udvikling for karakteristiske funktioner}
+\begin{theorem-box}
+    \begin{proposition}[Differentiabilitet for den karakteristiske funktion]
+        \begin{enumerate}
+            \item[\textnormal{(i)}] Lad $\mu$ være et sandsynligehdsmål på $(\R, \B(\R))$, og antag at $p\in\N_0$, således at $\int_\R|x|^p\mu(\deriv x)<\infty$.
+            \\Da er $\hat{\mu}$ p-gange differentiabel med afledede
+            $$\hat{\mu}^{(k)}(t)=\icomp^k\int_{\R}\mathsf{x}^ke^{\icomp\mathsf{x}t}\mu(\deriv x), \quad (t\in\R, k=0,1,\dots, p).$$
+            \item[\textnormal{(ii)}] Lad $\X$ være en stokastisk variabel defineret på $\pfield$, og antag, at $p\in\N_0$, således at $\E[|\X|^p]<\infty$.
+            \\Da er $\varx$ p-gange differentiabel med afledede:
+            $$\varx^{(k)}(t)=\icomp\E[\X^ke^{\icomp t\X}], \quad (t\in\R, k=0,1,\dots, p).$$ 
+            Specielt er 
+            $$\E[\X^k]=\icomp^{-k}\varx^{(k)}(0), \quad (k=0,1,\dots, p).$$
+        \end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+Bemærk at ii) følger af i)
+\begin{theorem-box}
+    \begin{lemma}
+        For hvert $n\in\N_0$ defineres funktionen $r_n:\R\rightarrow \C$ ved $$r_n(t)=e^{\icomp t}-\sum_{k=0}^n\frac{\icomp^k t^k}{k!}, \quad (t\in\R).$$
+        Da gælder vurderingen:
+        $$|r_n(t)|\leq \frac{2|t|^n}{n!}\wedge \frac{|t|^{n+1}}{(n+1)!},\quad  (t\in\R).$$
+    \end{lemma}
+\end{theorem-box}
+Ovenstående kan også skrives som 
+$$|r_n(t)|\leq \min\{\frac{2|t|^n}{n!},\frac{|t|^{n+1}}{(n+1)!}\},\quad  (t\in\R).$$
+\begin{theorem-box}
+    \begin{corollary}
+        Lax $\X$ være en stokastisk variabel på $\pfield$, således at $\E[X^2]<\infty$. For ethvert $\alpha$ i $[2,3]$ gælder da vurderingen:
+        $$\left|\varx(t)-1-\icomp t\E[\X]+\frac{1}{2}t^2\E[\X^2]\right|\leq |t|^\alpha\E[|\X|^\alpha], \quad (t\in\R).$$
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\X$ være en stokastisk variabel på $\pfield$, og antag, at $\sigma^2:=\E[\X^2]<\infty$, samt at $\E[\X]=0.$
+        
+        Da gælder der, at 
+        $$\frac{\varx(t)-1}{t^2}\longrightarrow -\frac{\sigma^2}{2}\quad \text{ for }t\rightarrow 0.$$
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Taylor-udvikling af den karakteristiske funktion]
+        Lad $\X$ være en stokastisk variabel på $\pfield$ med momenter af enhver orden. Antag yderligere at følgende betingelse er opfyldt: 
+        \begin{align}\exists\rho\in(0,\infty):\lim_{n\rightarrow\infty}\frac{\rho^n\E[|\X|^n]}{n!}=0,\end{align}
+        og vælg et $\rho$ i henhold hertil. For ethvert a i $\R$ gælder der da, at Taylor-rækken for $\varx$ i a er konvergent i $[a-\rho, a+\rho]$ med sum $\varx$, dsv.
+        $$\varx(t)=\sum_{k=0}^{\infty}\frac{\varx^{(k)}(a)}{k!}(t-a)^k=\sum_{k=0}^{\infty}\frac{\icomp^k\E[\X^ke^{\icomp a\X}]}{k!}(t-a)^k, \quad (t\in[a-\rho, a+\rho]).$$ 
+    \end{proposition}
+\end{theorem-box}
+\begin{remark}
+    Betingelsen (1) er ækvivalent med følgende betingelse:
+    $$\exists c\in(0,\infty)\forall n\in\N:\E[|\X|^n]\leq c^n n!$$
+    Betingelsen er altså en begrænsning på hvor hurtigt momenterne må vokse med $n$.
+\end{remark}
+\subsection{Anvendelser af den karakteristiske funktion}
+\begin{theorem-box}
+    \begin{proposition}
+        \begin{enumerate}
+            \item[\textnormal{(i)}] Lad $\X$ være en symmetrisk stokastisk variabel, og lad videre $\X_1,\X_2,\X_3,\dots$ være i.i.d stokastiske variable, således at $\X_n\sim \X$ for alle n.
+            
+            Hvis yderligere $\X\sim\frac{\X_1+\cdots+\X_n}{\sqrt{n}}$ for alle n, da gælder der, at $\X\sim N(0,\sigma^2)$ for passende $\sigma$ i $[0,\infty)$
+            \item[\textnormal{(ii)}] Lad $\X$ være en stokastisk variabel, og antag at $\sigma^2:=\E[\X^2]<\infty.$ Antag endvidere, at $\X\sim\frac{\X_1+\X_2}{\sqrt{2}}$, hvor $\X_1,\X_2$ er i.i.d, og $\X_1\sim \X$.
+
+            Da gælder der, at $\X\sim N(0,\sigma^2)$
+        \end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+For $\sigma=0$ tænker vi på $\X$ som dirac-målet.
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $(a_n)_n\in\N$ være en følge af komplekse tal, således at $a_n\longrightarrow a \in\C$ for $n\rightarrow \infty$. Da gælder der, at $$\lim_{n\rightarrow\infty}\left(1+\frac{a_n}{n}\right)^n=\exp(a),$$
+        hvor $\exp(a)=e^{\operatorname{Re}(a)}(\cos(\operatorname*{Im}(a)))+\icomp\sin(\operatorname{Im}(a)).$
+    \end{lemma}
+\end{theorem-box}
+\subsection{Momentproblemet}
+\begin{theorem-box}
+    \begin{problemstilling}[Momentproblemet]
+        Lad $\X$ og $\Y$ være to stokastiske variable, og antag, at $\E[|\X|^p], \E[|\Y|^p]<\infty$ for alle p i $\N$, samt at
+        $$\E[|\X|^p]=\E[|\Y|^p] \quad \text{for alle p i }\N$$
+        Under hvilke yderligere betingelser kan man da slutte at $X\sim\Y$?
+    \end{problemstilling}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\X$ og $\Y$ være to stokastiske variable, og antag, at $\E[|\X|^p], \E[|\Y|^p]<\infty$ for alle p i $\N$, samt at
+        $$\E[|\X|^p]=\E[|\Y|^p] \quad \text{for alle p i }\N$$
+        Hvis yderligere 
+        $$\exists\rho\in(0,\infty):\E[e^{\rho|\X|}]<\infty,$$
+        da gælder der, at $\X\sim\Y$
+    \end{proposition}
+\end{theorem-box}
+Til beviset for Sætning 1.5.2 får vi brog for følgende lemma:
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $\X$ være en stokastisk variabel på $\pfield$. Da er følgende betingelser ækvivalente:
+        \begin{enumerate}
+            \item[\textnormal{(i)}] $\exists\rho\in(0,\infty):\E[e^{\rho|\X|}]<\infty.$
+            \item[\textnormal{(ii)}] $\exists c\in(0,\infty)\forall n\in\N:\E[|\X|^n]\leq c^nn!.$ 
+            \item[\textnormal{(iii)}] $\exists c\in(0,\infty)\forall n\in\N:\E[\X^{2n}]\leq c^{2n}(2n)!.$ 
+        \end{enumerate}
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\X$ og $\Y$ være stokastiske variable på $\pfield$, og antag, at $P_\X$ og $P_\Y$ begge har kompakt støtte, dvs.
+        $$\exists b<0:P(\X\in[-b,b])=1=P(\Y\in[-b,b])$$
+        Da $\X$ og $\Y$ har momenter af enhver orden. Hvis yderligere $\E[\X^p]=\E[\Y^p]$ for alle p i $\N$, da gælder der, at $\X\sim\Y.$
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\X$ være en ikke-negativ stokastisk variabel, og betragt dens \textbf{Laplace transformerede}:
+        $$L_\X(s)=\E[e^{-s\X}],\quad (s\in[0,\infty)).$$
+        Da er $P_\X$ entydigt bestemet af $L_\X$. Med andre ord: Hvis $\Y$ er en anden ikke-negativ stokastisk variabel, således at $\L_\Y(s)=L_\X(s)$ for alle s i $[0,\infty)$, da gælder der, at $\X\sim\Y.$
+    \end{corollary}
+\end{theorem-box}
+\section{Konvergens i mål og i sandsynlighed}
+\subsection{De tre fundamentale konvergenstyper og deres indbyrdes styrkeforhold}
+\begin{theorem-box}
+    \begin{definition}
+        Lad $(X,\mathcal{E}, \mu)$ være et målrum, og lad $(f_n)_{n\in\N}$ være en følge af funktioner fra $\mathcal{M}(\mathcal{E})$, og lad $f$ være endnu en funktion fra $\mathcal{M}(\mathcal{E}).$ Lad endvidere p være et (strengt) positivt tal. Vi siger da, at 
+        \begin{enumerate}
+            \item[\textnormal{(a)}] $f_n$ konvergerer mod f i $\mu-$mål for $n\rightarrow \infty$, hvis $$\forall\epsilon>0:\mu\left(\{x\in\X\big{|}|f_n(x)-f(x)|>\epsilon\}\right)\longrightarrow 0 \quad \text{for }n\rightarrow \infty.$$
+            I så fald benyttes notationen: $f_n\rightarrow f$ i $\mu-$mål.
+            \item[\textnormal{(b)}] $f_n$ konvergerer mod f $\mu-$n.o. for $n\rightarrow\infty$, hvis $$\mu\left(\{x\in X|\lim_{n\rightarrow \infty}f_n(x)=f(x)\}^c\right)=0.$$
+            I så fald benyttes notationen: $f_n\rightarrow f \mu-$n.o.
+            \item[\textnormal{(c)}] $f_n$ konvergerer mod $f$ i $\mu-p$ middel for $n\rightarrow \infty$, hvis 
+            $$\int_X|f_n-f|^p\deriv\mu\longrightarrow 0, \quad \text{for }n\rightarrow \infty$$
+            I så fald benyttes notationen: $f_n\rightarrow f$ i $\mu-p$-middel.
+        \end{enumerate}
+    \end{definition}
+\end{theorem-box}
+\begin{remark}
+    Blandt andet linearitet bevarer konvergens.
+\end{remark}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $"\rightarrow"$ betegne én af de tre konvergensformer indført i Definition 2.1.1, og betragt funktioner $f,g,f_1,f_2,f_3,\dots$ fra $\mathcal{M}(\mathcal{E})$. Da gælder implikationen:
+        $$f_n\longrightarrow f, \;\; og \;\; f_n\longrightarrow g \;\;\Longrightarrow\;\;f=g\;\; \mu-\text{n.o}$$
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(f_n)_{n\in\N}$ være en følge af funktioner fra $\mathcal{M}(\mathcal{E})$, og lad f være endnu en funktion fra $\mathcal{M}(\mathcal{E})$. Lad endvidere p være et positivt tal. Da gælder følgende udsagn:
+        \begin{enumerate}
+            \item[\textnormal{(i)}] Hvis $f_n\rightarrow f$ i $\mu-p$ middel, så gælder der også at $f_n\rightarrow f$ i $\mu-$mål.
+            \item[\textnormal{(ii)}] Hvis $\sum_{n=1}^\infty\int_X|f_n-f|^p\deriv\mu<\infty$, så gælder der, at $f_n\rightarrow f \mu-n.o.$
+            \item[\textnormal{(iii)}] Hvis $f_n\rightarrow f$ i $\mu-$mål, så findes en voksende følge $(n_k)_{k\in\N}$ af naturlige tal, således at $f_{n_k}\rightarrow f \mu$-n.o. for $k\rightarrow \infty$ 
+        \end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Antag, at $\mu$
     \end{proposition}
 \end{theorem-box}
 \end{document}

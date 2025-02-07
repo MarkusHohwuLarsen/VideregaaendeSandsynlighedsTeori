@@ -58,10 +58,12 @@
 
 
 \newcommand*{\anyproblem}[1]{\newpage\subsection*{#1}}
-\newcommand*{\problem}[1]{\stepcounter{ProblemNum} %
-   \anyproblem{Problem \theProblemNum. \; #1}}
+% \newcommand*{\problem}[1]{\stepcounter{ProblemNum} %
+%    \anyproblem{Problem \theProblemNum. \; #1}}
 
 % \newcommand*{\problem}[1]{\anyproblem{Problem #1}}
+\newcommand*{\problem}[1]{\setcounter{SubProblemNum}{0} \anyproblem{Problem (#1)}}
+
 \newcommand*{\soln}[1]{\subsubsection*{#1}}
 \newcommand*{\solution}{\soln{Solution}}
 \renewcommand*{\part}{\stepcounter{SubProblemNum} %
