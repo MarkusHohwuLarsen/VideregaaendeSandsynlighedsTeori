@@ -372,7 +372,63 @@ Til beviset for Sætning 1.5.2 får vi brog for følgende lemma:
 \end{theorem-box}
 \begin{theorem-box}
     \begin{proposition}
-        Antag, at $\mu$
+        Antag, at $\mu$ er et \textbf{endeligt mål}, lad $(f_n)_{n\in\N}$ være en følge af funktioner fra $\mathcal{M}(\mathcal{E})$, og lad f være endnu en funktion fra $\mathcal{M}(\mathcal{E})$. Lad endvidere p,r være positive tal. Da gælder følgende udsagn:
+        \begin{enumerate}
+            \item[\textnormal{(i)}] Følgende betingelser er endbetydende:
+            \begin{enumerate}
+                \item[\textnormal{(i1)}] $f_n \rightarrow f \text{i }\mu-\text{mål}.$
+                \item[\textnormal{(i2)}] $\forall K\in(0,\infty):\lim_{n\rightarrow\infty}\int_\X|f_n-f| \wedge K \deriv \mu = 0.$
+                \item[\textnormal{(i3)}] $\lim_{n\rightarrow \infty}\int_{\X}|f_n-f|\wedge 1 \deriv \mu = 0.$ 
+            \end{enumerate}
+            \item[\textnormal{(ii)}] Hvis $f_n\rightarrow f$ $\mu-$n.o., så gælder der også, at $f_n\rightarrow f$ i $\mu-$mål.
+            \item[\textnormal{(iii)}] Hvis $r<p$, og $f_n\rightarrow f$ i $\mu-$p-middel, da gælder der også at $f_n\rightarrow f$ i $\mu-$r-middel.
+            \end{enumerate}
     \end{proposition}
+\end{theorem-box}
+\subsection{Fuldstændighed}
+\begin{theorem-box}
+    \begin{definition}
+        Lad $(X,\mathcal{E},\mu)$ være et målrum, og lad $(f_n)_{n\in\N}$ være en følge af funktioner fra $\mathcal{M}(\mathcal{E})$. Lad endvidere p være et strengt positivt tal. Vi siger da, at 
+        \begin{enumerate}
+            \item[\textnormal{(a)}] $(f_n)_{n\in\N}$ er en \textbf{Cauchy-følge} i $\mu-$mål, hvis
+            $$\forall\epsilon>0: \lim_{n,m\rightarrow \infty}\mu\left(\{|f_n-f_m|>\epsilon\}\right)=0.$$
+            eller udskrevet hvis 
+            $$\forall\epsilon,\delta>0\exists N\in\N\forall n,m\geq N: \mu\left(\{|f_n-f_m|>\epsilon\}\right)\leq \delta$$
+            \item[\textnormal{(b)}] $(f_n)_{n\in\N}$ er en \textbf{Cauchy-følge} $\mu-$n.o., hvis $\mu(F^C)=0$, hvor
+            $$F=\{x\in X|(f_n(x))_{n\in\N}\text{ er en Cauchy-følge i }\R\}$$
+            \item[\textnormal{(c)}] $(f_n)_{n\in\N}$ er en \textbf{Cauchy-følge} i $\mu-p$-middel, hvis
+            $$\lim_{n,m\rightarrow \infty}\int_\X f_n-f_m|^p\deriv \mu  = 0,$$
+            eller udskrevet hvis 
+            $$\forall \epsilon>0\exists N\in\N\forall n,m\geq N:\int_\X |f_n-f_m|^p\deriv\mu\leq\epsilon.$$
+        \end{enumerate}
+    \end{definition}
+\end{theorem-box}
+\begin{remark}
+    Mængden $F$ er målelig - det følger af omskrivningen $$F=\bigcap_{K\in\N}\bigcup_{N\in\N}\bigcap_{n,m\geq N}\left\{x\in X\big{|}|f_n(x)-f_m(x)|\leq \frac{1}{K}\right\}.$$
+\end{remark}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $(X,\mathcal{E},\mu)$ være et målrum, og lad $(f_n)_{n\in\N}$ være en følge af funktioner fra $\mathcal{M}(\mathcal{E})$. Da gælder følgende udsagn:
+        \begin{enumerate}
+            \item[\textnormal{(i)}] Lad f være endnu en funktion fra $\mathcal{M}(\mathcal{E}),$ og antag, at der findes en følge $(\epsilon_n)_{n\in\N}$ af (strengt) positive tal, således at
+            $$\lim_{n\rightarrow \infty}\epsilon_n = 0, \quad \text{og}\quad \sum_{n=1}^{\infty}\mu\left(\left\{|f_n-f|>\epsilon_n\right\}\right)<\infty.$$
+            Da gælder der, at
+            $$f_n\rightarrow\; \mu-\text{n.o.,}\quad \text{og}\quad f_n\rightarrow f \; \text{i }\mu\text{-mål.}$$
+            \item[\textnormal{(ii)}] Antag, at der findes en følge $(\epsilon_n)_{n\in\N}$ af (strengt) positive tal, således at
+            $$\sum_{n=1}^{\infty}\epsilon_n < \infty,\quad \text{og} \quad \sum_{n=1}^{\infty} \mu\left(\left\{|f_{n+1}-f_n|>\epsilon_n\right\}\right)<\infty $$
+            Da findes der en funtkion f fra $\mathcal{M}(\mathcal{E})$, således at
+            $$f_n \rightarrow f \;\mu\text{-n.o.,}\quad \text{og} \quad f_n\rightarrow f \; \text{i }\mu\text{-mål.}$$ 
+        \end{enumerate}
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(X,\mathcal{E},\mu)$ være et målrum, og lad $(f_n)_{n\in\N}$ være en følge af funktioner fra $\mathcal{M}(\mathcal{E})$. Da er følgende betingelser ækvivalente:
+        \begin{enumerate}
+            \item[\textnormal{(i)}] Der findes en funktion f fra $\mathcal{M}(\mathcal{E})$, således at $f_n\rightarrow f$ i $\mu-$mål.
+            \item[\textnormal{(ii)}] $(f_n)_{n\in\N}$ er en Cauchy-følge i $\mu-$mål.
+        \end{enumerate}
+        Med andre ord er konvergens i $\mu$-mål et fuldstændigt konvergensbegreb.
+        \end{proposition}
 \end{theorem-box}
 \end{document}
