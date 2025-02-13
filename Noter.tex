@@ -431,4 +431,204 @@ Til beviset for Sætning 1.5.2 får vi brog for følgende lemma:
         Med andre ord er konvergens i $\mu$-mål et fuldstændigt konvergensbegreb.
         \end{proposition}
 \end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $(X,\mathcal{E}, \mu)$ være et målrum, lad $(f_n)$ være en følge af funktioner fra $\mathcal{M}(\mathcal{E})$, og lad p være et strengt positivt tal. Da er følgende betingelser ævkvivalente:
+        \begin{enumerate}
+            \item[\textnormal{(i)}] Der findes en funktion f fra $\mathcal{M}(\mathcal{E})$, således at $f_n\rightarrow f$ i $\mu$-p-middel.
+            \item[\textnormal{(ii)}] $(f_n)$ er en Cauchy-følge i $\mu$-p-middel.   
+        \end{enumerate}
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $(X,\mathcal{E},\mu)$ være et målrum, lad p være et tal i $[1,\infty)$, og lad $(f_n)$ være en følge af funktioner fra $\lclass^p(\mu)$. Da gælder implikationen:
+        $$\sum_{n=1}^{\infty}\|f_n\|_p<\infty\quad\Longrightarrow\quad \sum_{n=1}^{\infty}f_n\text{ er konvergent i }\mu\text{-p-middel.}$$
+        Med andre ord gælder der, at \textbf{absolut konvergens medfører konvergens} i $\lclass^p(\mu)$.
+    \end{corollary}
+\end{theorem-box}
+\subsection{Konvergens af $f_n$ vs. konvergens af $|f_n|^p$}
+\subsection{Konvergens i sandsynlighed}
+\begin{theorem-box}
+    \begin{definition}
+        Lad $(\X_n)$ være en følge af stokastiske variable defineret på sandsynlighedsfeltet $\pfield$, og lad $\X$ være endnu en stokastisk variabel herpå. Lad endvidere r være et positivt tal. Vi siger da, at $\X_n$ konvergerer mod $\X$
+        \begin{itemize}
+            \item \textbf{i sandsynlighed}, hvis der for ethvert positivt $\epsilon$ gælder, at $$\lim_{n\rightarrow\infty}P(|\X_n-\X|>\epsilon)=0.$$ I bekræftende fald skriver vi: $\X_n\stackrel{P}{\longrightarrow}\X$ for $n\rightarrow \infty.$
+            \item \textbf{i r-middel}, hvis $$\lim_{n\rightarrow\infty}\E\left[|\X_n-\X|^r\right]=0.$$ I bekræftende fald skriver vi: $\X_n\stackrel{\lclass^r(P)}{\longrightarrow}\X$ for $n\rightarrow \infty.$
+            \item \textbf{P-næsten overalt (eller P-næsten sikkert)}, hvis $$P(\lim_{n\rightarrow\infty}\X_n=\X)=1,$$ eller mere udførligt, hvis $P(F)=1,$ hvor $$F=\{\omega\in\Omega\big{|}\lim_{n\rightarrow\infty}\X_n(\omega)=\X(\omega)\}\in \mathcal{F}.$$ I begræftende fald skriver vi: $\X_n\stackrel{\text{n.o.}}{\longrightarrow}\X$ (eller $\X_n\stackrel{\text{n.s.}}{\longrightarrow}\X$) for $n\rightarrow\infty.$
+        \end{itemize}
+    \end{definition}
+\end{theorem-box}
+\subsection{Konvergens i sandsynlighed på generelle metriske rum}
+\begin{theorem-box}
+    \begin{definition}[Produktmetrikker]
+        Lad $(S, \rho)$ og $(T, \delta)$ betegne metriske rum.
+En metrik $\eta$ på $S \times T$ kaldes en \textbf{produktmetrik}, hvis den opfylder følgende betingelse:
+
+For alle $(x, y),\left(x_1, y_1\right),\left(x_2, y_2\right),\left(x_3, y_3\right), \ldots$ i $S \times T$ galder bi-implikationen:
+
+$$
+\lim _{n \rightarrow \infty} \eta\left(\left(x_n, y_n\right),(x, y)\right)=0 \quad\Longleftrightarrow \quad\lim _{n \rightarrow \infty} \rho\left(x_n, x\right)=\lim _{n \rightarrow \infty} \delta\left(y_n, y\right)=0
+$$
+
+    \end{definition}
+\end{theorem-box}
+\begin{remark}
+    Afbildningen $\rho:S\times S\rightarrow\R$ er $\mathcal(B)(S\times S)-\mathcal{B}(\R)$-målelig.
+\end{remark}
+\begin{theorem-box}
+    \begin{definition}[Borel-algebraen på $S\times S$]
+        Lad $(S, \rho)$ være et metrisk rum.
+Borel-algebraen $\mathcal{B}(S \times S)$ på $S \times S$ defineres da ved
+$$
+\mathcal{B}(S \times S)=\sigma(\mathcal{G}(\eta))
+$$
+hvor $\eta$ er en vilkårlig produktmetrik på $S \times S$.
+    \end{definition}
+\end{theorem-box}
+\begin{remark}
+    Hvis $(S,\rho)$ er separabelt, så gælder: $$\mathcal{B}(S\times S)=\mathcal{B}(S)\otimes\mathcal{B}(S).$$ Ydermere hvis $\X,\Y$ er stokastiske funktioner på sandsynlighedsfeltet $\pfield$ med værdier i et separabelt metrisk rum $(S,\rho)$, da er afbildningen $$D:=\rho(\X,\Y):\Omega\rightarrow \R$$ $\mathcal{F}-\mathcal{B}(\R)$-målelig.
+\end{remark}
+\begin{theorem-box}
+    \begin{definition}
+        Lad $(S, \rho)$ være et separabelt metrisk rum, og lad $\X, \X_1, \X_2, \X_3, \ldots$ være stokastiske funktioner på $(\Omega, \mathcal{F}, P)$ med værdier i $(S, \rho)$.
+
+Vi siger da, at
+\begin{enumerate}
+    \item[\textnormal{(a)}] $\X_n$ konvergerer mod $\X$ næsten overalt (skrevet: $\X_n \xrightarrow{\text{n.o.}} \X$ ), hvis $P(F^C)=0$, hvor
+
+    $$
+    F=\left\{\omega \in \Omega \mid \lim _{n \rightarrow \infty} \rho\left(\X_n(\omega), \X(\omega)\right)=0\right\}
+    $$
+    
+    \item[\textnormal{(b)}] $\X_n$ konvergerer mod $\X$ i sandsynlighed (skrevet: $\X_n \xrightarrow{\mathrm{P}} \X$), hvis
+
+    $$
+    \forall \epsilon>0: \lim _{n \rightarrow \infty} P\left(\rho\left(\X_n, \X\right)>\epsilon\right)=0
+    $$
+\end{enumerate}
+    \end{definition}
+\end{theorem-box}
+\begin{remark}
+    Betragt for hert $n$ i $\mathbb{N}$ den stokastiske variable $D_n:=\rho\left(\X_n, \X\right)$. Så har vi bi-implikationerne:
+$$
+\X_n \xrightarrow{\text { n.o. }} \X \Longleftrightarrow D_n \xrightarrow{\text {n.o.}} 0, \quad \text { og } \quad \X_n \xrightarrow{\mathrm{P}} \X \Longleftrightarrow D_n \xrightarrow{\mathrm{P}} 0 .
+$$
+
+\end{remark}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(S, \rho)$ være et separabelt metrisk rum, og lad $\X, \X_1, \X_2, \X_3, \ldots$ være stokastiske funktioner på $(\Omega, \mathcal{F}, P)$ med værdier i $(S, \rho)$.
+Da gælder følgende udsagn:
+\begin{enumerate}
+    \item[\textnormal{(i)}] $\X_n \xrightarrow{\text { n.o. }} \X \Longrightarrow \X_n \xrightarrow{\mathrm{P}} \X$.
+    \item[\textnormal{(ii)}] Hvis $\X_n \xrightarrow{P} \X$, findes en voksende følge $n_1<n_2<n_3<\cdots$ af naturlige tal, således at $\X_{n_k} \xrightarrow{\text { n.o. }} \X$.
+    \item[\textnormal{(iii)}] $\X_n \xrightarrow{P} \X \Longleftrightarrow \lim _{n \rightarrow \infty} \mathbb{E}\left[\rho\left(\X_n, \X\right) \wedge 1\right]=0$.
+
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(S, \rho)$ være et separabelt metrisk rum, og lad $\X, \X_1, \X_2, \X_3, \ldots$ være stokastiske funktioner på $(\Omega, \mathcal{F}, P)$ med værdier i $(S, \rho)$.
+Betragt endvidere endnu et separabelt metrisk rum ( $T, \delta$ ), og en $\mathcal{B}(S)-\mathcal{B}(T)$-målelig afbildning $f: S \rightarrow T$.
+Antag, at der findes en mængde $C$ i $\mathcal{B}(S)$, således at $$P(\X \in C)=1, \quad \text{og}\quad f \text{ er kontinuert i ethvert punkt x fra C}.$$
+Da gælder følgende implikationer:
+\begin{enumerate}
+    \item[\textnormal{(i)}]$\X_n \xrightarrow{\text { n.o. }} \X \Longrightarrow f\left(\X_n\right) \xrightarrow{\text{n.o.}} f(\X)$.
+    \item[\textnormal{(ii)}]$\X_n \xrightarrow{P} \X \Longrightarrow f\left(\X_n\right) \xrightarrow{P} f(\X)$.
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{remark}
+    Antag, at $\rho, \rho^{\prime}$ er to ækvivalente metrikker på $S$, således at $(S, \rho)$ og $\left(S, \rho^{\prime}\right)$ er separable.
+
+Betragt afbildningerne id: $(S, \rho) \rightarrow\left(S, \rho^{\prime}\right) \circ \mathrm{og} \mathrm{id}^{\prime}:\left(S, \rho^{\prime}\right) \rightarrow(S, \rho)$ givet ved
+
+$$
+\operatorname{id}(x)=\operatorname{id}^{\prime}(x)=x, \quad(x \in S)
+$$
+
+
+Da $\rho$ og $\rho^{\prime}$ er ækvivalente, er id og id ${ }^{\prime}$ begge kontinuerte.
+Det følger derfor umiddelbart fra Sætning 2.5.8, at
+
+$$
+\X_n \xrightarrow{\text { n.o. } / \mathrm{P}} \X \text { mht. } \rho \Longrightarrow \X_n=\mathrm{id}\left(\X_n\right) \xrightarrow{\text { n.o. } / \mathrm{P}} \mathrm{id}(\X)=\X \text { mht. } \rho^{\prime} .
+$$
+
+
+Overgang til en ækvivalent metrik ændrer altså ikke på, om $\X_n \rightarrow \X$ n.o./ i sandsynlighed eller ej.
+\end{remark}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(S, \rho)$ og $(T, \delta)$ være separable metriske rum, og lad $\X, \X_1, \X_2, \X_3, \ldots$ samt $\Y, \Y_1, \Y_2, \Y_3, \ldots$ være stokastiske funktioner på $(\Omega, \mathcal{F}, P)$ med værdier i hhv. $(S, \rho)$ og $(T, \delta)$.
+        Udstyr endvidere $S \times T$ med en produktmetrik $\eta$.
+        Da gælder bi-implikationerne:
+        \begin{enumerate}
+            \item[\textnormal{(i)}] $\left(\X_n, \Y_n\right) \xrightarrow{\text { n.o. }}(\X, \Y) \Longleftrightarrow \X_n \xrightarrow{\text { n.o. }} \X$ og $\Y_n \xrightarrow{\text { n.o. }} \Y$.
+            \item[\textnormal{(ii)}] $\left(\X_n, \Y_n\right) \xrightarrow{P}(\X, \Y) \Longleftrightarrow \X_n \xrightarrow{P} \X$ og $\Y_n \xrightarrow{P} \Y$.
+        \end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\section{Uniform integrabilitet}
+\subsection{Definition og indledende begreber}
+\begin{theorem-box}
+    \begin{definition}
+        En delmængde $\mathcal{H}$ af $\mathcal{M}(\mathcal{E})$ siges at være uniformt integrabel (mht. $\mu$ ), hvis den opfylder følgende betingelse:
+
+$$
+\forall \epsilon>0 \exists K>0 \forall f \in \mathcal{H}: \int_{\{|f|>K\}}|f| \mathrm{d} \mu \leq \epsilon .
+$$
+
+eller ækvivalent:
+
+$$
+\forall \epsilon>0 \exists K>0: \sup _{f \in \mathcal{H}} \int_{\{|f|>K\}}|f| \mathrm{d} \mu \leq \epsilon .
+$$
+
+    \end{definition}
+\end{theorem-box}
+\begin{remark}
+    \begin{enumerate}
+        \item[\textnormal{(i)}] Hvis $\mathcal{H}$ er uniformt integrabel, da gælder der automatisk at $\mathcal{H} \subseteq \mathcal{L}^1(\mu)$.
+        For hvis $\mathcal{H}$ er uniformt integrabel kan vi f.eks. vælge $K>0$, således at
+        $$
+        \sup _{f \in \mathcal{H}} \int_{\{|f|>K\}}|f| \mathrm{d} \mu \leq 1
+        $$
+        For hvert $f$ fra $\mathcal{H}$ har vi da, at
+        $$
+        \begin{aligned}
+        \int_X|f| \mathrm{d} \mu & =\int_{\{|f| \leq K\}}|f| \mathrm{d} \mu+\int_{\{|f|>K\}}|f| \mathrm{d} \mu \\
+        & \leq \int_{\{|f| \leq K\}} K \mathrm{~d} \mu+1 \leq K \mu(X)+1<\infty
+        \end{aligned}
+        $$
+        \item[\textnormal{(ii)}] Hvis $\mathcal{H}$ er uniformt integrabel, gælder dette også enhver delmængde $\mathcal{H}_0$ af $\mathcal{H}$.
+
+        Hvis $\mathcal{H}_1, \ldots, \mathcal{H}_n$ er endeligt mange uniformt integrable delmængder af $\mathcal{M}(\mathcal{E})$, da er $\bigcup_{j=1}^n \mathcal{H}_j$ ligeledes uniformt integrabel.
+        
+        Specielt fremgår det, at enhver endelig delmængde $\left\{f_1, \ldots, f_n\right\}$ af $\mathcal{L}^1(\mu)$ er uniformt integrabel.
+    \end{enumerate}
+\end{remark}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $\mathcal{H}$ være en delmængde af $\mathcal{M}(\mathcal{E})$, og lad $(f_n)$ og $(g_n)$ være følger af funktioner fra $\mathcal{M}(\mathcal{E})$.
+        \begin{enumerate}
+            \item[\textnormal{(i)}] Hvis $\mathcal{H}$ er uniformt integrabel, da er også mængden 
+            $$\tilde{\mathcal{H}}:=\{f\in\mathcal{M}(\mathcal{E})\big{|}\exists g\in\mathcal{H}:|f|\leq |g| \mu\text{-n.o.}\},$$
+            uniformt integrabel.
+            \item[\textnormal{(ii)}] For enhver funktion $g$ fra $\lclass^1(\mu)^+$ er mængden $\{f\in\mathcal{M}(\mathcal{E})\big{|}|f|\leq g \mu\text{-n.o.}\}$ uniformt integrabel.
+            \item[\textnormal{(iii)}] Hvis mængden $\{g_n|n\in\N\}$ er uniformt integrabel, og $|f_n|\leq|g_n| \mu$-n.o. for alle n, da er mængden $\{f_n|n\in\N\}$ ligeledes uniformt integrabel.
+        \end{enumerate}
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        En delmængde $\mathcal{H}$ af $\mathcal{M}(\mathcal{E})$ er uniformt integrabel, hvis og kun hvis den opfylder følgende to betingelser:
+        \begin{enumerate}
+            \item[\textnormal{(i)}]$\sup _{f \in \mathcal{H}} \int_X|f| \mathrm{d} \mu<\infty$.
+            \item[\textnormal{(ii)}] $\forall \epsilon>0 \exists \delta>0 \forall A \in \mathcal{E}: \mu(A) \leq \delta \Longrightarrow \sup _{\delta \in \nu} \int_{\Delta}|f| \mathrm{d} \mu \leq \epsilon$.
+        \end{enumerate}
+    \end{proposition}
+\end{theorem-box}
 \end{document}

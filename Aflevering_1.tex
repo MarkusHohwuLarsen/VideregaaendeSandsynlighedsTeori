@@ -1,0 +1,124 @@
+\documentclass{Class}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\usepackage{amsmath} 
+\usepackage{hyperref}
+% \usepackage{calrsfs}
+\usepackage{mathrsfs}
+\usepackage{aligned-overset}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[mathscr]{euscript}
+\usepackage{tikz}
+\usepackage{bbm}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs}
+\usepackage{amsthm}
+% \usepackage[scr=boondox,  % heavily sloped
+%             cal=esstix]   % slightly sloped
+%            {mathalpha}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\1}{\mathbbm{1}}
+\newcommand{\X}{\mathsf{X}}
+\newcommand{\Y}{\mathsf{Y}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\lclass}{\mathcal{L}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\deriv}{\operatorname{d}}
+\newcommand{\icomp}{\operatorname{i}}
+\newcommand{\varx}{\varphi_\X}
+\newcommand{\pfield}{(\Omega, \mathcal{F}, P)}
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{definition}[theorem]{Definition} 
+\newtheorem{lemma}[theorem]{Lemma} 
+\newtheorem{corollary}[theorem]{Korollar} 
+\newtheorem{remark}[theorem]{Bemærkning} 
+\newtheorem{proposition}[theorem]{Sætning} 
+\newtheorem{example}[theorem]{Eksempel} 
+\usepackage{geometry}
+    \geometry{
+        a4paper,
+        left=3.5cm,
+        right=3.5cm   ,
+    }
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\newtcolorbox{theorem-box}{
+    colback=gray!10, % Light grey background
+    colframe=black,  % Black frame
+    sharp corners,   % Square corners
+    boxrule=0.8pt,   % Border thickness
+    before skip=10pt, % Space before the box
+    after skip=10pt,  % Space after the box
+}
+
+\newtheoremstyle{boxed}  % Define a new theorem style
+  {10pt}   % Space above
+  {10pt}   % Space below
+  {}       % Body font
+  {}       % Indent amount
+  {\bfseries} % Theorem head font (bold)
+  {.}      % Punctuation after theorem head
+  { }      % Space after theorem head
+  {\thmname{#1}~\thmnumber{#2}\thmnote{ (#3)}}  % Theorem head spec
+
+\theoremstyle{boxed}
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\title{Assigment 1}
+\author{Markus Hohwü Larsen - 202205800}
+\begin{document}
+\problem{Exercise 1.4}
+Let $\X$ be a stochastic variable on the probability field $\pfield,$ and consider the characteristic function $\varx$. 
+\begin{enumerate}
+  \item Assume, that $\X$ is binomially distributed with parameters $n\in\N$ and probability parameter $p\in[0,1].$ Show, that $$\varx(t)=(1-p+pe^{\icomp t})^n\quad (t\in\R)$$
+  \item Assume, that $\X$ is poisson distributed with parameters $\ell\in (0,\infty)$. Show, that $$\varx(t)=\exp(\ell(e^{\icomp t}-1)) \quad (t\in\R)$$
+\end{enumerate}
+\solution
+In general we use example 13.2.7 and proposition 13.2.9 from [M\&I] to define:
+  $$\psi_{\X}(t)=e^{\icomp t\X}$$
+  and recall that the characteristic function for a one-dimensional stochastic vector is defined as $$\varx = \E\left[e^{\icomp t\X}\right]$$
+  and then use 13.2.9:
+  $$\mathbb{E}[\psi(\mathrm{X})]=\sum_{i \in I} \psi\left(x_i\right) p_{\mathrm{X}}\left(x_i\right).$$
+\begin{enumerate}
+  \item $$\varx=\E[e^{\icomp t\X}]=\E[\psi_\X]\stackrel{13.2.9+13.2.7(a)}{=}\sum_{k=1}^n \begin{pmatrix}
+    n\\k
+  \end{pmatrix}p^k(1-p)^{n-k}e^{\icomp tk} $$
+  $$=\sum_{k=1}^n \begin{pmatrix}
+    n\\k
+  \end{pmatrix}(pe^{\icomp t})^k(1-p)^{n-k}$$
+  $$\stackrel{13.2.7(A)}{=}(pe^{\icomp t}+(1-p))^n$$
+  \item $$\varx=\E[e^{\icomp t\X}]=\E[\psi_\X]\stackrel{13.2.9+13.2.7(b)}{=}\sum_{k=0}^{\infty} \frac{e^{i \cdot t \cdot k} \ell^k e^{-\ell}}{k!}$$$$=e^{-\ell} \sum_{k=0}^{\infty} \frac{\left(e^{i t} \ell\right)^k}{k!}$$$$
+  =e^{-\ell} \exp \left(\ell e^{\mathrm{it}}\right)$$$$=\exp \left(\ell\left(e^{\mathrm{i} t}-1\right)\right)
+  $$
+  
+\end{enumerate}
+Which are the desired results.
+
+
+\end{document}
