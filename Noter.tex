@@ -33,6 +33,8 @@
 \newcommand{\icomp}{\operatorname{i}}
 \newcommand{\varx}{\varphi_\X}
 \newcommand{\pfield}{(\Omega, \mathcal{F}, P)}
+\newcommand \independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
 \newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{definition}[theorem]{Definition} 
 \newtheorem{lemma}[theorem]{Lemma} 
@@ -629,6 +631,369 @@ $$
             \item[\textnormal{(i)}]$\sup _{f \in \mathcal{H}} \int_X|f| \mathrm{d} \mu<\infty$.
             \item[\textnormal{(ii)}] $\forall \epsilon>0 \exists \delta>0 \forall A \in \mathcal{E}: \mu(A) \leq \delta \Longrightarrow \sup _{\delta \in \nu} \int_{\Delta}|f| \mathrm{d} \mu \leq \epsilon$.
         \end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Antag, at $\mathcal{H}_1$ og $\mathcal{H}_2$ er to uniformt integrable delmængder af $\mathcal{M}(\mathcal{E})$.
+Da er mængden
+
+$$
+\mathcal{H}_1+\mathcal{H}_2=\left\{f_1+f_2 \mid f_1 \in \mathcal{H}_1, f_2 \in \mathcal{H}_2\right\}
+$$
+
+også uniformt integrabel.
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\mathcal{H}$ være en delmængde af $\mathcal{M}(\mathcal{E})$, og antag, at der findes en Borel-målelig funktion $\varphi:[0, \infty) \rightarrow[0, \infty)$, således at følgende to betingelser er opfyldte:
+        \begin{enumerate}
+            \item[\textnormal{(i)}] $\lim _{x \rightarrow \infty} \frac{x}{\varphi(x)}=0$
+            \item[\textnormal{(ii)}] $\sup _{f \in \mathcal{H}} \int_X \varphi \circ|f| \mathrm{d} \mu<\infty$.
+        \end{enumerate}
+Da er $\mathcal{H}$ uniformt integrabel.
+    \end{proposition}
+\end{theorem-box}
+\subsection{Uniform integrabilitet vs. konvergens i $\mu$-middel}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\left(f_n\right)_{n \in \mathbb{N}}$ være en følge af funktioner fra $\mathcal{M}(\mathcal{E})$, og lad $f$ være endnu en funktion fra $\mathcal{M}(\mathcal{E})$.
+
+Da er følgende betingelser ækvivalente:
+\begin{enumerate}
+    \item[\textnormal{(i)}] $f \in \mathcal{L}^1(\mu), f_n \in \mathcal{L}^1(\mu)$ for alle $n$, og $f_n \rightarrow f$ i $\mu$-1-middel.
+    \item[\textnormal{(ii)}] $f_n \rightarrow$ f i $\mu$-mål, og mængden $\mathcal{H}=\left\{f_n \mid n \in \mathbb{N}\right\}$ er uniformt integrabel.
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\left(f_n\right)_{n \in \mathbb{N}}$ være en følge af funktioner fra $\mathcal{M}(\mathcal{E})$, lad $f$ være endnu en funktion fra $\mathcal{M}(\mathcal{E})$, og lad $p$ være et tal $i(0, \infty)$.
+
+Da er følgende betingelser ækvivalente:
+\begin{enumerate}
+    \item[\textnormal{(i$_p$)}] $f \in \mathcal{L}^p(\mu), f_n \in \mathcal{L}^p(\mu)$ for alle $n$, og $f_n \rightarrow f$ i $\mu$-p-middel.
+    \item[\textnormal{(ii$_p$)}] $f_n \rightarrow f$ i $\mu$-mål, og mængden $\mathcal{H}=\left\{\left|f_n\right| p \mid n \in \mathbb{N}\right\}$ er uniformt integrabel.
+\end{enumerate}
+    \end{corollary}
+\end{theorem-box}
+\section{Summer af uafhængige stokastiske variable og store tals stærke lov}
+\subsection{Lévys Ulighed}
+\begin{theorem-box}
+    \begin{proposition}[Lévys Ulighed]
+        Lad $\mathsf{X}_1, \ldots, \mathsf{X}_n$ være uafhængige, symmetriske stokastiske variable på $(\Omega, \mathcal{F}, P)$. Da gælder uligheden:
+
+$$
+P\left(\max _{k=1, \ldots, n}\left|\sum_{j=1}^k \mathsf{X}_j\right|>t\right) \leq 2 P\left(\left|\sum_{j=1}^n \mathsf{X}_j\right|>t\right) \quad \text { for alle } t i(0, \infty) \text {. }
+$$
+
+
+Hvis vi sætter
+
+$$
+\mathsf{S}_k=\mathsf{X}_1+\cdots+\mathsf{X}_k, \quad(k \in\{1,2, \ldots, n\})
+$$
+
+og
+
+$$
+\mathsf{M}_n=\max _{k=1, \ldots, n}\left|\mathsf{S}_k\right|
+$$
+
+da kan uligheden skrives:
+
+$$
+P\left(M_n>t\right) \leq 2 P\left(\left|\mathsf{S}_n\right|>t\right) \quad \text { for alle t i } (0, \infty) .
+$$
+
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\mathsf{X}_1, \ldots, \mathsf{X}_n$ være uafhængige, symmetriske stokastiske variable på $(\Omega, \mathcal{F}, P)$.
+
+Sæt
+
+$$
+\mathsf{S}_k=\mathsf{X}_1+\cdots+\mathsf{X}_k, \quad(k \in\{1,2, \ldots, n\})
+$$
+
+og
+
+$$
+\mathsf{M}_n=\max _{k=1, \ldots, n}\left|\mathsf{S}_k\right|
+$$
+
+
+Da gælder uligheden:
+
+$$
+\mathbb{E}\left[\mathsf{M}_n^p\right] \leq 2 \mathbb{E}\left[\left|\mathsf{S}_n\right|^p\right] \quad \text { for alle } p \text { i }(0, \infty)
+$$
+
+    \end{corollary}
+\end{theorem-box}
+\subsection{Konvergens af summer af uafhænige stokastiske variable}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $\left(Y_n\right)$ være en følge af stokastiske variable på $(\Omega, \mathcal{F}, P)$, og definér for hvert $p$ i $\mathbb{N}$:
+
+$$
+\mathsf{L}_p=\sup _{k, \ell \geq p}\left|\mathsf{Y}_k-\mathsf{Y}_{\ell}\right| \in \overline{\mathcal{M}}(\mathcal{F})^{+}
+$$
+Da er følgende to udsagn ækvivalente:
+\begin{enumerate}
+    \item[\textnormal{(i)}] Der findes en stokastisk variabel $\Y$ på $(\Omega, \mathcal{F}, P)$, således at $\mathsf{Y}_n \rightarrow \mathsf{Y}$ P-n.o. for $n \rightarrow \infty$.
+    \item[\textnormal{(ii)}] $\mathsf{L}_p \wedge 1 \rightarrow 0$ i sandsynlighed for $p \rightarrow \infty$.
+\end{enumerate}
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $\left(\mathsf{X}_n\right)_{n \in \mathbb{N}}$ være en følge af uafhængige, symmetriske stokastiske variable på $(\Omega, \mathcal{F}, P)$. Da gælder bi-implikationen:
+$$\sum_{n=1}^{\infty} \mathsf{X}_n \text{ konvergerer P-n.o. } \Longleftrightarrow \sum_{n=1}^{\infty} \mathsf{X}_n \text{ konvergerer i sandsynlighed.}$$
+    \end{lemma}
+\end{theorem-box}
+\begin{remark}[Det målelige rum $(\R^{\infty},\mathcal{B}(\R^{\infty}))$]
+    Betragt vektorrummet
+
+$$
+\mathbb{R}^{\infty}=\left\{\left(x_n\right)_{n \in \mathbb{N}} \mid x_n \in \mathbb{R} \text { for alle } n \text { i } \mathbb{N}\right\}
+$$
+
+
+For $n$ i $\mathbb{N}$ og mængder $B_1, \ldots, B_n$ i $\mathcal{B}(\mathbb{R})$ sætter vi
+
+$$
+\left[B_1 \times \cdots \times B_n \times \mathbb{R} \times \mathbb{R} \times \cdots\right]=\left\{\left(x_n\right)_{n \in \mathbb{N}} \in \mathbb{R}^{\infty} \mid x_1 \in B_1, \ldots, x_n \in B_n\right\}
+$$
+
+
+Vi sætter endvidere
+
+$$
+\mathcal{J}=\left\{\left[B_1 \times \cdots \times B_n \times \mathbb{R} \times \mathbb{R} \times \cdots\right] \mid n \in \mathbb{N}, B_1, \ldots, B_n \in \mathcal{B}(\mathbb{R})\right\}
+$$
+
+og
+
+$$
+\mathcal{B}\left(\mathbb{R}^{\infty}\right)=\sigma(\mathcal{J})
+$$
+For hvert $k$ i $\mathbb{N}$ betragter vi afbildningen $p_k: \mathbb{R}^{\infty} \rightarrow \mathbb{R}$ givet ved
+
+$$
+p_k\left(\left(x_n\right)_{n \in \mathbb{N}}\right)=x_k, \quad\left(\left(x_n\right)_{n \in \mathbb{N}} \in \mathbb{R}^{\infty}\right)
+$$
+
+
+Vi bemærker for $B_k$ i $\mathcal{B}(\mathbb{R})$, at
+
+$$
+\begin{aligned}
+p_k^{-1}\left(B_k\right) & =\left\{\left(x_n\right)_{n \in \mathbb{N}} \in \mathbb{R}^{\infty} \mid x_k \in B_k\right\} \\
+& =\underbrace{[\mathbb{R} \times \cdots \times \mathbb{R}}_{k-1 \text { gange }} \times B_k \times \mathbb{R} \times \mathbb{R} \times \cdots] \in \mathcal{J} \subseteq \mathcal{B}\left(\mathbb{R}^{\infty}\right)
+\end{aligned}
+$$
+
+og for $B_1, \ldots, B_n$ i $\mathcal{B}(\mathbb{R})$, at
+
+$$
+\left[B_1 \times B_2 \times \cdots \times B_n \times \mathbb{R} \times \mathbb{R} \times \cdots\right]=p_1^{-1}\left(B_1\right) \cap p_2^{-1}\left(B_2\right) \cap \cdots \cap p_n^{-1}\left(B_n\right)
+$$
+
+
+Dermed er $\mathcal{B}\left(\mathbb{R}^{\infty}\right)$ den mindste $\sigma$-algebra på $\mathbb{R}^{\infty}$, som $\mathrm{g} \not$ r $p_1, p_2, p_3, \ldots$ målelige.
+Bemærk specielt, at
+
+$$
+\begin{aligned}
+C & :=\left\{\left(x_n\right)_{n \in \mathbb{N}} \in \mathbb{R}^{\infty} \mid \lim _{n \rightarrow \infty} x_n \text { eksisterer i } \mathbb{R}\right\} \\
+& =\left\{\left(x_n\right)_{n \in \mathbb{N}} \in \mathbb{R}^{\infty} \mid\left(x_n\right)_{n \in \mathbb{N}} \text { er en Cauchy-følge }\right\} \\
+& =\bigcap_{m \in \mathbb{N}} \bigcup_{N \in \mathbb{N} k, \ell \geq N} \bigcap_n\left\{\left(x_n\right)_{n \in \mathbb{N}} \in \mathbb{R}^{\infty}| | p_k\left(\left(x_n\right)\right)-p_{\ell}\left(\left(x_n\right)\right) \left\lvert\, \leq \frac{1}{m}\right.\right\}=: A \\
+& =\bigcap_{m \in \mathbb{N}} \bigcup_{N \in \mathbb{N} k, \ell \geq N} \bigcap_N\left(p_k-p_{\ell}\right)^{-1}\left(\left[-\frac{1}{m}, \frac{1}{m}\right]\right) \in \mathcal{B}\left(\mathbb{R}^{\infty}\right) .
+\end{aligned}
+$$
+\end{remark}
+\begin{remark}[Den simultane fordeling af en følge af stokastiske variable]
+    Betragt nu et sandsynlighedsfelt $(\Omega, \mathcal{F}, P)$ og en følge $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}}$ af stokastiske variable defineret herpå.
+    Vi kan da betragte afbildningen $\mathbb{X}: \Omega \rightarrow \mathbb{R}^{\infty}$ givet ved
+    
+    $$
+    \mathbb{X}(\omega)=\left(X_n(\omega)\right)_{n \in \mathbb{N}}, \quad(\omega \in \Omega)
+    $$
+    
+    
+    Vi bemærker, at $\mathbb{X}$ er $\mathcal{F}-\mathcal{B}\left(\mathbb{R}^{\infty}\right)$-målelig:
+    
+    $$
+    \mathbb{X}^{-1}\left(\left[B_1 \times \cdots \times B_n \times \mathbb{R} \times \mathbb{R} \cdots\right]\right)=\left\{\mathrm{x}_1 \in B_1\right\} \cap \cdots \cap\left\{\mathrm{x}_n \in B_n\right\} \stackrel{?}{\in} \mathcal{F}
+    $$
+    
+    for alle $n$ i $\mathbb{N}$ og $B_1, \ldots, B_n \in \mathcal{B}(\mathbb{R})$.
+    Dermed kan vi betragte fordelingen $P_{\mathrm{X}}$ af $\mathbb{X}$, dvs. ssh-målet
+    
+    $$
+    P_{\mathrm{X}}(A)=P(\mathbb{X} \in A)=P\left(\mathbb{X}^{-1}(A)\right), \quad\left(A \in \mathcal{B}\left(\mathbb{R}^{\infty}\right)\right)
+    $$
+    
+    
+    Da $\mathcal{J}$ er $\cap$-stabilt, er $P_{\mathrm{X}}$ entydigt bestemt af tallene:
+    
+    $$
+    P_{\mathrm{X}}\left(\left[B_1 \times \cdots \times B_n \times \mathbb{R} \times \mathbb{R} \times \cdots\right]\right)=P\left(\mathrm{x}_1 \in B_1, \ldots, \mathrm{x}_n \in B_n\right)
+    $$
+    
+    for $n \in \mathbb{N}$ og $B_1, \ldots, B_n \in \mathcal{B}(\mathbb{R})$ (jvf. Sætn. 2.2.1 i [M\&I]).
+\end{remark}
+\begin{remark}[Konvergens i termer af den simultane fordeling] 
+    Vi bemærker specielt, at
+
+$$
+\left(\mathrm{X}_n\right)_{n \in \mathbb{N}} \text { konvergerer n.o. } \Longleftrightarrow P(\mathbb{X} \in C)=1 \Longleftrightarrow P_{\mathrm{X}}(C)=1
+$$
+
+og at
+$\left(\mathrm{X}_n\right)_{n \in \mathbb{N}}$ konvergerer i ssh. $\Longleftrightarrow\left(\mathrm{X}_n\right)_{n \in \mathbb{N}}$ er en Cauchy-følge i ssh.
+
+$$
+\begin{aligned}
+& \Longleftrightarrow \forall \epsilon>0: \lim _{n, m \rightarrow \infty} P\left(\left|\mathrm{X}_n-\mathrm{X}_m\right|>\epsilon\right)=0 \\
+& \Longleftrightarrow \forall \epsilon>0: \lim _{n, m \rightarrow \infty} P_{\mathrm{X}}\left(\left(p_n-p_m\right)^{-1}\left([-\epsilon, \epsilon]^c\right)\right)=0 .
+\end{aligned}
+$$
+
+
+Dermed afhænger konvergens n.o. og i ssh. kun af $P_{\mathrm{X}}$.
+Hvis $P_{\mathrm{X}}=P_{\mathrm{Y}}$ gælder der altså, at
+$\left(\mathrm{X}_n\right)_{n \in \mathbb{N}}$ konvergerer i ssh./n.o. $\Longleftrightarrow\left(\mathrm{Y}_n\right)_{n \in \mathbb{N}}$ konvergerer i ssh./n.o.
+og at
+$\left(\sum_{k=1}^n \mathrm{X}_k\right)_{n \in \mathbb{N}}$ konv. i ssh./n.o. $\Longleftrightarrow\left(\sum_{k=1}^n \mathrm{Y}_k\right)_{n \in \mathbb{N}}$ konv. i ssh./n.o.
+\end{remark}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $\left(\mathsf{X}_n\right)_{n \in \mathbb{N}}$ være en følge af uafhængige stokastiske variable på $(\Omega, \mathcal{F}, P)$.
+Antag endvidere, at der findes endnu en følge $\left(\mathsf{Y}_n\right)_{n \in \mathbb{N}}$ af stokastiske variable på $(\Omega, \mathcal{F}, P)$, således at
+
+$$
+\mathbb{X}=\left(\mathsf{X}_n\right)_{n \in \mathbb{N}} \text { og } \mathbb{Y}=\left(\mathsf{Y}_n\right)_{n \in \mathbb{N}} \text { er uafhængige, og } \quad P_{\mathbb{X}}=P_{\mathbb{Y}}
+$$
+
+
+Da gælder bi-implikationen:
+
+$$
+\sum_{n=1}^{\infty} \mathsf{X}_n \text { konvergerer } P \text {-n.o. } \Longleftrightarrow \sum_{n=1}^{\infty} \mathsf{X}_n \text { konvergerer } i \text { sandsynlighed. }
+$$
+
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\left(\mathsf{X}_n\right)_{n \in \mathbb{N}}$ være en følge af uafhængige stokastiske variable på $(\Omega, \mathcal{F}, P)$.
+Da gælder bi-implikationen:
+$\sum_{n=1}^{\infty} \mathsf{X}_n$ konvergerer $P$-n.o. $\Longleftrightarrow \sum_{n=1}^{\infty} \mathsf{X}_n$ konvergerer i sandsynlighed.
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\left(\mathsf{Z}_n\right)_{n \in \mathbb{N}}$ være en følge af uafhængige stokastiske variable på $(\Omega, \mathcal{F}, P)$.
+Da gælder for ethvert $r>0$ implikationen:
+
+$$
+\sum_{n=1}^{\infty} \mathsf{Z}_n \text { konvergerer i P-r-middel } \Longrightarrow \sum_{n=1}^{\infty} \mathsf{Z}_n \text { konvergerer n.o. }
+$$
+
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\left(\mathsf{X}_n\right)_{n \in \mathbb{N}}$ være en følge af ufhængige stokastiske variable på $(\Omega, \mathcal{F}, P)$, og antag, at $\mathsf{X}_n \in \mathcal{L}^2(P)$ for alle $n$.
+
+Sæt endvidere $\mu_n=\mathbb{E}\left[\mathsf{X}_n\right]$ for alle $n$.
+Da gælder implikationen:
+
+$$
+\sum_{n=1}^{\infty} \mathbb{V}\left[\mathsf{X}_n\right]<\infty \Longrightarrow \sum_{n=1}^{\infty}\left(\mathrm{X}_n-\mu_n\right) \quad \text { konvergerer P-n.o. og i P-2-middel. }
+$$
+
+    \end{corollary}
+\end{theorem-box}
+\subsection{Store tals stærke lov}
+\begin{theorem-box}
+    \begin{lemma}[Kroneckers lemma]
+        Lad $\left(a_n\right)_{n \in \mathbb{N}}$ og $\left(b_n\right)_{n \in \mathbb{N}}$ være følger af reelle tal, således at
+
+$$
+0<b_1<b_2<b_3<\cdots, \quad \lim _{n \rightarrow \infty} b_n=\infty
+$$
+
+og at
+$\sum_{k=1}^{\infty} \frac{a_k}{b_k} \;$ er konvergent i$ \mathbb{R}, \;$ dvs. $\; \lim _{n \rightarrow \infty} \sum_{k=1}^n \frac{a_k}{b_k} \;$ eksisterer i$ \mathbb{R}$.
+Da gælder der, at
+
+$$
+\frac{1}{b_n} \sum_{k=1}^n a_k \xrightarrow[n \rightarrow \infty]{ } 0
+$$
+
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[$\mathcal{L}^2$-udgave af Store tals lov]
+        Lad $\left(\mathsf{X}_k\right)_{k \in \mathbb{N}}$ være en følge af uafhængige stokastiske variable på $(\Omega, \mathcal{F}, P)$, og antag, at $\mathrm{X}_k \in \mathcal{L}^2(P)$ for alle $k i \mathbb{N}$.
+
+        Sæt endvidere $\mu_k=\mathbb{E}\left[\mathsf{X}_k\right]$ for alle $k i \mathbb{N}$.
+        Da gælder implikationen:
+        
+        $$
+        \sum_{k=1}^{\infty} \frac{\mathbb{V}\left[\mathsf{X}_k\right]}{k^2}<\infty \Longrightarrow \frac{1}{n} \sum_{k=1}^n\left(\mathsf{X}_k-\mu_k\right) \underset{n \rightarrow \infty}{ } 0 \quad \text { n.o. og i 2-middel. }
+        $$
+                
+    \end{proposition}
+\end{theorem-box}
+\begin{example}
+    
+\end{example}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $a, a_1, a_2, a_3, \ldots$ være reelle tal, således at $a_n \rightarrow a$ for $n \rightarrow \infty$.
+Da gælder der også, at
+
+$$
+\lim _{n \rightarrow \infty} \frac{1}{n} \sum_{j=1}^n a_j=a .
+$$
+
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        \begin{enumerate}
+            \item[\textnormal{(i)}] For ethvert naturligt tal $N$ gæ/der der, at
+
+            $$
+            \sum_{n=N}^{\infty} \frac{1}{n^2} \leq \frac{2}{N}
+            $$
+            
+            \item[\textnormal{(ii)}] For ethvert x i $(0, \infty)$ gælder der, at
+            
+            $$
+            \sum_{n \in \mathbb{N}: n \geq x} \frac{1}{n^2} \leq \frac{2}{x}
+            $$
+            
+        \end{enumerate}
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Store tals stærke lov]
+        Lad $\left(\mathsf{X}_n\right)_{n \in \mathbb{N}}$ være en følge af i.i.d. stokastiske variable på $(\Omega, \mathcal{F}, P)$, således at $\mathbb{E}\left[\left|\mathsf{X}_1\right|\right]<\infty$, og sæt $\mathbb{E}\left[\mathsf{X}_1\right]=\mu$.
+
+Da gælder der, at
+
+$$
+\lim _{n \rightarrow \infty} \frac{1}{n} \sum_{j=1}^n \mathsf{X}_j=\mu \quad \text { P-n.o. og i P-1-middel. }
+$$
+
     \end{proposition}
 \end{theorem-box}
 \end{document}

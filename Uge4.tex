@@ -1,0 +1,208 @@
+\documentclass{Class}
+\include{Preamble}
+\title{Week 4}
+\author{Markus Alexander Hohwü Larsen}
+\begin{document}
+\problem{2.3}
+Lad $(X, \mathcal{E}, \mu)$ være et målrum, og lad $f, f_1, f_2, f_3, \dots$ samt $g, g_1, g_2, g_3, \dots$ være funktioner fra $\mathcal{M}(\mathcal{E})$. Lad endvidere $\alpha$ og $\beta$ være reelle konstanter.
+
+Vis da, at der gælder implikationen:
+
+$$
+f_n \rightarrow f, \quad \text { og } \quad g_n \rightarrow g \quad \Longrightarrow \quad \alpha f_n+\beta g_n \rightarrow \alpha f+\beta g
+$$
+
+i hvert af folgende tilfælde:
+(a) " $\rightarrow$ " betegner konvergens $\mu$-n.o.
+(b) " $\rightarrow$ " betegner konvergens i $\mu$ - $p$-middel for $p \mathrm{i}(0, \infty)$.
+(c) " $\rightarrow$ " betegner konvergens i $\mu$-mål.
+\solution
+
+
+
+
+
+
+
+\problem{2.4}
+Lad $(X, \mathcal{E}, \mu)$ være et endeligt målrum, og lad $f, f_1, f_2, f_3, \dots$ være funktioner fra $\mathcal{M}(\mathcal{E})$. Det følger da fra Sætningerne 2.1.4 og 2.1.5, at der gælder følgende implikationer:
+
+\begin{equation}
+    f_n \rightarrow f \text { i } \mu \text {-middel } \quad \Longrightarrow \quad f_n \rightarrow f \quad \text { i } \mu \text {-mål, }
+\end{equation}
+
+og
+
+\begin{equation}
+    f_n \rightarrow f \quad \mu \text {-n.o. } \quad \Longrightarrow \quad f_n \rightarrow f \quad \text { i } \mu \text {-mål. }
+\end{equation}
+
+
+Vis, at der generelt ikke gælder andre implikationer mellem de tre betragtede konvergenstyper, dvs. giv modeksempler til hver af følgende implikationer
+
+
+\begin{align}
+f_n \rightarrow f \text { i } \mu \text {-middel } & \Longrightarrow & f_n \rightarrow f & \mu \text {-n.o., } \\
+f_n \rightarrow f \text {-n.o. } & \Longrightarrow & f_n \rightarrow f & \text { i } \mu \text {-middel, } \\
+f_n \rightarrow f \text { i } \mu \text {-mål } & \Longrightarrow & f_n \rightarrow f & \mu \text {-n.o., } \\
+f_n \rightarrow f \text { i } \mu \text {-mål } & \Longrightarrow & f_n \rightarrow f & \text { i } \mu \text {-middel. }
+\end{align}
+
+
+\solution
+Vi bemærker grundet (1) og (2) at det er nok at finde modeksempler på de 2 første da dette medfører at de 2 sidste nødvendigvis ikke er sande. 
+Det er altså nok at finde modeksempler til (3) og (4), idet dette medforer, at implikationerne (5) og (6) nødvendigvis ikke er sande. For at se dette antager vi, at vi allerede har vist, at implikationerne (3) og (4) generelt ikke er sande. Antag nu f.eks., at (5) er sand. Kombineret med (1), vil der sågaelde, at
+
+$$
+f_n \rightarrow f \text { i } \mu \text {-middel } \Longrightarrow f_n \rightarrow f \text { i } \mu \text {-mål } \Longrightarrow f_n \rightarrow f \quad \mu \text {-n.o. }
+$$
+
+
+Dette viser, at implikationen (3) er sand og er således en modstrid.
+Lad $(X, \mathcal{E}, \mu)=\left([0,1], \mathcal{B}([0,1]), \lambda_{[0,1]}\right)$. Vi starter med et modeksempel til (3). Bemærk, at ethvert $n \in \mathbb{N}_{\geq 2}$ kan skrives som $n=2^m+k$, hvor $m \in \mathbb{N}$ og $k=$ $\left\{0, \ldots, 2^m-1\right\}$. Lad nu $f_n=1_{\left[k 2^{-m},(1+k) 2^{-m}\right]}$. Vi ser, at
+
+$$
+\int_X\left|f_n\right| \mathrm{d} \mu=\int_0^1 1_{\left[k 2^{-m},(1+k) 2^{-m}\right]} \mathrm{d} \lambda=2^{-m} \rightarrow 0
+$$
+
+for $n \rightarrow \infty$, idet $n \rightarrow \infty \Longrightarrow m \rightarrow \infty$. Altså gælder der, at $f_n \rightarrow 0$ i $\mu$-middel. Lad nu $x \in[0,1]$, og bemærk, at for ethvert $m \in \mathbb{N}$ findes $k \in\left\{0, \ldots, 2^m-1\right\}$, saledes at $x \in\left[k 2^{-m},(k+1) 2^m\right]$. Dvs. at $f_n(x)=1$ for $n=2^m+k$. Konsekvensen af dette er, at $f_n(x)=1$ for uendeligt mange $n$, og dermed gælder der ikke, at $f_n(x) \rightarrow 0$. Da $x$ blot er et vilkårligt element fra $X=[0,1]$, ser vi, at mængden $\left\{f_n \rightarrow 0\right\}$ er tom! Specielt gælder der ikke, at $f_n \rightarrow 0 \mu$-n.o.
+
+Det er lidt lettere at give et modeksempel til (4). Lad $f_n(x)=n 1_{[0,1 / n]}(x)$. For ethvert $x \in(0,1]$ kan vi væelge $N \in \mathbb{N}$ med $1 / N<x$. Da gælder der, at $f_n(x)=0$ for alle $n \geq N$. Altsá har vi, at $f_n(x) \rightarrow 0$ for alle $x \in(0,1]$. Dvs. at $f_n \rightarrow f \mu$-n.o. Vi bemærker nu, at
+
+$$
+\int_X\left|f_n\right| \mathrm{d} \mu=n \int_0^{1 / n} 1 \mathrm{~d} \lambda=1
+$$
+
+ikke konvergerer mod 0 for $n \rightarrow \infty$. Altsågælder der ikke, at $f_n \rightarrow 0$ i $\mu$-middel.
+\problem{2.5}
+Lad $(X, \mathcal{E}, \mu)$ være et målrum, og lad $f, f_1, f_2, f_3, \ldots$ være funktioner fra $\mathcal{M}(\mathcal{E})$. Vis, ved at give et modeksempel, at der ikke generelt gælder implikationen:
+
+$$
+f_n \rightarrow f \quad \mu \text {-n.o. } \quad \Longrightarrow \quad f_n \rightarrow f \quad \text { i } \mu \text {-mål, }
+$$
+
+hvis $\mu(X)=\infty$.
+\solution
+Lad $(X, \mathcal{E}, \mu)=(\mathbb{R}, \mathcal{B}(\mathbb{R}), \lambda)$, og sæt $f_n=1_{[\mathrm{n}, \infty)}$. Der gælder, at $f_n(x) \rightarrow 0$ for alle $x \in X$, så specielt har vi, at $f_n \rightarrow f \mu$-n.o. Vi husker, at $f_n \rightarrow 0 \mathrm{i} \mu$-mål, hvis
+
+$$
+\mu\left(\left\{x \in X\left|\left|f_n(x)\right|>\epsilon\right\}\right) \rightarrow 0\right.
+$$
+
+for ethvert $\epsilon>0$. Vælger vi $\epsilon=1 / 2$, ser vi, at
+
+$$
+\mu\left(\left\{x \in X\left|\left|f_n(x)\right|>1 / 2\right\}\right)=\lambda([n, \infty))=\infty\right.
+$$
+
+for alle $n \in \mathbb{N}$. Dette viser, at $f_n$ ikke konvergerer mod nulfunktionen i $\mu$-mål.
+
+
+\problem{2.7}
+Lad $(X, \mathcal{E}, \mu)$ være et målrum, og lad $f, f_1, f_2, f_3, \ldots$ være funktioner fra $\mathcal{M}(\mathcal{E})$. Antag, at der findes en konstant $a \mathrm{i}(0, \infty)$, således at
+
+$$
+\lim _{n \rightarrow \infty} \int_X\left|f_n-f\right| \wedge a \mathrm{~d} \mu=0
+$$
+
+
+Vis da, at $f_n \rightarrow f$ i $\mu$-mål.
+Specielt viser denne opgave, at implikationen (i3) $\Rightarrow$ (i1) i Sætning 2.1.5(i) også gælder, hvis målet $\mu$ ikke er endeligt.
+\solution
+
+
+
+
+
+\problem{2.9}
+Lad $(X, \mathcal{E}, \mu)$ være et målrum, og lad $\left(f_n\right)_{n \in \mathbb{N}}$ og $\left(g_n\right)_{n \in \mathbb{N}}$ være funktioner fra $\mathcal{M}(\mathcal{E})$, således at $f_n \rightarrow f$ i $\mu$-mål og $g_n \rightarrow g$ i $\mu$-mål for passende funktioner $f$ og $g$ fra $\mathcal{M}(\mathcal{E})$.
+\begin{enumerate}
+    \item Vis, at hvis $\mu$ er et endeligt mål, så gælder der også, at
+
+    $$
+    f_n g_n \longrightarrow f g \quad \text { i } \mu \text {-mål. }
+    $$
+    
+    \textit{Vink: Benyt Opgave 2.3 ovenfor samt omskrivningen:}
+    
+    $$
+    f_n g_n-f g=\left(f_n-f\right)\left(g_n-g\right)+\left(f_n-f\right) g+f\left(g_n-g\right)
+    $$
+    
+    \textit{til at reducere det generelle tilfeelde til folgende to specialtilfeelde:}
+    \begin{enumerate}
+        \item  $f_n \rightarrow 0 \circ g g_n \rightarrow 0 i \mu$-mål.
+        \item $f_n \rightarrow 0$ i $\mu$-mål og $g_n=g$ for alle $n i \mathbb{N}$.
+    \end{enumerate}
+    
+    \textit{I tilfælde (ii) kan man vise og benytte, at $\mu(\{|g|>K\}) \rightarrow 0$ for $K \rightarrow \infty$, idet $\mu$ er et endeligt mäl.}
+    \item Vis, ved at give et modeksempel, at (2.21) ikke gælder generelt, hvis $\mu$ ikke er endeligt.
+\end{enumerate}
+\solution
+\begin{enumerate}
+    \item Antag forst, at $f_n \rightarrow 0 \operatorname{og} g_n \rightarrow 0$ i $\mu$-mal. For $\epsilon>0$ har vi da, at
+
+    $$
+    \begin{aligned}
+    \mu\left(\left\{\left|f_n g_n\right|>\epsilon\right\}\right) & \leq \mu\left(\left\{\left|f_n\right|>\sqrt{\epsilon}\right\} \cup\left\{\left|g_n\right|>\sqrt{\epsilon}\right\}\right) \\
+    & \leq \mu\left(\left\{\left|f_n\right|>\sqrt{\epsilon}\right\}\right)+\mu\left(\left\{\left|g_n\right|>\sqrt{\epsilon}\right\}\right) \\
+    & \rightarrow 0
+    \end{aligned}
+    $$
+    
+    for $n \rightarrow \infty$. Dvs. at $f_{n i} g_n \rightarrow 0$ i $\mu$-mål.
+    Antag dernast, at $f_n \rightarrow 0$ i $\mu$-mál, og at $g_n=g$ for alle $n$. Der gaelder, at $\lim _{K \rightarrow \infty} 1_{\{|g|>K\}}(x) \rightarrow 0$ for alle $x$. Ved at anvende domineret konvergens ser vi, at
+    
+    $$
+    \lim _{K \rightarrow \infty} \mu(\{|g|>K\})=\int_X \lim _{K \rightarrow \infty} 1_{\{|g|>K\}} \mathrm{d} \mu=0
+    $$
+    
+    
+    Her kan vi bruge majoranten 1 , idet $\int_X 1 \mathrm{~d} \mu=\mu(X)<\infty$. Hvis vi nu betragter givne $\epsilon, \delta>0$, kan vi forst vælge $K>0$ således, at $\mu(\{|g|>K\}) \leq \delta / 2$. Idet $f_n \rightarrow 0$ i $\mu$-mål, kan vi valge $N$, således at $\mu\left(\left\{\left|f_n\right|>\epsilon / K\right\}\right) \leq \delta / 2$ for alle $n \geq N$. Vi ser nu, at
+    
+    $$
+    \begin{aligned}
+    \mu\left(\left\{\left|f_n g\right|>\epsilon\right\}\right) & \leq \mu\left(\left\{\left|f_n\right|>\epsilon / K\right\} \cup\{|g|>K\}\right) \\
+    & \leq \mu\left(\left\{\left|f_n\right|>\epsilon / K\right\}\right)+\mu(\{|g|>K\}) \\
+    & \leq \delta
+    \end{aligned}
+    $$
+    
+    for alle $n \geq N$.
+    Vi betragter mu det generelle tilfælde, hvor $f_n \rightarrow f$ og $g_n \rightarrow g$ i $\mu$-mà. Der gælder, at
+    
+    $$
+    f_n g_n-f g=\left(f_n-f\right)\left(g_n-g\right)+\left(f_n-f\right) g+f\left(g_n-g\right)
+    $$
+    
+    
+    Idet $f_n-f \rightarrow 0$ i $\mu$-mål og $g_n-g \rightarrow 0$ i $\mu$-mål, har vi jf. forste del af ovenstående, at det første led konvergerer mod 0 i $\mu$-mål. Tilsvarende giver anden del af ovenstående, at $\left(f_n-f\right) g \rightarrow 0$ og $f\left(g_n-g\right) \rightarrow 0$ i $\mu$-mal. I alt viser dette, at $f_n g_n-f g \rightarrow 0 \mathrm{i}$ $\mu$-mål jf. Opgave 2.8. Dette er aekvivalent med, at $f_n g_n \rightarrow f g$ i $\mu$-mål.
+    \item Lad $(X, \mathcal{E}, \mu)=(\mathbb{R}, \mathcal{B}(\mathbb{R}), \lambda)$ og betragt følgende funktioner:
+
+    $$
+    \begin{aligned}
+    f_n(x) & =\frac{1}{x} 1_{[n, \infty)}(x), \\
+    f(x) & =0, \\
+    g_n(x) & =x, \\
+    g(x) & =x
+    \end{aligned}
+    $$
+    Det er klart, at $g_n \rightarrow g$ i $\mu$-mål. For $\epsilon>0$ ser vi desuden, at $\left\{\left|f_n(x)\right|>\epsilon\right\}=[n, 1 / \epsilon)$. Dette interval er tomt for store nok $n$, så $f_n \rightarrow 0=f \mathrm{i} \mu$-mål. Til sidst bemærker vi, at $f_n(x) g_n(x)=1_{[n, \infty)}(x)$. Det ses derfor let, at $f_n g_n$ ikke konvergerer mod $f g=0$, idet $\mu\left(\left\{\left|f_n g_n\right|>1 / 2\right\}\right)=\lambda([n, \infty))=\infty$ for alle $n$.
+\end{enumerate}
+
+
+
+
+\problem{2.10}
+Lad $(X, \mathcal{E}, \mu)$ være et målrum, og lad $f, f_1, f_2, f_3, \ldots$ være funktioner fra $\mathcal{M}(\mathcal{E})$ således at $f_n \rightarrow f$ i $\mu$-mål. Antag endvidere, at følgen $\left(f_n\right)$ er voksende, altså at
+
+$$
+f_1 \leq f_2 \leq f_3 \leq \cdots \quad \mu \text {-n.o. }
+$$
+\begin{enumerate}
+    \item  Vis, at $f_n \rightarrow f \mu$-n.o.
+    \item Vis, at hvis det yderligere antages, at $f \in \mathcal{L}^1(\mu)$, og at $f_n \in \mathcal{L}^1(\mu)$ for alle $n$, så gælder der også, at $f_n \rightarrow f$ i $\mu$-1-middel.
+\end{enumerate}
+\solution
+
+\end{document}

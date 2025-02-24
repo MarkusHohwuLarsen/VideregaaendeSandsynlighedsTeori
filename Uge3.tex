@@ -1,0 +1,345 @@
+\documentclass{Class}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\usepackage{amsmath} 
+\usepackage{hyperref}
+% \usepackage{calrsfs}
+\usepackage{mathrsfs}
+\usepackage{aligned-overset}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[mathscr]{euscript}
+\usepackage{tikz}
+\usepackage{bbm}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\1}{\mathbbm{1}}
+\newcommand{\X}{\mathsf{X}}
+\newcommand{\Y}{\mathsf{Y}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\lclass}{\mathcal{L}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\deriv}{\operatorname{d}}
+\newcommand{\icomp}{\operatorname{i}}
+\newcommand{\varx}{\varphi_\X}
+\newcommand{\pfield}{(\Omega, \mathcal{F}, P)}
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{definition}[theorem]{Definition} 
+\newtheorem{lemma}[theorem]{Lemma} 
+\newtheorem{corollary}[theorem]{Korollar} 
+\newtheorem{remark}[theorem]{Bemærkning} 
+\newtheorem{proposition}[theorem]{Sætning} 
+\newtheorem{example}[theorem]{Eksempel} 
+\usepackage{geometry}
+    \geometry{
+        a4paper,
+        left=3.5cm,
+        right=3.5cm   ,
+    }
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\newtcolorbox{theorem-box}{
+    colback=gray!10, % Light grey background
+    colframe=black,  % Black frame
+    sharp corners,   % Square corners
+    boxrule=0.8pt,   % Border thickness
+    before skip=10pt, % Space before the box
+    after skip=10pt,  % Space after the box
+}
+
+\newtheoremstyle{boxed}  % Define a new theorem style
+  {10pt}   % Space above
+  {10pt}   % Space below
+  {}       % Body font
+  {}       % Indent amount
+  {\bfseries} % Theorem head font (bold)
+  {.}      % Punctuation after theorem head
+  { }      % Space after theorem head
+  {\thmname{#1}~\thmnumber{#2}\thmnote{ (#3)}}  % Theorem head spec
+
+\theoremstyle{boxed}
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\title{Uge 3}
+\author{Markus Alexander Hohwü Larsen}
+\begin{document}
+\problem{1.6}
+Lad $\left(X_n\right)_{n \in \mathbb{N}}$ være en følge af uafhængige, identisk fordelte stokastiske variable på sandsynlighedsfeltet $(\Omega, \mathcal{F}, P)$, og antag, at deres karakteristiske funktion er, givet ved:
+$$
+\varphi_{X_1}(t)=e^{-|t|}, \quad(t \in \mathbb{R})
+$$
+\begin{enumerate}
+    \item Vis, at $X_n$ 'erne er symmetrisk, i den forstand at $X_1 \sim-X_1$, for alle $n \in \mathbb{N}$.
+    \item Vis, at $X_n$ 'erne ikke har middelværdi, altså $\mathbb{E}\left[\left|X_1\right|\right]=\infty$.
+    \item Vis, at $X_1 \sim(1 / n) \sum_{k=1}^n X_k$ for alle $n \in \mathbb{N}$.
+    \item Vis, at $X_n$ 'erne er Cauchy-fordelte, altså at $X_1$ er absolut kontinuert med tæthed
+    $$
+f_{X_1}(x)=\frac{1}{\pi\left(1+x^2\right)}, \quad(x \in \mathbb{R})
+$$
+\end{enumerate}
+Vink: Benyt Opgave 12.4 i [M\&I].
+\solution
+\begin{enumerate}
+  \item Da $\varx$ er reel, har vi sammen Korollar 1.1.7(iii), at 
+  $$\varx(t)=\overline{\varx(t)}=\varphi_{-\X}(t)$$
+  Og pr 1.2.5 har vi så,
+  $$\varx = \varphi_{-\X}\Rightarrow \X_1 \sim -\X_1$$ så $\X_1$ er symmetrisk, og siden $\X_n\sim \X_1$ er alle $\X_n$ symmetriske.
+  \item Antag for modstrid, at $\mathbb{E}\left[\left|X_1\right|\right]<\infty$, så giver sætning 1.3.1 , at $\varphi_{X_1}$ er differentiabel i $t=0$, ser vi på grænsen kommende fra højre, så har vi:
+
+  $$
+  \begin{aligned}
+  \varphi_{X_1}^{\prime}(0) & =\lim _{h \rightarrow 0^{+}} \frac{\varphi_{X_1}(0+h)-\varphi_{X_1}(0)}{h}=\lim _{h \rightarrow 0^{+}} \frac{e^{-|0+h|}-e^{-|0|}}{h} \\
+  & =\lim _{h \rightarrow 0^{+}} \frac{e^{-(0+h)}-e^{-0}}{h}=\left.\frac{d}{d x} e^{-x}\right|_{x=0}=-\left.e^{-x}\right|_{x=0}=-1
+  \end{aligned}
+  $$
+  
+  
+  Fra venstre fâr vi:
+  
+  $$
+  \begin{aligned}
+  \varphi_{X_1}^{\prime}(0) & =\lim _{h \rightarrow 0^{-}} \frac{\varphi_{X_1}(0+h)-\varphi_{X_1}(0)}{h}=\lim _{h \rightarrow 0^{-}} \frac{e^{-|0-h|}-e^{-|0|}}{h} \\
+  & =\lim _{h \rightarrow 0^{-}} \frac{e^{0+h}-e^0}{h}=\left.\frac{d}{d x} e^x\right|_{x=0}=\left.e^x\right|_{x=0}=1
+  \end{aligned}
+  $$
+  
+  
+  Da de to grænser ikke er ens, så opnår vi modstrid. Hermed må $\mathbb{E}\left[\left|X_1\right|\right]=\infty$.
+\item Lad $ A=(1 / n, 1 / n, \ldots, 1 / n) \in \operatorname{Mat}_{1, n}(\mathbb{R})$ og $X=\left(X_1, \ldots, X_n\right)^T \in \operatorname{Mat}_{n, 1}(\mathbb{R})$.
+  Vi har så:
+  \begin{align*}
+    \varphi_{\frac{1}{n} \sum_{k=1}^n x_k}(t)&=\varphi_{A X}(t) \\ &\stackrel{1.1 .7(\mathrm{iv})}{=} \varphi_X\left(A^T t\right)\\ &=\prod_{i=1}^n \varphi_{X_i}\left(\frac{1}{n} t\right)\\ &=\prod_{i=1}^n \varphi_{X_i} e^{-\frac{1}{n}|t|}\\ &=\varphi_{X_1} e^{-n \frac{1}{n}|t|}\\ &=\varphi_{X_1}(t) \quad(t \in \mathbb{R})
+  \end{align*}  
+  Hvor vi undervejs har gjort brug af 1.1.7 (iv) og (vi). Pr. Sætning 1.2.5, så har vi
+  
+  $$
+  X_1 \sim \frac{1}{u} \sum_{k=1}^n X_k
+  $$
+  \item Lad $Z$ være absolut kontinuert med tætheden givet i opgaven, $f(x)$. Vi ser, at:
+
+  $$
+  \varphi_Z(t)=\int_{\mathbb{R}} e^{i x t} \frac{1}{\pi\left(1+x^2\right)} \lambda(d x)=\int_{\mathbb{R}} \cos (x t) \frac{1}{\pi\left(1+x^2\right)} \lambda(d x)+i \int_{\mathbb{R}} \sin (x t) \frac{1}{\pi\left(1+x^2\right)} \lambda(d x)
+  $$
+  
+  
+  Da vi ved at $\sin (x t) \frac{1}{\pi\left(1+x^2\right)}$ er en ulige funktion, så er integralet af $\sin (x t) \frac{1}{\pi\left(1+x^2\right)} \operatorname{lig} 0$. Benyttes opgave 12.4(c) fra [M\&I], så har vi:
+  
+  $$
+  \varphi_Z(t)=\int_{\mathbb{R}} \cos (x t) \frac{1}{\pi\left(1+x^2\right)} \lambda(d x)=e^{-|t|}=\varphi_{X_1}(t) \quad(t \in \mathbb{R})
+  $$
+  
+  
+  Vi har herefter pr. sætning 1.2.5, at $x_n$ 'erne er Cauchy-fordelte og er hermed færdige.
+\end{enumerate}
+
+
+
+\problem{1.8}
+Lad $X$ være en stokastisk variabel på et sandsynlighedsfelt $(\Omega, \mathcal{F}, \mathbb{P})$.
+\begin{enumerate}
+  \item Antag, at der findes $t_0 \in \mathbb{R} \backslash\{0\}$, således at $\varphi_X\left(t_0\right)=1$. Vis da, at $X$ er en diskret stokastisk variabel.
+  \item  Antag nu kun, at der findes $t_0 \in \mathbb{R} \backslash\{0\}$, således at $\left|\varphi_X\left(t_0\right)\right|=1$. Vis da, at $X$ er diskret.
+  \item Vis, at der for ethvert $t \in(a, b) \backslash\{0\}$ findes $\theta_t \in(-\pi, \pi]$, således at
+
+  $$
+  \mathbb{P}\left(t\left(X+\frac{\theta_t}{t}\right) \in\{p 2 \pi \mid p \in \mathbb{Z}\}\right)=1
+  $$
+  \item Antag, at $c_1, c_2 \in \mathbb{R}$, og at $\mathbb{P}\left(X=c_1\right), \mathbb{P}\left(X=c_2\right)>0$. Vis da, at der for alle $t \in(a, b) \backslash\{0\}$ må gælde, at
+
+  $$
+  t c_1+\theta_t \in\{p 2 \pi \mid p \in \mathbb{Z}\}, \quad \text { og } \quad t c_2+\theta_t \in\{p 2 \pi \mid p \in \mathbb{Z}\}
+  $$
+  
+  og dermed også. at
+  
+  $$
+  t\left(c_1-c_2\right) \in\{p 2 \pi \mid p \in \mathbb{Z}\}
+  $$
+  
+  
+  Konkludér heraf, at $c_1=c_2$, og at $X$ er konstant $\mathbb{P}-$ n.o.
+  \item Antag, at $U$ og $V$ er uafhængige stokastiske variable på $(\Omega, \mathcal{F}, \mathbb{P})$, således at $U+V \sim U$. Benyt da det foregående og Korollar 1.1.7 til at vise, at $V=0 \;\mathbb{P}$-n.o.
+\end{enumerate}
+\solution
+\begin{enumerate}
+  \item Vi ser, at
+
+  $$
+  1=\varphi_X\left(t_0\right)=\mathbb{E}\left[e^{\mathrm{it} t_0 X}\right]=\mathbb{E}\left[\cos \left(t_0 X\right)\right]+\mathbb{E}\left[\sin \left(t_0 X\right)\right]
+  $$
+  
+  
+  Dette viser, at $1=\mathbb{E}\left[\cos \left(t_0 X\right)\right]$ og således også, at $\mathbb{E}\left[1-\cos \left(t_0 X\right)\right]=0$. Da $1-$ $\cos \left(t_0 X\right) \geq 0$, følger det, at $1-\cos \left(t_0 X\right)=0$ P-n.o. Dvs. at $t_0 X \in\{p 2 \pi \mid p \in \mathbb{Z}\}$ P-n.o., så $t_0 X$ er diskret. Da $t_0 \neq 0$, er $X=\frac{1}{t_0} t_0 X$ ligeledes diskret.
+  \item Da $\left|\varphi_X\left(t_0\right)\right|=1$, er $\varphi_X\left(t_0\right)=e^{\text {i } \eta, ~ h v o r ~} \eta \in[-\pi, \pi)$. Sæt $\theta=-\eta$, og bemærk, at $e^{\mathrm{i} \theta} \varphi_X\left(t_0\right)=1$. Hvis vi benytter Korollar 1.1.7(iv), ser vi, at
+
+  $$
+  \varphi_{\theta / t_0+X}\left(t_0\right)=e^{\mathrm{i} t_0 \theta / t_0} \varphi_X\left(t_0\right)=e^{\mathrm{i} \theta} \varphi_X\left(t_0\right)=1
+  $$
+  
+  
+  Ifølge (a) viser dette, at $\frac{\theta}{t_0}+X$ er diskret. Dermed er $X$ ligeledes diskret. I de følgende to delopgaver antager vi, at der findes $a, b \in \mathbb{R}$, således at $a<b$. og $\left|\varphi_X(t)\right|=1$ for alle $t \in(a, b)$. Målet er nu at vise, at der findes $c \in \mathbb{R}$. således at $X=c \mathbb{P}-n .0$.
+  \item Lad $t \in(a, b) \backslash\{0\}, \quad \mathrm{I}(\mathrm{b})$ viste vi, at der findes $\theta_t \in(-\pi, \pi]$, således at $\varphi_{\theta_t / t+X}(t)=1 . \mathrm{I}(\mathrm{a})$ så vi, at dette netop medforer, at
+
+  $$
+  \mathbb{P}\left(t\left(X+\frac{\theta_t}{t}\right) \in\{p 2 \pi \mid p \in \mathbb{Z}\}\right)=1
+  $$
+  \item Hvis $c \in \mathbb{R}$ og $\mathbb{P}\left(t\left(X+\frac{\theta_e}{t}\right)=c\right)>0$, gælder der, at $c \in\{p 2 \pi \mid p \in \mathbb{Z}\}$ jf. (c). Idet $\mathbb{P}\left(t\left(X+\frac{\theta_t}{t}\right)=t c_i+\theta_t\right)>0$ for $i=1,2$, har vi derfor $t c_1+\theta_t \in\{p 2 \pi \mid p \in \mathbb{Z}\}, \quad$ og $t c_2+\theta_t \in\{p 2 \pi \mid p \in \mathbb{Z}\}$ som ønsket. Vi ser nu, at $t\left(c_1-c_2\right)=t c_1+\theta_t-\left(t c_2+\theta_t\right)=$ $p_1 2 \pi-p_2 2 \pi=\left(p_1-p_2\right) 2 \pi \in\{p 2 \pi \mid p \in \mathbb{Z}\}$ Dette gælder for alle $t \in(a, b) \backslash\{0\}$. Vi har altså mængdeindklusionen
+
+  $$
+  \left\{t\left(c_1-c_2\right) \mid t \in(a, b) \backslash\{0\}\right\} \subseteq\{p 2 \pi \mid p \in \mathbb{Z}\}
+  $$
+  
+  
+  Da højresiden er tællelig, må venstresiden nødvendigvis også være det. Dette kan kun lade sig gøre hvis $c_1=c_2$.
+  
+  Vi mangler at vise, at $X$ er konstant $\mathbb{P}$-n.o. Vi ved fra (b), at $X$ er diskret. Dvs. at der findes en tøllelig delmængde $A \subseteq \mathbb{R}$ med $\mathbb{P}(X=c)>0$ for alle $c \in A$. Vi har netop vist, at $A$ kun indeholder et element, som vi kalder $c$. Dermed har vi, at
+  
+  $$
+  \mathbb{P}(X=c)=\mathbb{P}(X \in A)=1
+  $$
+\item Benytter vi Korollar 1.1.7 (vii), făr vi, at
+
+$$
+\varphi_U(t)=\varphi_{U+V}(t)=\varphi_U(t)+\varphi_V(t)
+$$
+
+for alle $t \in \mathbb{R}$. Dvs. at $\varphi_V(t)=1$ for alle $t \in \mathbb{R}$. Da følger det fra ovenstående, at der findes $c \in \mathbb{R}$, således at $V=c \mathbb{P}$-n.o. Så er $\varphi_V(t)=\mathbb{E}\left[e^{i t c}\right]=e^{i t c}$ for alle $t$. Da vi samtidig ved, at $\varphi_V(t)=1$ for alle $t$, må der nødvendigvis gælde, at $c=0$. Altså er $V=0 \mathbb{P}$-n.o.
+
+\end{enumerate}
+\problem{1.9}
+Lad $N, X_1, X_2, \ldots$ være en følge af uafhængige stokastiske variable defineret på sandsynlighedsfeltet $(\Omega, \mathcal{F}, \mathbb{P})$. Antag, at $N \sim \operatorname{Po}(\ell)$, hvor $\ell \in(0, \infty)$, og antag, at $X_n$ 'erne er identisk fordelte med fordeling givet ved:
+
+$$
+\mathbb{P}\left(X_1=0\right)=\mathbb{P}\left(X_1=1\right)=\frac{1}{2}
+$$
+
+
+Sæt endvidere $S_0=\bar{S}_0=0, \mathrm{og}$
+
+$$
+S_n=\sum_{k=1}^n X_k, \quad \text { og } \quad \tilde{S}_n=\sum_{k=1}^n\left(1-X_k\right)=n-S_n
+$$
+
+for $n \in \mathbb{N}$.
+\begin{enumerate}
+  \item Udregn de karakteristiske funktioner $\varphi_{S_n}, \varphi_{\tilde{S}_n}$, og redegor for, at $S_n, S_n$ er binomialfordelte med antalsparameter $n$ og sandsynlighedsparameter $1 / 2$.
+  \item Vis for vilkårlige $s, t \in \mathbf{R}$, at
+
+  $$
+  \varphi_{\left(S_N, \bar{S}_N\right)}(s, t)=\exp \left(\frac{\ell}{2}\left(e^{\mathrm{iss}}-1\right)\right) \exp \left(\frac{\ell}{2}\left(e^{\mathrm{it}}-1\right)\right)
+  $$
+  \item Vis, at $S_N$ og $\bar{S}_N$ er uafhængige og identisk Poisson-fordelte med parameter $\ell / 2$.
+\end{enumerate}
+\solution
+\begin{enumerate}
+  \item Bemærk, at $X_n{ }^{\prime}$ 'erne alle er binomialfordelte med antalsparameter 1 og sandsynlighedsparameter $1 / 2$. Hvis vi sætter $Y_n=1-X_n$, udgør $Y_n$ 'erne ligeledes en en følge af uafhængige stokastiske variable, som alle er binomialfordelte med antalsparameter 1 og sandsynlighedsparameter $1 / 2$. Dermed gælder der, at $S_n$ og $\tilde{S}_{\mathrm{n}}$ har samme fordeling. Vi nøjes således med at regne på $S_n$. Korollar 1.1.7 (vii) giver, at
+  $$
+  \varphi_{S_n}(t)=\prod_{k=1}^n \varphi_{X_k}(t)=\left(\varphi_{X_1}(t)\right)^n=\left(1-\frac{1}{2}+\frac{1}{2} e^{\mathrm{i} t}\right)^n
+  $$
+  
+  hvor den sidste lighed kommer fra Opgave 1.4. Vi genkender $\varphi_{S_n}$ som den karakteristiske funktion for binomialfordelingen med antalsparameter $n$ og sandsynlighedsparameter $1 / 2$. Der galder derfor, at $S_n \sim \operatorname{Bin}(n, 1 / 2)$ jf. Sætning 1.2.5.
+  
+  I det følgende betragter vi yderligere de stokastiske variable $S_N, \tilde{S}_N$, som er givet ved
+  
+  $$
+  S_N(\omega)=S_{N(\omega)}(\omega), \quad \text { og } \quad \tilde{S}_N(\omega)=\tilde{S}_{N(\omega)}(\omega)
+  $$
+  
+  
+  Alternativt kan man fremstille $S_N\left(\circ\right.$ tilsvarende $\left.\bar{S}_N\right)$ som en uendelig sum:
+  
+  $$
+  S_N=\sum_{n=0}^{\infty} S_n 1_{\{N=n\}}
+  $$
+  \item Lad $s, t \in \mathbb{R}$. Da ser vi, at
+
+  $$
+  \begin{aligned}
+  \varphi_{\left(S_N, \tilde{S}_N\right)}(s, t) & =\mathbb{E}\left[e^{i s S_N+i t \tilde{S}_N}\right] \\
+  & =\mathbb{E}\left[\sum_{n=0}^{\infty} 1_{\{N=n\}} e^{i s S_n+i t \tilde{S}_n}\right] \\
+  & =\sum_{n=0}^{\infty} \mathbb{E}\left[1_{\{N=n\}} e^{i * S_n+i t \tilde{S}_n}\right] \\
+  & =\sum_{n=0}^{\infty} \mathbb{P}(N=n) \mathbb{E}\left[e^{i(s-t) S_n+i t n}\right] \\
+  & =\sum_{n=0}^{\infty} \frac{\ell^n}{n!} e^{-\ell} e^{i t n}\left(1-1 / 2+1 / 2 e^{i(s-t)}\right)^n \\
+  & =e^{-\ell} \exp \left(\ell e^{i t}\left(1 / 2+1 / 2 e^{i(s-t)}\right)\right) \\
+  & =\exp \left(\frac{\ell}{2}\left(e^{i s}-1\right)\right) \exp \left(\frac{\ell}{2}\left(e^{i t}-1\right)\right)
+  \end{aligned}
+  $$
+  \item Vi bemærker, at den karakteristiske funktion for $\left(S_N, \bar{S}_N\right)$ splitter op i produktet af to karakteristiske funktioner for Poisson-fordelingen med parameter $\ell / 2$. Korollar 1.2.7 og Sætning 1.2.5 giver det onskede.
+\end{enumerate}
+\problem{1.11}
+\begin{enumerate}
+  \item Lad $X$ og $Y$ være stokastiske funktioner med værdier i målelige rum $(\mathcal{X}, \mathcal{E})$ og $(\mathcal{Y}, \mathcal{G})$ og evt. defineret på hver deres sandsynlighedsfelt.
+
+  Vis da, at der findes et sandsynlighedsfelt $(\tilde{\Omega}, \tilde{\mathcal{F}}, \tilde{\mathbb{P}})$, og stokastiske funktioner $\tilde{X}, \tilde{Y}$ herpå med værdier i hhv. $(\mathcal{X}, \mathcal{E})$ og $(\mathcal{Y}, \mathcal{G})$, således at $\tilde{X} \operatorname{og} \tilde{Y}$ er uafhængige, $\tilde{X} \sim X \operatorname{og} \tilde{Y} \sim Y$.
+  \item Vis, at for enhver stokastisk funktion $X$, kan man altid finde et sandsynlighedsfelt, hvorpå der eksisterer to uafhængige kopier $X_1$ og $X_2$ af $X$, dvs. $X_1$ og $X_2$ er uafhængige, og $X_1 \sim X \sim X_2$.
+\end{enumerate}
+\solution
+\begin{enumerate}
+  \item Sæt $(\tilde{\Omega}, \tilde{\mathcal{F}}, \tilde{P})=\left(\mathcal{X} \times \mathcal{Y}, \mathcal{E} \otimes \mathcal{G}, \mathbb{P}_X \otimes \mathbb{P}_Y\right)$. For $\omega=(x, y) \in \Omega=\mathcal{X} \times \mathcal{Y}$ sætter vi så $\bar{X}(\omega)=x \operatorname{og} \tilde{Y}(\omega)=y$. For vilkårlige $A \in \mathcal{E}$ og $B \in \mathcal{G}$ har vi nu, at
+
+  $$
+  \begin{aligned}
+  \tilde{\mathbb{P}}(\tilde{X} \in A, \tilde{Y} \in B) & =\mathbb{P}_X \otimes \mathbb{P}_y(\{\omega \in \Omega \mid \tilde{X}(\omega) \in A, \tilde{Y}(\omega) \in B\}) \\
+  & =\mathbb{P}_X \otimes \mathbb{P}_Y(\{(x, y) \in \mathcal{X} \times \mathcal{Y} \mid x \in A, y \in B\}) \\
+  & =\mathbb{P}_X \otimes \mathbb{P}_Y(A \times B) \\
+  & =\mathbb{P}_X(A) \mathbb{P}_Y(B)
+  \end{aligned}
+  $$
+  
+  
+  Dette viser, at $\tilde{X} \operatorname{og} \tilde{Y}$ er uafhængige, samt at $\tilde{X} \sim X, \operatorname{og} \tilde{Y} \sim Y$.
+  \item Lad $Y=X$. Da giver (a), at der findes et sandsynlighedsfelt, hvorpå der eksisterer $\bar{X} \operatorname{og} \tilde{Y}$, således at $\bar{X}$ og $\bar{Y}$ er uafhængige, $\tilde{X} \sim X \operatorname{og} \tilde{Y} \sim Y$. Vi sætter nu blot $X_1=\tilde{X} \operatorname{og} X_2=\tilde{Y}$. Disse stokastiske variable har de ønskede egenskaber.
+\end{enumerate}
+\problem{1.12}
+Lad $\X$ være en stokastisk variabel på sandsynlighedsfeltet $\pfield$. Vis da, at $\X$ har kompakt støtte (jvf. Korollar 1.5.4), hvis og kun hvis $$\sup_{p\in\N}\E[|\X|^p]<\infty.$$ \textit{Vink: Benyt sætning 7.3.10 i [M\&I]}
+\solution
+\begin{enumerate}
+  \item Antag, at \(\X\) har kompakt støtte:
+Ifølge Korollar 1.5.4, hvis \(\X\) har kompakt støtte, findes der en konstant \(b > 0\), således at \(P(\X \in [-b, b]) = 1\). Dette betyder, at \(|\X| \leq b\) næsten sikkert. Derfor er \(|\X|^p \leq b^p\) for alle \(p \in \N\), og vi får:
+\[
+\E[|\X|^p] \leq \E[b^p] = b^p.
+\]
+Da \(b\) er en konstant, er \(\sup_{p\in\N}\E[|\X|^p] \leq \sup_{p\in\N} b^p = b^\infty < \infty\). Dermed er \(\sup_{p\in\N}\E[|\X|^p] < \infty\).
+
+\item Antag, at \(\sup_{p\in\N}\E[|\X|^p] < \infty\):
+Vi skal vise, at \(\X\) har kompakt støtte. Lad os antage, at \(\X\) ikke har kompakt støtte. Dette betyder, at for enhver \(b > 0\), findes der en positiv sandsynlighed for, at \(|\X| > b\). Vi kan derfor vælge en følge \(b_n \to \infty\), således at \(P(|\X| > b_n) > 0\) for alle \(n\).
+
+Ifølge Sætning 7.3.10 i [M\&I], for en funktion \(f\) i \(\mathcal{M}(\mathcal{E})\), gælder:
+\[
+\lim_{p \to \infty} \|f\|_p = \|f\|_\infty.
+\]
+Anvendt på \(f = |\X|\), får vi:
+\[
+\lim_{p \to \infty} \E[|\X|^p]^{1/p} = \| |\X| \|_\infty.
+\]
+Hvis \(\X\) ikke har kompakt støtte, er \(\| |\X| \|_\infty = \infty\), hvilket betyder, at \(\E[|\X|^p]^{1/p} \to \infty\) når \(p \to \infty\). Dette strider imod antagelsen om, at \(\sup_{p\in\N}\E[|\X|^p] < \infty\). Derfor må \(\X\) have kompakt støtte.
+\end{enumerate}
+Vi har vist, at \(\X\) har kompakt støtte, hvis og kun hvis \(\sup_{p\in\N}\E[|\X|^p] < \infty\). Dette fuldender beviset.
+\end{document}
