@@ -7,7 +7,7 @@
 % Identification
 %=====================================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{jhwhw}[2009/02/11 Justin Wilson's Homework Class]
+\ProvidesClass{Class}[2009/02/11 Justin Wilson's Homework Class]
 
 \LoadClass[letterpaper, 12pt]{report}
 %\RequirePackage{jhwmath} Personal style file I use.
