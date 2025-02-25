@@ -1,0 +1,46 @@
+\documentclass{Class}
+\input{Preamble}
+\title{Assignment 3}
+\author{Markus Hohwü Larsen - 202205800}
+\begin{document}
+\problem{1}
+Consider the measure space $(X,\mathcal{E}, \mu)$, and let $f,g,f_1,f_2,f_3,\ldots$ be functions from $\mathcal{M}(\mathcal{E})$. Further let
+$$\stackrel{(1)}{\longrightarrow}\quad \text{ and }\quad \stackrel{(2)}{\longrightarrow}$$ 
+denote two (possibly different) of the three fundamental types of convergence defined in Definition 2.1.1 in the notes.
+\begin{enumerate}
+    \item Generalize Proposition 2.1.3 by proving, that for any choice of $\stackrel{(1)}{\longrightarrow},\stackrel{(2)}{\longrightarrow}$, the following implication holds:
+    \begin{equation}f_n\stackrel{(1)}{\longrightarrow}f\; \text{ and }\; f_n\stackrel{(2)}{\longrightarrow}g \Longleftrightarrow f=g \; \mu\text{-a.e.}\end{equation} 
+    \item Can we in (a) generally conclude, that $f(x) = g(x)$ for all $x \in X$?
+\end{enumerate}
+\solution
+\begin{enumerate}
+    \item We have the following 4 cases:
+    \begin{enumerate}
+        \item If $\stackrel{(1)}{\longrightarrow} \text{ and } \stackrel{(2)}{\longrightarrow}$ denote the same type of convergence, then by 2.1.3 we have that (1) is satisfied.
+        \item If $\stackrel{(1)}{\longrightarrow} \text{ and } \stackrel{(2)}{\longrightarrow}$ are convergence in $\mu$-p-mean and convergence in $\mu$-measure such that 
+        $$f_n \longrightarrow f \text{ in }\mu\text{-p-mean, and } f_n\longrightarrow g \text{ in }\mu\text{-measure}$$
+        then by 2.1.4(i), 
+        $f_n \longrightarrow f \text{ in }\mu\text{-p-measure}$, and again by 2.1.3, (1) is satisfied.
+        \item If $\stackrel{(1)}{\longrightarrow} \text{ and } \stackrel{(2)}{\longrightarrow}$ are convergence $\mu$-a.e. and convergence in $\mu$-p-mean such that
+         $$f_n \longrightarrow f \text{ in }\mu\text{-a.e., and } f_n\longrightarrow g \text{ in }\mu\text{-p-mean}$$
+         then, by 7.4.10 [M\&I] there exists an increasing sequence of natural numbers $(n_k)_{k\in\N}$ such that $f_{n_k}\longrightarrow g \;\mu\text{-a.e. for }k\rightarrow \infty$.
+         \\We also have that, since $f_n\longrightarrow f\; \mu\text{-a.e.}$, this also holds for any subsequence. Specifically, we have that $f_{n_k}\longrightarrow f \;\mu\text{-a.e. for }k\rightarrow \infty$ for the specified sequence $(n_k)$. Again by 2.1.3, (1) is satisfied.
+        \item If $\stackrel{(1)}{\longrightarrow} \text{ and } \stackrel{(2)}{\longrightarrow}$ are convergence $\mu$-a.e. and convergence in $\mu$-measure such that
+         $$f_n \longrightarrow f \text{ in }\mu\text{-a.e., and } f_n\longrightarrow g \text{ in }\mu\text{-measure}$$
+         then by 2.1.4(iii) there exists an increasing sequence of natural numbers $(n_k)_{k\in\N}$ such that $f_{n_k}\longrightarrow g \;\mu\text{-a.e. for }k\rightarrow \infty$. Again, by the same argument as in (iii) we have $f_{n_k}\longrightarrow f \; \mu\text{-a.e.}$, and again by 2.1.3, (1) is satisfied. 
+    \end{enumerate}
+    Therefore we have shown the desired property.
+    \item If we consider the functions $f_n=\1_{\{0\}}, f=\1_{\{0\}}$ and $g=0$ from $(\R, \mathcal{B}(\R),\lambda)$, then we have that $$f_n \rightarrow f$$ for all three main types of convergence, since $f_n=f \;\forall n \in \N$. \\In the following, we show that $f_n \rightarrow g$ for all three main types of convergence:
+\\For $f_n \rightarrow g$ convergence $\lambda$-a.e. and convergence in the $\lambda$-p-mean we have that $\1_{\{0\}}$ and 0 are both equal to $0 \;\lambda$-a.e. and $$\int_{\mathbb{R}}\left|\1_{\{0\}}-0\right|^p d \lambda=\int_{\mathbb{R}} \1_{\{0\}} d \lambda=\lambda(\{0\})=0 \forall n \in \mathbb{N}$$.
+
+We now argue that $f_n \rightarrow g$ in $\lambda$-measure:\\Let $\epsilon>0$. Then $\forall n \in \mathbb{N}$ it holds that:
+
+$$
+\lambda\left(\left\{x \in X:\left|f_n(x)-g(x)\right|>\epsilon\right\}\right)=\lambda\left(\left\{x \in X: \1_{\{0\}}(x)>\epsilon\right\}\right)$$$$=\begin{cases}
+    \lambda(\{0\})=0, \quad& \text{ for }\epsilon<1 \\
+\lambda(\emptyset)=0, \quad& \text {    otherwise }
+\end{cases}
+$$
+So to use the notation from (a), we have that $$f_n \xrightarrow{(1)} \1_{\{0\}} \quad \text{ and } \quad f_n \xrightarrow{(2)} 0$$ for any two of the three main types of convergence. We also have that $\1_{\{0\}}$ and 0 are not equal on the $\lambda$-null set $\{0\}$. Therefore, we cannot generally conclude that $f(x)=g(x)$ for all $ x \in X$ in (a).
+\end{enumerate}
+\end{document}
