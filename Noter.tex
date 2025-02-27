@@ -35,6 +35,17 @@
 \newcommand{\pfield}{(\Omega, \mathcal{F}, P)}
 \newcommand \independent{\protect\mathpalette{\protect\independenT}{\perp}}
 \def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newtheoremstyle{boxed}  % Define a new theorem style
+  {10pt}   % Space above
+  {10pt}   % Space below
+  {}       % Body font
+  {}       % Indent amount
+  {\bfseries} % Theorem head font (bold)
+  {.}      % Punctuation after theorem head
+  { }      % Space after theorem head
+  {\thmname{#1}~\thmnumber{#2}\textbf{\thmnote{ (#3)}}} % Theorem head spec
+
+\theoremstyle{boxed}
 \newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{definition}[theorem]{Definition} 
 \newtheorem{lemma}[theorem]{Lemma} 
@@ -61,18 +72,6 @@
     before skip=10pt, % Space before the box
     after skip=10pt,  % Space after the box
 }
-
-\newtheoremstyle{boxed}  % Define a new theorem style
-  {10pt}   % Space above
-  {10pt}   % Space below
-  {}       % Body font
-  {}       % Indent amount
-  {\bfseries} % Theorem head font (bold)
-  {.}      % Punctuation after theorem head
-  { }      % Space after theorem head
-  {\thmname{#1}~\thmnumber{#2}\thmnote{ (#3)}}  % Theorem head spec
-
-\theoremstyle{boxed}
 \lstset{frame=tb,
   language=Python,
   aboveskip=3mm,
@@ -817,7 +816,7 @@ C & :=\left\{\left(x_n\right)_{n \in \mathbb{N}} \in \mathbb{R}^{\infty} \mid \l
 $$
 \end{remark}
 \begin{remark}[Den simultane fordeling af en følge af stokastiske variable]
-    Betragt nu et sandsynlighedsfelt $(\Omega, \mathcal{F}, P)$ og en følge $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}}$ af stokastiske variable defineret herpå.
+    Betragt nu et sandsynlighedsfelt $(\Omega, \mathcal{F}, P)$ og en følge $\left(\X_n\right)_{n \in \mathbb{N}}$ af stokastiske variable defineret herpå.
     Vi kan da betragte afbildningen $\mathbb{X}: \Omega \rightarrow \mathbb{R}^{\infty}$ givet ved
     
     $$
@@ -828,21 +827,21 @@ $$
     Vi bemærker, at $\mathbb{X}$ er $\mathcal{F}-\mathcal{B}\left(\mathbb{R}^{\infty}\right)$-målelig:
     
     $$
-    \mathbb{X}^{-1}\left(\left[B_1 \times \cdots \times B_n \times \mathbb{R} \times \mathbb{R} \cdots\right]\right)=\left\{\mathrm{x}_1 \in B_1\right\} \cap \cdots \cap\left\{\mathrm{x}_n \in B_n\right\} \stackrel{?}{\in} \mathcal{F}
+    \mathbb{X}^{-1}\left(\left[B_1 \times \cdots \times B_n \times \mathbb{R} \times \mathbb{R} \cdots\right]\right)=\left\{\X_1 \in B_1\right\} \cap \cdots \cap\left\{\X_n \in B_n\right\} \stackrel{?}{\in} \mathcal{F}
     $$
     
     for alle $n$ i $\mathbb{N}$ og $B_1, \ldots, B_n \in \mathcal{B}(\mathbb{R})$.
-    Dermed kan vi betragte fordelingen $P_{\mathrm{X}}$ af $\mathbb{X}$, dvs. ssh-målet
+    Dermed kan vi betragte fordelingen $P_{\X}$ af $\mathbb{X}$, dvs. ssh-målet
     
     $$
-    P_{\mathrm{X}}(A)=P(\mathbb{X} \in A)=P\left(\mathbb{X}^{-1}(A)\right), \quad\left(A \in \mathcal{B}\left(\mathbb{R}^{\infty}\right)\right)
+    P_{\X}(A)=P(\mathbb{X} \in A)=P\left(\mathbb{X}^{-1}(A)\right), \quad\left(A \in \mathcal{B}\left(\mathbb{R}^{\infty}\right)\right)
     $$
     
     
-    Da $\mathcal{J}$ er $\cap$-stabilt, er $P_{\mathrm{X}}$ entydigt bestemt af tallene:
+    Da $\mathcal{J}$ er $\cap$-stabilt, er $P_{\X}$ entydigt bestemt af tallene:
     
     $$
-    P_{\mathrm{X}}\left(\left[B_1 \times \cdots \times B_n \times \mathbb{R} \times \mathbb{R} \times \cdots\right]\right)=P\left(\mathrm{x}_1 \in B_1, \ldots, \mathrm{x}_n \in B_n\right)
+    P_{\X}\left(\left[B_1 \times \cdots \times B_n \times \mathbb{R} \times \mathbb{R} \times \cdots\right]\right)=P\left(\X_1 \in B_1, \ldots, \X_n \in B_n\right)
     $$
     
     for $n \in \mathbb{N}$ og $B_1, \ldots, B_n \in \mathcal{B}(\mathbb{R})$ (jvf. Sætn. 2.2.1 i [M\&I]).
@@ -851,25 +850,25 @@ $$
     Vi bemærker specielt, at
 
 $$
-\left(\mathrm{X}_n\right)_{n \in \mathbb{N}} \text { konvergerer n.o. } \Longleftrightarrow P(\mathbb{X} \in C)=1 \Longleftrightarrow P_{\mathrm{X}}(C)=1
+\left(\X_n\right)_{n \in \mathbb{N}} \text { konvergerer n.o. } \Longleftrightarrow P(\mathbb{X} \in C)=1 \Longleftrightarrow P_{\X}(C)=1
 $$
 
 og at
-$\left(\mathrm{X}_n\right)_{n \in \mathbb{N}}$ konvergerer i ssh. $\Longleftrightarrow\left(\mathrm{X}_n\right)_{n \in \mathbb{N}}$ er en Cauchy-følge i ssh.
+$\left(\X_n\right)_{n \in \mathbb{N}}$ konvergerer i ssh. $\Longleftrightarrow\left(\X_n\right)_{n \in \mathbb{N}}$ er en Cauchy-følge i ssh.
 
 $$
 \begin{aligned}
-& \Longleftrightarrow \forall \epsilon>0: \lim _{n, m \rightarrow \infty} P\left(\left|\mathrm{X}_n-\mathrm{X}_m\right|>\epsilon\right)=0 \\
-& \Longleftrightarrow \forall \epsilon>0: \lim _{n, m \rightarrow \infty} P_{\mathrm{X}}\left(\left(p_n-p_m\right)^{-1}\left([-\epsilon, \epsilon]^c\right)\right)=0 .
+& \Longleftrightarrow \forall \epsilon>0: \lim _{n, m \rightarrow \infty} P\left(\left|\X_n-\X_m\right|>\epsilon\right)=0 \\
+& \Longleftrightarrow \forall \epsilon>0: \lim _{n, m \rightarrow \infty} P_{\X}\left(\left(p_n-p_m\right)^{-1}\left([-\epsilon, \epsilon]^c\right)\right)=0 .
 \end{aligned}
 $$
 
 
-Dermed afhænger konvergens n.o. og i ssh. kun af $P_{\mathrm{X}}$.
-Hvis $P_{\mathrm{X}}=P_{\mathrm{Y}}$ gælder der altså, at
-$\left(\mathrm{X}_n\right)_{n \in \mathbb{N}}$ konvergerer i ssh./n.o. $\Longleftrightarrow\left(\mathrm{Y}_n\right)_{n \in \mathbb{N}}$ konvergerer i ssh./n.o.
+Dermed afhænger konvergens n.o. og i ssh. kun af $P_{\X}$.
+Hvis $P_{\X}=P_{\mathrm{Y}}$ gælder der altså, at
+$\left(\X_n\right)_{n \in \mathbb{N}}$ konvergerer i ssh./n.o. $\Longleftrightarrow\left(\mathrm{Y}_n\right)_{n \in \mathbb{N}}$ konvergerer i ssh./n.o.
 og at
-$\left(\sum_{k=1}^n \mathrm{X}_k\right)_{n \in \mathbb{N}}$ konv. i ssh./n.o. $\Longleftrightarrow\left(\sum_{k=1}^n \mathrm{Y}_k\right)_{n \in \mathbb{N}}$ konv. i ssh./n.o.
+$\left(\sum_{k=1}^n \X_k\right)_{n \in \mathbb{N}}$ konv. i ssh./n.o. $\Longleftrightarrow\left(\sum_{k=1}^n \mathrm{Y}_k\right)_{n \in \mathbb{N}}$ konv. i ssh./n.o.
 \end{remark}
 \begin{theorem-box}
     \begin{lemma}
@@ -915,7 +914,7 @@ Sæt endvidere $\mu_n=\mathbb{E}\left[\mathsf{X}_n\right]$ for alle $n$.
 Da gælder implikationen:
 
 $$
-\sum_{n=1}^{\infty} \mathbb{V}\left[\mathsf{X}_n\right]<\infty \Longrightarrow \sum_{n=1}^{\infty}\left(\mathrm{X}_n-\mu_n\right) \quad \text { konvergerer P-n.o. og i P-2-middel. }
+\sum_{n=1}^{\infty} \mathbb{V}\left[\mathsf{X}_n\right]<\infty \Longrightarrow \sum_{n=1}^{\infty}\left(\X_n-\mu_n\right) \quad \text { konvergerer P-n.o. og i P-2-middel. }
 $$
 
     \end{corollary}
@@ -941,7 +940,7 @@ $$
 \end{theorem-box}
 \begin{theorem-box}
     \begin{proposition}[$\mathcal{L}^2$-udgave af Store tals lov]
-        Lad $\left(\mathsf{X}_k\right)_{k \in \mathbb{N}}$ være en følge af uafhængige stokastiske variable på $(\Omega, \mathcal{F}, P)$, og antag, at $\mathrm{X}_k \in \mathcal{L}^2(P)$ for alle $k i \mathbb{N}$.
+        Lad $\left(\mathsf{X}_k\right)_{k \in \mathbb{N}}$ være en følge af uafhængige stokastiske variable på $(\Omega, \mathcal{F}, P)$, og antag, at $\X_k \in \mathcal{L}^2(P)$ for alle $k i \mathbb{N}$.
 
         Sæt endvidere $\mu_k=\mathbb{E}\left[\mathsf{X}_k\right]$ for alle $k i \mathbb{N}$.
         Da gælder implikationen:
@@ -994,6 +993,219 @@ $$
 \lim _{n \rightarrow \infty} \frac{1}{n} \sum_{j=1}^n \mathsf{X}_j=\mu \quad \text { P-n.o. og i P-1-middel. }
 $$
 
+    \end{proposition}
+\end{theorem-box}
+\section{Konvergens i fordeling}
+\subsection{Svag konvergens og konvergens i fordeling}
+\begin{theorem-box}
+    \begin{definition}[Svag konvergens af sandsynlighedsmål]
+        Lad $(S,\rho)$ være et metrisk rum, og lad $\mu,\mu_1,\mu_2,\ldots$ være sandsynlighedsmål på $(S,\mathcal{B}(S))$. Vi siger da, at $\mu_n$ \textbf{konvergerer svagt} imod $\mu$ for $n\rightarrow \infty$ (skrevet: $\mu_n \xlongrightarrow{\mathrm{w}}\mu$), hvis følgende betingelse er opfyldt:
+        $$\forall f\in C_b(S):\;\lim_{n\rightarrow \infty}\int_Sf(s)\mu_n(\deriv s)=\int_Sf(s)\mu(\deriv s).$$
+    \end{definition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{definition}[Konvergens i fordeling]
+        Lad $(S,\rho)$ være et metrisk rum, og lad $\X,\X_1,\X_2,\ldots$ være stokastiske funktioner på $\pfield$ med værdier i $(S,\rho)$.
+
+        Vi siger da, at $\X_n$ konvergerer mod $\X$ \textbf{i fordeling} (skrevet: $\X_n\xlongrightarrow{\sim}\X$), hvis $P_{\X_n}\xlongrightarrow{\mathrm{w}}P_\X$.\\Udskrevet er betingelsen altså:
+        $$
+        \forall f \in C_b(S): \mathbb{E}\left[f\left(\mathsf{X}_n\right)\right]=\int_S f \mathrm{~d} P_{\mathsf{X}_n} \xlongrightarrow[n \rightarrow \infty]{ } \int_S f \mathrm{~d} P_{\mathsf{X}}=\mathbb{E}[f(\mathsf{X})] .
+        $$
+        
+        
+        Hvis $\mu$ er et sandsynlighedsmål på $(S, \mathcal{B}(S))$, siger vi tilsvarende, at $\X_n$ konvergerer mod $\mu$ i fordeling (skrevet: $\mathsf{X}_n \xrightarrow{\sim} \mu$ ), hvis $P_{\mathsf{X}_n} \xrightarrow{\mathrm{ w }} \mu$.
+        
+        Udskrevet er betingelsen altså:
+        
+        $$
+        \forall f \in C_b(S): \mathbb{E}\left[f\left(\mathsf{X}_n\right)\right]=\int_S f \mathrm{~d} P_{\mathsf{X}_n} \xrightarrow[n \rightarrow \infty]{ } \int_S f \mathrm{~d} \mu
+        $$
+        
+    \end{definition}
+\end{theorem-box}
+\begin{remark}
+    \begin{enumerate}
+        \item \textbf{Udvidelse til komplekse funktioner:}
+        \\Lad ( $S, \rho$ ) være et metrisk rum, og lad $\X, \X_1, \X_2, \X_3, \ldots$ være stokastiske funktioner på $(\Omega, \mathcal{F}, P)$ med værdier i $(S, \rho)$.
+        
+        Lad videre $\mu$ være et sandsynlighedsmål på ( $S, \mathcal{B}(S)$ ), og antag, at $\X_k \xrightarrow{\sim} \mu$ for $k \rightarrow \infty$.
+        
+        For enhver funktion $f$ i $C_b(S, \mathbb{C})$ har vi oplagt, at $\operatorname{Re}(f), \operatorname{Im}(f) \in C_b(S, \mathbb{R})$, og dermed at
+        
+        $$
+        \begin{aligned}
+        \mathbb{E}\left[f\left(\X_k\right)\right] & =\mathbb{E}\left[\operatorname{Re}\left(f\left(\X_k\right)\right)\right]+\mathrm{i} \mathbb{E}\left[\operatorname{lm}\left(f\left(\X_k\right)\right)\right] \\
+        & \xrightarrow[k \rightarrow \infty]{ } \int_S \operatorname{Re}(f) \mathrm{d} \mu+\mathrm{i} \int_S \operatorname{Im}(f) \mathrm{d} \mu=\int_S f \mathrm{~d} \mu
+        \end{aligned}
+        $$
+        
+        
+        Specielt ser vi i tilfældet $S=\mathbb{R}^d$, at
+        
+        $$
+        \varphi_{\X_k}(t)=\mathbb{E}\left[\mathrm{e}^{\mathrm{i}\left(t, \X_k\right\rangle}\right] \underset{k \rightarrow \infty}{\longrightarrow} \int_{\mathbb{R}^n} \mathrm{e}^{\mathrm{i}(t, x)} \mu(\mathrm{d} x)=\hat{\mu}(t) \quad \text { for alle } t \mathrm{i} \mathbb{R}^d .
+        $$
+        \item \textbf{Overgang til ækvivalent metrik}
+        \\Lad $\mathsf{X}, \mathsf{X}_1, \mathsf{X}_2, \mathsf{X}_3, \ldots$ være stokastiske funktioner med værdier i et metrisk $\operatorname{rum}(S, \rho)$.
+
+        Da ændres definitionen af, at $\X_n \xrightarrow{\sim} \X$, ikke, hvis $\rho$ erstattes af en ækvivalent metrik $\rho^{\prime}$ på $S$.
+        
+        I denne situation gælder der nemlig, at
+        
+        $$
+        C_b(S, \rho)=C_b\left(S, \rho^{\prime}\right)
+        $$
+        
+        og dermed ændres ikke på betingelsen:
+        
+        $$
+        \forall f \in C_b(S, \rho): \mathbb{E}\left[f\left(\X_n\right)\right] \xrightarrow[n \rightarrow \infty]{\longrightarrow} \mathbb{E}[f(\X)]
+        $$
+        
+    \end{enumerate}
+\end{remark}
+\begin{theorem-box}
+    \begin{proposition}[Entydighedssætning for mål]
+        Lad $(S, \rho)$ være et metrisk rum, og lad $\mu$ og $\nu$ være to sandsynlighedsmål på $(S, \mathcal{B}(S))$.
+
+Antag videre, at
+
+$$
+\int_S f \mathrm{~d} \mu=\int_S f \mathrm{~d} \nu \quad \text { for alle f i }  C_b(S)^{+}
+$$
+
+
+Da er $\mu=\nu$.
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}[Entydighed af grænse ved konvergens i fordeling]
+        Betragt et metrisk rum $(S, \rho)$.
+        \begin{enumerate}
+            \item Lad $\nu, \mu, \mu_1, \mu_2, \mu_3, \ldots$ være sandsynlighedsmål på $(S, \mathcal{B}(S))$, og antag, at
+
+            $$
+            \mu_n \xrightarrow{\mathrm{~w}} \mu, \text { og } \mu_n \xrightarrow{\mathrm{~w}} \nu \text { for } n \rightarrow \infty .
+            $$
+            
+            
+            Da gælder $\mu=\nu$.
+            \item Lad $\mathsf{Y}, \mathsf{X}, \mathsf{X}_1, \mathsf{X}_2, \mathsf{X}_3, \ldots$ være stokastiske funktioner på $(\Omega, \mathcal{F}, P)$ med værdier $i(S, \rho)$, og antag, at
+
+            $$
+            \mathsf{X}_n \xrightarrow{\sim} \mathsf{X}, \quad \text { og } \quad \mathsf{X}_n \xrightarrow{\sim} \mathsf{Y}
+            $$
+            
+            
+            Da gælder $\X\sim\Y$.
+        \end{enumerate}
+
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Styrkeforhold]
+        Lad $\X, \X_1, \X_2, \X_3, \ldots$ være stokastiske funktioner på $(\Omega, \mathcal{F}, P)$ med værdier $i$ et separabelt metrisk rum $(S, \rho)$.
+
+Da gælder implikationen:
+
+$$
+\X_n \xrightarrow{P} \X \Longrightarrow \X_n \xrightarrow{\sim} \X .
+$$
+
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\X, \X_1, \X_2, \X_3, \ldots$ være stokastiske funktioner på $(\Omega, \mathcal{F}, P)$ med værdier $i$ et separabelt metrisk rum $(S, \rho)$.
+
+Antag endvidere, at
+
+$$
+\exists a \in S: P(X=a)=1
+$$
+
+
+Da gælder bi-implikationen:
+
+$$
+\X_n \xrightarrow{\mathrm{P}} \X \Longleftrightarrow \X_n \xrightarrow{\sim} \X .
+$$
+
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\X_1, \X_2, \X_3, \ldots$ være stokastiske funktioner på $(\Omega, \mathcal{F}, P)$ med værdier $i$ et metrisk rum $(S, \rho)$, og lad $\mu$ være et sandsynlighedsmål på $(S, \mathcal{B}(S))$.
+
+Antag, at $\X_n \xrightarrow{\sim} \mu$.
+Da gælder der, at
+
+$$
+\int_S g \mathrm{~d} \mu=\lim _{n \rightarrow \infty} \mathbb{E}\left[g\left(\X_n\right)\right]
+$$
+
+for enhver begr. funktion g i $\mathcal{M}(\mathcal{B}(S))$, som er kontinuert i $\mu$-n.a. x i S.
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{definition}[Lipschitz-afbildninger]
+        Lad $(S, \rho)$ og $(T, \delta)$ være metriske rum.
+En afbildning $f: S \rightarrow T$ siges da at være en Lipschitz afbildning, hvis der findes en konstant $K$ i $(0, \infty)$, således at
+
+$$
+\delta(f(x), f(y)) \leq K \rho(x, y) \quad \text { for alle } x, y \text { i } S .
+$$
+
+
+Med $\operatorname{Lip}(S, \rho)$ betegnes mængden af Lipschitz funktioner $f:(S, \rho) \rightarrow \mathbb{R}$.
+\\Med $\operatorname{Lip}_b(S, \rho)$ betegnes mængden af begrænsede Lipschitz funktioner $f:(S, \rho) \rightarrow \mathbb{R}$.
+    \end{definition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $S$ og $T$ være ikke-tomme mængder, og lad $G: S \times T \rightarrow \mathbb{R}$ være en nedadtil begrænset funktion (dvs. G opfylder, at $\left.\inf _{(x, y) \in S \times T} G(x, y)>-\infty\right)$.
+
+For vilkårlige $x, x^{\prime}$ i S gælder der da, at
+
+$$
+\left|\inf _{y \in T} G(x, y)-\inf _{y \in T} G\left(x^{\prime}, y\right)\right| \leq \sup _{y \in T}\left|G(x, y)-G\left(x^{\prime}, y\right)\right| .
+$$
+
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $(S, \rho)$ være et metrisk rum, og lad $g: S \rightarrow[0, \infty)$ være en vilkårlig ikke-negativ funktion. Betragt for hvert $k i \mathbb{N}$ funktionen $g_k: S \rightarrow[0, \infty)$ givet ved
+
+$$
+g_k(x)=\inf _{y \in S}(g(y)+k \rho(x, y)), \quad(x \in S)
+$$
+\begin{enumerate}
+    \item[\textnormal{(i)}] For hvert $k i \mathbb{N}$ er $g_k$ en Lipschitz funktion med konstant $k$ :
+
+    $$
+    \left|g_k(x)-g_k\left(x^{\prime}\right)\right| \leq k \rho\left(x, x^{\prime}\right), \quad\left(x, x^{\prime} \in S\right)
+    $$
+    \item[\textnormal{(ii)}] For vilkårlige $k i \mathbb{N}, x$ iS og $r>0$ gælder der, at
+
+    $$
+    0 \leq\left(\inf _{y \in b(x, r)} g(y)\right) \wedge k r \leq g_k(x) \leq g_{k+1}(x) \leq g(x)
+    $$
+    \item[\textnormal{(iii)}] Hvis $g$ er kontinuert i $x \in S$, gæ/der der, at $g_k(x) \uparrow g(x)$ for $k \rightarrow \infty$.
+\end{enumerate}
+    \end{lemma}
+\end{theorem-box}
+\subsection{Portmanteau sætningerne}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\X_1, \X_2, \X_3, \ldots$ være stokastiske funktioner på $(\Omega, \mathcal{F}, P)$ med værdier $i$ et metrisk rum $(S, \rho)$, og lad $\mu$ være et sandsynlighedsmål på $(S, \mathcal{B}(S))$.
+
+Da er følgende betingelser ækvivalente:
+\begin{enumerate}
+    \item[\textnormal{(i)}] $\X_n \xrightarrow{\sim} \mu$.
+    \item[\textnormal{(ii)}] $\forall f \in C(S)^{+}: \int_S f \mathrm{~d} \mu \leq \liminf _{n \rightarrow \infty} \mathbb{E}\left[f\left(\X_n\right)\right]$.
+    \item[\textnormal{(iii)}] $\forall f \in C_b(S)^{+}: \int_S f \mathrm{~d} \mu \leq \liminf _{n \rightarrow \infty} \mathbb{E}\left[f\left(\X_n\right)\right]$.
+\end{enumerate}
     \end{proposition}
 \end{theorem-box}
 \end{document}

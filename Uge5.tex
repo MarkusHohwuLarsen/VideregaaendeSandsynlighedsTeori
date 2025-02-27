@@ -1,0 +1,158 @@
+\documentclass{Class}
+\input{Preamble}
+\title{Uge 5}
+\author{Markus Hohwü Larsen}
+\begin{document}
+\problem{2.14}
+Lad $(X, \mathcal{E}, \mu)$ være et målrum. Vis da, at konvergens $\mu$-n.o. er et fuldstændigt konvergensbegreb. Mere præcist: Vis, at hvis $\left(f_n\right)$ er en følge fra $\mathcal{M}(\mathcal{E})$, som er en Cauchy-følge $\mu$-n.o., da findes en funktion $f$ fra $\mathcal{M}(\mathcal{E})$, således at $f_n \rightarrow f \mu$-n.o.
+\solution 
+Antag, at $\left(f_n\right)$ er en følge fra $\mathcal{M}(\mathcal{E})$, som er en Cauchy-følge $\mu$-n.o. Så findes der en $\mu$-nulmængde $N \in \mathcal{E}$, således at $\left(f_n(x)\right)$ er en Cauchy-følge for alle $x \in N^{\mathrm{c}}$. For hvert $x \in N^c$ må der derfor gælde, at $\lim _{n \rightarrow \infty} f_n(x)$ eksisterer i $\mathbb{R}$. Lad nu $C=\left\{\lim _{n \rightarrow \infty} f_n\right.$ eksisterer i $\left.\mathbb{R}\right\}$, og betragt funktionen $f: X \rightarrow \mathbb{R}$ givet ved
+$$
+f(x)= \begin{cases}\lim _{n \rightarrow \infty} f_n(x) & \text { hvis } x \in C \\ 0 & \text { hvis } x \in C^c\end{cases}
+$$
+Vi bemærker, at $f_n \rightarrow f \mu$-n.o. Desuden giver Korollar 4.3.11 i [M\&I], at $f \in \mathcal{M}(\mathcal{E})$.
+\problem{2.15(c)}
+Lad $(X, \mathcal{E}, \mu)$ være et målrum, og lad $f, f_1, f_2, \ldots$ være funktioner fra $\mathcal{M}(\mathcal{E})$.
+\begin{enumerate}
+    \item[(c)]Vis at der gælder folgende implikation: $f_n \rightarrow f$ i $\mu$-mål $\Longrightarrow\left(f_n\right)$ er en Cauchy-følge i $\mu$-mål.
+\end{enumerate}
+\solution
+Antag, at $f_n \rightarrow f$ i $\mu$-mål. Vi skal nu vise, at
+
+$$
+\forall \epsilon>0: \lim _{n, m \rightarrow \infty} \mu\left(\left\{\left|f_n-f_m\right|>\epsilon\right\}\right)=0
+$$
+
+
+Lad derfor $\epsilon>0$ være givet. For $m, n \in \mathbb{N}$ gælder der, at
+
+$$
+\left|f_n-f_m\right|=\left|f_n-f+f-f_m\right| \leq\left|f_n-f\right|+\left|f-f_m\right|
+$$
+
+
+Derfor gælder der, at
+
+$$
+\begin{aligned}
+\mu\left(\left\{\left|f_n-f_m\right|>\epsilon\right\}\right) & \leq \mu\left(\left\{\left|f_n-f\right|+\left|f-f_m\right|>\epsilon\right\}\right) \\
+& \leq \mu\left(\left\{\left|f_n-f\right|>\epsilon / 2\right\} \cup\left\{\left|f-f_m\right|>\epsilon / 2\right\}\right) \\
+& \leq \mu\left(\left\{\left|f_n-f\right|>\epsilon / 2\right\}\right)+\left\{\left|f-f_m\right|>\epsilon / 2\right\}
+\end{aligned}
+$$
+
+for alle $m, n \in \mathbb{N}$. Idet højresiden gå $\bmod 0$ for $n, m \rightarrow \infty$, har vi det ønskede.
+% \problem{2.16}
+
+\problem{3.1}
+Lad $(X, \mathcal{E}, \mu)$ være et endeligt målrum, og lad $f$ være en funktion fra $\mathcal{M}(\mathcal{E})$. Vis da bi-implikationen:
+
+$$
+f \in \mathcal{L}^1(\mu) \Longleftrightarrow \forall \epsilon>0 \exists K>0: \int_{\{|f|>K\}}|f| \mathrm{d} \mu \leq \epsilon
+$$
+Gælder nogen af implikationerne, hvis $\mu$ ikke er et endeligt mål?
+\solution
+Antag først, at $f \in \mathcal{L}^1(\mu)$. Vi bemærker, at $1_{\{|f|>K\}}|f| \rightarrow 0$ for $K \rightarrow \infty$. Med $|f|$ som majorant, fär vi vha. domineret konvergens, at
+
+$$
+\int_{\{|f|>K\}}|f| \mathrm{d} \mu \rightarrow 0
+$$
+
+for $K \rightarrow \infty$. For ethvert $\epsilon>0$ kan vi derfor vælge $K>0$ med
+
+$$
+\int_{\{|f|>K\}}|f| \mathrm{d} \mu \leq \epsilon .
+$$
+
+
+Antag omvendt, at
+
+$$
+\forall \epsilon>0 \exists K>0: \int_{\{|f|>K\}}|f| \mathrm{d} \mu \leq \epsilon .
+$$
+
+
+Vi kan specielt valge $K>0$ saledes, at
+
+$$
+\int_{\{|f|>K\}}|f| \mathrm{d} \mu \leq 1
+$$
+
+
+Idet $\mu(X)<\infty$ gælder der, at
+
+$$
+\int_X|f| \mathrm{d} \mu=\int_{\{|f| \leq K\}}|f| \mathrm{d} \mu+\int_{\{|f|>K\}}|f| \mathrm{d} \mu \leq K \mu(X)+1<\infty,
+$$
+
+hvilket netop viser, at $f \in \mathcal{L}^1(\mathbb{P})$.
+Vi ser, at implikationen fra venstre mod højre ogsa holder, hvis $\mu$ ikke er et endeligt mål. Argumentet for den modsatte implikation benyttede derimod, at $\mu(X)<\infty$. Vi kan let give et modeksempel, som viser, at implikationen ikke gælder generelt, hvis $\mu(X)=\infty$. Betragt $(X, \mathcal{E}, \mu)=(\mathbb{R}, \mathcal{B}(\mathbb{R}), \lambda)$ og $f \equiv 1$. Da er $f$ ikke et element i $\mathcal{L}^1(\lambda)$. For et givet $\epsilon>0$, vælger vi $K=1$. Da gælder der, at
+$$
+\int_{\{|f|>1\}}|f| \mathrm{d} \lambda=\int_{\emptyset} 1 \mathrm{~d} \lambda=0 \leq \epsilon
+$$
+Altså har vi her et modeksempel, der viser, at implikationen fra højre mod venstre ikke gælder generelt, hvis $\mu(X)=\infty$.
+% \problem{3.2}
+\problem{3.4}
+Lad $(X, \mathcal{E}, \mu)$ være et endeligt målrum, og lad $\left(f_n\right)$ være en følge af funktioner fra $\mathcal{M}(\mathcal{E})$. Antag endvidere, at der findes funktioner $f \in \mathcal{M}(\mathcal{E})$ og $g \in \mathcal{M}(\mathcal{E})^{+}$, således at
+
+$$
+f_n \rightarrow f \text { i } \mu \text {-màl for } n \rightarrow \infty
+$$
+
+og
+
+$$
+\left|f_n\right| \leq g \mu \text {-n.o. for alle } n, \quad \text { og } \quad \int_X g \mathrm{~d} \mu<\infty
+$$
+\begin{enumerate}
+    \item Vis, at $\int_X f_n \mathrm{~d} \mu \rightarrow \int_X f \mathrm{~d} \mu$.
+    \item Gør rede for, at resultatet i (a) er en generalisering af Lebesgues sætning om domineret konvergens for endelige målrum.
+    \item Giv et eksempel på et endeligt målrum $(X, \mathcal{E}, \mu)$ og en følge af funktioner $\left(f_n\right)$ fra $\mathcal{M}(\mathcal{E})$, således at $f_n \rightarrow 0 \mu$-n.o., og $\left(f_n\right)$ er uniformt integrabel, men også sådan at der ikke findes en majorant $g$ fra $\mathcal{M}(\mathcal{E})^{+}$, således at
+
+    $$
+    \left|f_n\right| \leq g \mu \text {-n.o. for alle } n, \quad \text { og } \quad \int_X g \mathrm{~d} \mu<\infty
+    $$
+    
+    
+    Vis, at der i denne situation alligevel gælder, at $\int_X f_n \mathrm{~d} \mu \rightarrow 0$ for $n \rightarrow \infty$.
+\end{enumerate}
+\solution
+\begin{enumerate}
+    \item Idet $g \in \mathcal{L}^1(\mu)^{+}$, følger det fra Lemma 3.1.3 (ii), at $\left\{f_n \mid n \in \mathbb{N}\right\}$ er uniformt integrabel. Da vi samtidig har, at $f_n \rightarrow f$ i $\mu$-mål, giver Sætning 3.2.1, at $f \in \mathcal{L}^1(\mu)$, $f_n \in \mathcal{L}^1(\mu)$ for alle $n, \operatorname{og} f_n \rightarrow f$ i $\mu$-middel. Vi ser nu, at
+
+    $$
+    \left|\int_X f_n \mathrm{~d} \mu-\int_X f \mathrm{~d} \mu\right|=\left|\int_X f_n-f \mathrm{~d} \mu\right| \leq \int_X\left|f_n-f\right| \mathrm{d} \mu \rightarrow 0
+    $$
+    
+    
+    Dette viser, at $\int_X f_n \mathrm{~d} \mu \rightarrow \int_X f \mathrm{~d} \mu$.
+    \item Lebesgues sætning om domineret konvergens for endelige målrum kan formuleres således:
+
+    \begin{theorem-manual}{1}
+        Lad $(X, \mathcal{E}, \mu)$ vare et endeligt mälrum, og lad $f_1, f_1, f_2, \ldots$ vare funktioner fra $\mathcal{M}(\mathcal{E})$, sáledes at $f_n \rightarrow f \mu$-n.o. Antag endvidere, at der findes $g \in \mathcal{L}^1(\mu)^{+}$, salledes at $\left|f_n\right| \leq g \mu$-n.o. for alle $n$. Da galder der, at
+    
+    $$
+    \int_X f_n \mathrm{~d} \mu \rightarrow \int_X f \mathrm{~d} \mu
+    $$
+    \end{theorem-manual}
+    
+    
+    Opgaven er nu at vise denne sætning vha. delopgave (a). Idet målrummet er endeligt, og $f_n \rightarrow f \mu$-n.o., giver Sætning 2.1 .5 (ii), at $f_n \rightarrow f$ i $\mu$-mål. Vi ser nu, at antagelserne i (a) er opfyldt, så det følger, at $\int_X f_{\mathrm{n}} \mathrm{d} \mu \rightarrow \int_X f \mathrm{~d} \mu$ som ønsket.
+    \item Lad $(X, \mathcal{E}, \mu)=\left([0,1], \mathcal{B}([0,1]), \lambda_{[0,1]}\right)$, og lad $f_n(x)=x^{-1} 1_{[1 /(n+1), 1 / n]}(x)$ for $x \in[0,1]$ og $n \in \mathbb{N}$. Bemærk, at $f_n \rightarrow 0 \mu$-n.o. For ethvert $n \in \mathbb{N}$ gælder der, at
+
+    $$
+    \int_X f_n^2 \mathrm{~d} \mu=\int_{1 /(n+1)}^{1 / n} x^{-2} \lambda(\mathrm{~d} x) \leq(n+1)^2(1 / n-1 /(n+1))=\frac{(n+1)^2}{n(n+1)} \leq 2
+    $$
+    
+    
+    Da har vi, at
+    
+    $$
+    \sup _{n \in \mathbb{N}} \int_X f_n^2 \mathrm{~d} \mu \leq 2<\infty
+    $$
+    
+    
+    Eksempel 3.1.7 med $p=2$ giver så, at $\left\{f_n \mid n \in \mathbb{N}\right\}$ er uniformt integrabel. Hvis vi nu betragter en funktion $g \in \mathcal{M}(\mathcal{E})^{+}$, som opfylder, at $g \geq\left|f_n\right| \mu$-n.o. for alle $n$, så må der gælde, at $g(x) \geq x^{-1}$ for $\mu$-n.a. $x \in(0,1]$. Det følger, at $g \notin \mathcal{L}^1(\mu)$.
+    Lad nu $(X, \mathcal{E}, \mu)$ være et endeligt målrum, og lad $f, f_1, f_2, \ldots$ være funktioner fra $\mathcal{M}(\mathcal{E})$. Antag, at $\left\{f_n \mid n \in \mathbb{N}\right\}$ er uniformt integrabel, og at $f_n \rightarrow 0 \mu$-n.o. Sætning 2.1.5 (ii) giver, at $f_n \rightarrow 0$ i $\mu$-mål. På samme måde som i delopgave (a) får vi, vha. Sætning 3.2.1, at $\int_X f_n \mathrm{~d} \mu \rightarrow \int_X 0 \mathrm{~d} \mu=0$.
+\end{enumerate}
+\end{document}

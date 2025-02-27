@@ -40,7 +40,11 @@
 \newtheorem{corollary}[theorem]{Korollar} 
 \newtheorem{remark}[theorem]{Bemærkning} 
 \newtheorem{proposition}[theorem]{Sætning} 
-\newtheorem{example}[theorem]{Eksempel} 
+\newtheorem{example}[theorem]{Eksempel}
+\newtheorem{manualtheorem}{Theorem}
+\newenvironment{theorem-manual}[1] 
+  {\renewcommand\themanualtheorem{#1}\manualtheorem}
+  {\endmanualtheorem}
 \usepackage{geometry}
     \geometry{
         a4paper,
@@ -67,7 +71,7 @@
   {\bfseries} % Theorem head font (bold)
   {.}      % Punctuation after theorem head
   { }      % Space after theorem head
-  {\thmname{#1}~\thmnumber{#2}\thmnote{ (#3)}}  % Theorem head spec
+  {\thmname{#1}~\thmnumber{#2}\textbf{\thmnote{ (#3)}}}  % Theorem head spec
 
 \theoremstyle{boxed}
 \lstset{frame=tb,
