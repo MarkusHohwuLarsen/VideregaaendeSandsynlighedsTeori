@@ -28,7 +28,7 @@
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\lclass}{\mathcal{L}}
 \newcommand{\Prob}{\mathbb{P}}
-\newcommand{\deriv}{\operatorname{d}}
+\newcommand{\deriv}{\mathrm{~d}}
 \newcommand{\icomp}{\operatorname{i}}
 \newcommand{\varx}{\varphi_\X}
 \newcommand{\pfield}{(\Omega, \mathcal{F}, P)}
@@ -45,6 +45,10 @@
 \newenvironment{theorem-manual}[1] 
   {\renewcommand\themanualtheorem{#1}\manualtheorem}
   {\endmanualtheorem}
+  \newtheorem{manualprop}{Proposition}
+  \newenvironment{prop-manual}[1] 
+    {\renewcommand\themanualprop{#1}\manualprop}
+    {\endmanualprop}
 \usepackage{geometry}
     \geometry{
         a4paper,

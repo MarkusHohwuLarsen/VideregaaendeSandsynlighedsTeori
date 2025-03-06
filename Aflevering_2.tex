@@ -1,0 +1,41 @@
+\documentclass{Class}
+\input{Preamble}
+\title{Assignment 2}
+\author{Markus Hohwü Larsen - 202205800}
+\begin{document}
+\problem{1.7}
+Let $\X=(\X_1,\dots, \X_d)$ and $\Y=(\Y_1,\dots,\Y_m)$ be $d-$ and $m-$ dimensional stochastic vectors defined on the probability field $\pfield$. Further consider the usual inner products, $\langle\cdot,\cdot\rangle_d$ and $\langle\cdot,\cdot\rangle_m$ on $\R^d$ and $\R^m.$
+\begin{enumerate}
+    \item Assume $d=m$. Show, that $\X\sim\Y$, if and only if $\langle t,\X\rangle_d\sim\langle t,\Y\rangle_d$ for all vectors $t=(t_1,\dots, t_d)$ in $\R^d$
+    \item Show, that $\X$ and $\Y$ are independent, if and only if the stochastic variables $\langle t,\X\rangle_d$ and $\langle s,\Y\rangle_m$ are independent for all vectors $t=(t_1,\dots, t_d)$ in $\R^d$ and $s=(s_1,\dots,s_m)$ in $\R^m$.
+\end{enumerate}
+\solution
+\begin{enumerate}
+    \item We first assume $\X \sim \Y$. Then it holds that $\langle t, \X\rangle_d \sim\langle t, \Y\rangle_d$ for $t \in \mathbb{R}^d$, since this will be the result of multiplying by some scalar.
+
+    We now assume $\langle t, \X\rangle_d \sim\langle t, \Y\rangle_d$ for $t \in \mathbb{R}^d$. We calculate:
+    $$
+    \varphi_\X(t)=\mathbb{E}\left[e^{i\langle t, \X\rangle_d}\right]=\mathbb{E}\left[e^{i(t, \Y\rangle_d}\right]=\varphi_\Y(t) \forall t \in \mathbb{R}^d
+    $$
+    
+    
+    Since their characteristic functions are equal, by 1.2.5(i) they must be identically distributed. So in conclusion:
+    
+    $$
+    \X \sim \Y \Leftrightarrow\langle t, \X\rangle_d \sim\langle t, \Y\rangle_d \forall t \in \mathbb{R}^d
+    $$
+    \item Assume that $\X$ and $\Y$ are independent. Then it again follows, that $\langle t, \X\rangle_d \sim\langle s, \Y\rangle_m$ also are independent $\forall t \in \mathbb{R}^d, \forall s \in \mathbb{R}^m$.
+
+    We now assume $\langle t, \X\rangle_d \sim\langle s, \Y\rangle_m$ are independent $\forall t \in \mathbb{R}^d, \forall s \in \mathbb{R}^m$. We once again calculate the characteristic functions: 
+    $$
+    \begin{aligned}
+    \varphi_{(\X, \Y)}(t, s)=\mathbb{E}\left[e^{i((t, s),(\X, \Y)\rangle_{d+m}}\right] & =\mathbb{E}\left[e^{i\left((t, \X)_d+(s, \Y\rangle_m\right)}\right]=\mathbb{E}\left[e^{i(t, \X)_d} e^{i(s, \Y\rangle_m}\right] \\
+    \stackrel{\independent}{=} \mathbb{E}\left[e^{i\langle t, X\rangle_d}\right] \mathbb{E}\left[e^{i(s, Y\rangle_m}\right] & =\phi_X(t) \phi_Y(s), \forall t \in \mathbb{R}^d, \forall s \in \mathbb{R}^m
+    \end{aligned}
+    $$ Which by 1.2.7 means that $\X$ and $\Y$ are independent. We have thus shown that
+    $$
+    \X \independent \Y \Leftrightarrow\langle t, \X\rangle_d \independent\langle t, \Y\rangle_d
+    $$
+    
+\end{enumerate}
+\end{document}
