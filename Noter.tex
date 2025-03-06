@@ -865,10 +865,10 @@ $$
 
 
 Dermed afhænger konvergens n.o. og i ssh. kun af $P_{\X}$.
-Hvis $P_{\X}=P_{\mathrm{Y}}$ gælder der altså, at
-$\left(\X_n\right)_{n \in \mathbb{N}}$ konvergerer i ssh./n.o. $\Longleftrightarrow\left(\mathrm{Y}_n\right)_{n \in \mathbb{N}}$ konvergerer i ssh./n.o.
+Hvis $P_{\X}=P_{\Y}$ gælder der altså, at
+$\left(\X_n\right)_{n \in \mathbb{N}}$ konvergerer i ssh./n.o. $\Longleftrightarrow\left(\Y_n\right)_{n \in \mathbb{N}}$ konvergerer i ssh./n.o.
 og at
-$\left(\sum_{k=1}^n \X_k\right)_{n \in \mathbb{N}}$ konv. i ssh./n.o. $\Longleftrightarrow\left(\sum_{k=1}^n \mathrm{Y}_k\right)_{n \in \mathbb{N}}$ konv. i ssh./n.o.
+$\left(\sum_{k=1}^n \X_k\right)_{n \in \mathbb{N}}$ konv. i ssh./n.o. $\Longleftrightarrow\left(\sum_{k=1}^n \Y_k\right)_{n \in \mathbb{N}}$ konv. i ssh./n.o.
 \end{remark}
 \begin{theorem-box}
     \begin{lemma}
@@ -1205,6 +1205,232 @@ Da er følgende betingelser ækvivalente:
     \item[\textnormal{(i)}] $\X_n \xrightarrow{\sim} \mu$.
     \item[\textnormal{(ii)}] $\forall f \in C(S)^{+}: \int_S f \mathrm{~d} \mu \leq \liminf _{n \rightarrow \infty} \mathbb{E}\left[f\left(\X_n\right)\right]$.
     \item[\textnormal{(iii)}] $\forall f \in C_b(S)^{+}: \int_S f \mathrm{~d} \mu \leq \liminf _{n \rightarrow \infty} \mathbb{E}\left[f\left(\X_n\right)\right]$.
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{remark}
+\end{remark}
+\begin{theorem-box}
+\begin{proposition}[Portmanteau Sætning I]
+    Lad $\X, \X_1, \X_2, \X_3, \ldots$ være stokastiske funktioner på $(\Omega, \mathcal{F}, P)$ med værdier $i$ et metrisk rum $(S, \rho)$, og lad $\mu$ være et sandsynlighedsmål på $(S, \mathcal{B}(S))$.
+    Da er følgende betingelser ækvivalente:
+    \begin{enumerate}
+        \item[\textnormal{(i)}] $\X_n \xrightarrow{\sim} \mu$.
+        \item[\textnormal{(ii)}] $\int_S g \mathrm{~d} \mu \leq \liminf _{n \rightarrow \infty} \mathbb{E}\left[g\left(\X_n\right)\right] \quad$ for alle $g i \operatorname{Lip}_b(S, \rho)^{+}$.
+        \item[\textnormal{(iii)}]$\mu(G) \leq \liminf _{n \rightarrow \infty} P\left(\X_n \in G\right) \quad$ for enhver åben delmængde. $G$ af $S$.
+        \item[\textnormal{(iv)}] $\mu(F) \geq \underset{n \rightarrow \infty}{\limsup } P\left(\X_n \in F\right) \quad$ for enhver lukket delmængde. $F$ af $S$.
+    \end{enumerate}
+\end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\X, \X_1, \X_2, \X_3, \ldots$ være stokastiske funktioner på $(\Omega, \mathcal{F}, P)$ med værdier $i$ et metrisk rum $(S, \rho)$, og lad $\mu$ være et sandsynlighedsmål på $(S, \mathcal{B}(S))$. Da er følgende betingelser ækvivalente:
+\begin{enumerate}
+    \item[\textnormal{(i)}] $\X_n \xrightarrow{\sim} \mu$.
+    \item[\textnormal{(ii)}] For enhver mængde B i $\mathcal{B}(S)$ gælder der, at
+
+    $$
+    \mu\left(B^{\circ}\right) \leq \liminf _{n \rightarrow \infty} P\left(\X_n \in B\right) \leq \limsup _{n \rightarrow \infty} P\left(\X_n \in B\right) \leq \mu(\bar{B})
+    $$
+    
+    hvor $B^{\circ}=\left(\overline{B^c}\right)^c \subseteq\left(B^c\right)^c=B \subseteq \bar{B}$.
+\end{enumerate} 
+Hvis (i) og (ii) er opfyldte, gælder der yderligere, at
+
+$$
+\mu(B)=\lim _{n \rightarrow \infty} P\left(\X_n \in B\right)
+$$
+
+for enhver mængde $B$ fra $\mathcal{B}(S)$, således at $\mu\left(\bar{B} \backslash B^{\circ}\right)=0$.
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Portmanteau Sætning II]
+        Lad $(S, \rho)$ og $(T, \delta)$ være metriske rum, og udstyr $S \times T$ med en produktmetrik $\eta$.
+Betragt endvidere stokastiske funktioner $\X, \X_1, \X_2, \X_3, \ldots$ og $\Y, \Y_1, \Y_2, \Y_3, \ldots$ med værdier i hhv. $(S, \rho)$ og $(T, \delta)$.
+Da gælder følgende udsagn:
+\begin{enumerate}
+    \item[\textnormal{(i)}]Hvis $\X_n \xrightarrow{\sim} \X$, gælder der også, at $f\left(\X_n\right) \xrightarrow{\sim} f(\X)$ for enhver kontinuert afbildning $f: S \rightarrow T$.
+    \item[\textnormal{(ii)}]Antag, at $(T, \delta)$ er separabelt. Hvis $\X_n \xrightarrow{\sim} \X, \Y_{\boldsymbol{n}} \xrightarrow{\sim} \Y$, og Y er udartet, så gælder der også, at $\left(\X_n, \Y_n\right) \xrightarrow{\sim}(\X, \Y)$.
+    \item[\textnormal{(iii)}]Antag, at $(S, \rho)$ og $(T, \delta)$ er separable. Hvis $\X_n \xrightarrow{\sim} \X, \Y_n \xrightarrow{\sim} \Y$ og $\X_n, \Y_n$ er uafhængige for alle $n$, da gælder der også, at
+
+    $$
+    \left(\X_n, \Y_n\right) \xrightarrow{\sim} P_{\X} \otimes P_{\Y}, \quad \text { dvs. } \quad P_{\X_n} \otimes P_{\Y_n} \xrightarrow{\mathrm{w}} P_{\X} \otimes P_{\Y}
+    $$
+\end{enumerate}
+
+
+    \end{proposition}
+\end{theorem-box}
+\begin{remark}
+    Udsagn (ii) i Portmanteau II gælder ikke generelt, hvis Y ikke er udartet.
+Betragt nemlig f.eks. en symmetrisk stokastisk variabel $\X(\mathrm{dvs} . \X \sim-\X)$, og definér så
+
+$$
+\X_k=\X, \quad \text { og } \quad \Y_k=-\X, \quad(k \in \mathbb{N}) .
+$$
+
+
+Så gælder der oplagt, at $\X_k \xrightarrow{\sim} \X$, og $\Y_k \xrightarrow{\sim}-\X \sim \X$.
+Hvis (ii) gjaldt generelt, kunne vi så slutte, at $\left(\X_k, \Y_k\right) \xrightarrow{\sim}(\X, \X)$.
+Anvendes så (i) i Portmanteau II på funktionen $f(x, y)=x+y$, ville det følge, at
+
+$$
+0=\X_k+\Y_k=f\left(\X_k, \Y_k\right) \xrightarrow{\sim} f(\X, \X)=2 \X .
+$$
+
+
+Dette er oplagt forkert, med mindre $\X \sim \delta_0$ (jvf. 5.1.5).
+\end{remark}
+\subsection{Stramhed}
+\begin{theorem-box}
+    \begin{definition}[Stramhed]
+        Lad $(S, \rho)$ være et metrisk rum, og lad $\mathcal{K}$ betegne systemet af kompakte delmængder af $S$.
+\begin{enumerate}
+    \item[\textnormal{(a)}] En familie $\mathcal{M}$ af sandsynlighedsmål på $(S, \mathcal{B}(S))$ siges at være stram, hvis følgende betingelse er opfyldt:
+$$
+\forall \epsilon>0 \exists K \in \mathcal{K}: \sup _{\mu \in \mathcal{M}} \mu\left(K^c\right) \leq \epsilon
+$$
+\item[\textnormal{(b)}] En familie $\mathcal{H}$ af stokastiske funktioner med værdier i $(S, \rho)$ siges at være stram, hvis mængden $\left\{P_{\X} \mid \X \in \mathcal{H}\right\}$ er stram i henhold til (a); dvs. hvis
+
+$$
+\forall \epsilon>0 \exists K \in \mathcal{K}: \sup _{\X \in \mathcal{H}} P\left(\X \in K^c\right) \leq \epsilon,
+$$
+
+eller ækvivalent:
+
+$$
+\forall \epsilon>0 \exists K \in \mathcal{K}: \inf _{\X \in \mathcal{H}} P(\X \in K) \geq 1-\epsilon
+$$
+\end{enumerate}
+
+
+    \end{definition}
+\end{theorem-box}
+\begin{remark}
+    \begin{enumerate}
+        \item Lad $\mathcal{M}_1$ og $\mathcal{M}_2$ være to mængder af sandsynlighedsmål på $(S, \mathcal{B}(S))$. Da gælder implikationerne:
+
+        $$
+        \begin{aligned}
+        \mathcal{M}_2 \text { stram og } \mathcal{M}_1 \subseteq \mathcal{M}_2 & \Longrightarrow \mathcal{M}_1 \text { stram } \\
+        \mathcal{M}_1, \mathcal{M}_2 \text { stramme } & \Longrightarrow \mathcal{M}_1 \cup \mathcal{M}_2 \text { stram }
+        \end{aligned}
+        $$
+        \item For ethvert sandsynlighedsmål $\mu$ på $\left(\mathbb{R}^d, \mathcal{B}\left(\mathbb{R}^d\right)\right)$ er $\{\mu\}$ stram. Vi har nemlig (i tilfældet $d=1$ ), at
+
+        $$
+        \mu\left([-N, N]^c\right)=1-\mu([-N, N]) \xrightarrow[N \rightarrow \infty]{ } 1-\mu(\mathbb{R})=0
+        $$
+        
+        
+        Og her er $[-N, N]$ kompakt for alle $N$ i $\mathbb{N}$.
+        
+        \item Specielt er enhver endelig familie af ssh.-mål på $\mathbb{R}^d$ (eller af $d$-dim. stokastiske vektorer) automatisk stram.
+        \item En familie $\mathcal{H}$ af $d$-dimensionale stokastiske vektorer er stram, hvis der findes $\alpha>0$, således at
+
+        $$
+        \sup _{\mathbf{X} \in \mathcal{H}} \mathbb{E}\left[\|\X\|^\alpha\right]<\infty .
+        $$
+        
+        
+        Det følger nemlig fra Markovs Ulighed, at
+        
+        $$
+        \sup _{\X \in \mathcal{H}} P(\|\X\|>N) \leq \frac{1}{N^\alpha} \sup _{\X \in \mathcal{H}} \mathbb{E}\left[\|\X\|^\alpha\right] \text {, hvor } \frac{1}{N^\alpha} \rightarrow 0 \text { for } N \rightarrow \infty .
+        $$
+              
+    \end{enumerate}
+\end{remark}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\left(\X_k\right)_{k \in \mathbb{N}}$ være en følge af d-dimensionale stokastiske vektorer.
+Det er følgende betingelser hver især tilstrækkelige for, at $\left\{\X_k \mid k \in \mathbb{N}\right\}$ er stram:
+\begin{enumerate}
+    \item[\textnormal{(i)}] Der findes et sandsynlighedsmål $\mu$ på $\left(\mathbb{R}^d, \mathcal{B}\left(\mathbb{R}^d\right)\right)$, således at $\X_k \xrightarrow{\sim} \mu$.
+    \item[\textnormal{(ii)}] $\forall \epsilon>0 \exists a>0: \liminf _{k \rightarrow \infty} \mathbb{E}\left[\mathrm{e}^{-a\left\|\X_k\right\|^2}\right]>1-\epsilon$. 
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\subsection{Konvergens i fordeling for stokastiske variable}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\left(\X_n\right)_{n \in \mathbb{N}}$ være en følge af stokastiske variable på $(\Omega, \mathcal{F}, P)$, og lad $\mu$ være et sandsynlighedsmål på $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$.
+
+Betragt endvidere de tilhørende fordelingsfunktioner:
+
+$$
+\begin{aligned}
+& F_n(x)=P_{\X_n}((-\infty, x])=P\left(\X_n \in(-\infty, x]\right), \quad(x \in \mathbb{R}, n \in \mathbb{N}), \\
+& F_\mu(x)=\mu((-\infty, x]), \quad(x \in \mathbb{R})
+\end{aligned}
+$$
+Da er følgende betingelser ækvivalente:
+\begin{enumerate}
+    \item[\textnormal{(i)}] $\X_n \xrightarrow{\sim} \mu$.
+    \item[\textnormal{(ii)}]$F_\mu(x-) \leq \liminf _{n \rightarrow \infty} F_n(x) \leq \limsup _{n \rightarrow \infty} F_n(x) \leq F_\mu(x)$ for alle $x i \mathbb{R}$.
+
+    \item[\textnormal{(iii)}] $\lim _{n \rightarrow \infty} F_n(x)=F_\mu(x)$ for alle $x i \mathbb{R}$, hvor $\mu(\{x\})=0$.
+
+    \item[\textnormal{(iv)}] Der findes en tæt delmængde $D$ af $\mathbb{R}$, således at
+
+    $$
+    \lim _{n \rightarrow \infty} F_n(x)=F_\mu(x) \quad \text { for alle } x i D
+    $$
+    \item[\textnormal{(v)}]  $\mu((a, b)) \leq \liminf _{n \rightarrow \infty} P\left(a<\X_n<b\right)$ for alle $a, b i \overline{\mathbb{R}}$, så $a<b$.
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\X,\X_1,\X_2, \ldots$ være stokastiske variable på $\pfield$, og betragt de tilhørende fordelingsfunktioner $F_\X, F_{\X_1},F_{\X_2},\ldots$. Antag at $\X_n \xrightarrow{\sim} \X$ for $n\rightarrow \infty$, og at $F_\X$ er kontinuert. Da gælder der at 
+        $$\sup_{x\in\R}\left|F_{\X_n}(x)-F_\X(x)\right|\xrightarrow[n\rightarrow \infty]{}0,$$
+        dvs. $F_{\X_n}\rightarrow F_\X$ uniformt på $\R$
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{definition}[limespunkt]
+        Lad ( $\X_k$ ) være en følge af stokastiske funktioner med værdier i et metrisk rum $(S, \rho)$.
+
+Et sandsynlighedsmål $\mu$ på $(S, \mathcal{B}(S))$ kaldes da for et limespunkt for $\left(\X_k\right)_{k \in \mathbb{N}}$, hvis der findes en voksende følge $k_1<k_2<k_3<\cdots$ af naturlige tal, således at
+
+$$
+\X_{k_{\ell}} \xrightarrow{\sim} \mu \quad \text { for } \ell \rightarrow \infty
+$$
+
+    \end{definition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Hellys Lemma]
+        Lad $\left(F_k\right)_{k \in \mathbb{N}}$ være en følge af fordelingsfunktioner.
+Da findes en voksende følge $k_1<k_2<k_3<\cdots$ af naturlige tal, og en voksende, højrekontinuert funktion $F: \mathbb{R} \rightarrow[0,1]$, således at
+
+$$
+\lim _{\ell \rightarrow \infty} F_{k_{\ell}}(x)=F(x) \quad \text { for alle } x \text { i } C_F
+$$
+
+
+Her betegner $C_F$ mængden af kontinuitetspunkter for $F$, dvs.
+
+$$
+C_F=\{x \in \mathbb{R} \mid F \text { er kontinuert } i x\}
+$$
+
+
+Specielt gælder der, at $F_{k_{\ell}} \rightarrow F$ punktvist, for $\ell \rightarrow \infty$, hvis $F$ er kontinuert.
+    \end{proposition}
+\end{theorem-box}
+\begin{remark}
+    
+\end{remark}
+\begin{theorem-box}
+    \begin{proposition}[Helly-Bray's Sætning]
+        Lad $\left(\X_k\right)_{k \in \mathbb{N}}$ være en følge af d-dimensionale stokastiske vektorer, og antag, at $\left\{\X_k \mid k \in \mathbb{N}\right\}$ er stram.
+
+Da gælder følgende udsagn:
+\begin{enumerate}
+    \item[\textnormal{(i)}] $\left(\X_k\right)_{k \in \mathbb{N}}$ har mindst ét limespunkt.
+    \item[\textnormal{(ii)}] Hvis $\left(\X_k\right)_{k \in \mathbb{N}}$ kun har ét limespunkt $\mu$, så gælder der, at $\X_k \xrightarrow{\sim} \mu$ for $k \rightarrow \infty$.
 \end{enumerate}
     \end{proposition}
 \end{theorem-box}

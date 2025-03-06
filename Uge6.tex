@@ -1,0 +1,225 @@
+\documentclass{Class}
+\input{Preamble}
+\author{Markus Hohwü Larsen}
+\title{Week 6}
+\begin{document}
+\problem{3.5} Lad $(\Omega, \mathcal{F}, \mathbb{P})$ være et sandsynlighedsfelt, og lad $\left(X_n\right)$ være en følge af stokastiske variable herpå, som er identisk fordelte. Vi da, at der gælder bi-implikationen:
+
+$$
+X_1 \in \mathcal{L}^1(\mathbb{P}) \Longleftrightarrow\left\{X_n \mid n \in \mathbb{N}\right\} \text { er uniformt integrabel. }
+$$
+
+\solution
+Fra Opgave 3.1 ved vi, at
+
+$$
+X_1 \in \mathcal{L}^1(\mathbb{P}) \Longleftrightarrow\left\{X_1\right\} \text { er uniformt integrabel. }
+$$
+
+
+For $n \in \mathbb{N}$ har vi, at $X_n \sim X_1$. Det følger, at $\left|X_n\right| 1_{\left\{\left|X_n\right|>K\right\}} \sim\left|X_1\right| 1_{\left\{\left|X_1\right|>K\right\}}$ for ethvert $K>0$. Dermed gælder der, at
+
+$$
+\sup _{n \in \mathbb{N}} \mathbb{E}\left[\left|X_n\right| 1_{\left\{\left|X_n\right|>K\right\}}\right]=\mathbb{E}\left[\left|X_1\right| 1_{\left\{\left|X_1\right|>K\right\}}\right]
+$$
+
+for alle $K>0$. Det følger nu fra defintionen af uniform integrabilitet, at familien $\left\{X_n \mid n \in \mathbb{N}\right\}$ er uniformt integrabel hvis og kun hvis $\left\{X_1\right\}$ er uniformt integrabel. Vi har nu, at
+
+$$
+\begin{aligned}
+X_1 \in \mathcal{L}^1(\mathbb{P}) & \Longleftrightarrow\left\{X_1\right\} \text { er uniformt integrabel } \\
+& \Longleftrightarrow\left\{X_n \mid n \in \mathbb{N}\right\} \text { er uniformt integrabel, }
+\end{aligned}
+$$
+
+som ønsket.
+\problem{3.8} Lad $(X, \mathcal{E}, \mu)$ være et endeligt målrum, og lad $\left(f_n\right)$ være en følge af funktioner fra $\mathcal{M}(\mathcal{E})$, saledes at $\left\{f_n^2 \mid n \in \mathbb{N}\right\}$ er uniformt integrabel.
+\begin{enumerate}
+    \item $\text { Vis, at mængden }\left\{f_n \mid n \in \mathbb{N}\right\} \text { ligeledes er uniformt integrabel. }$
+    \item Vis, at $f_n\rightarrow f$ i $\mu$-1-middel og i $\mu$-2-middel.
+    \item Vis, at $\int_X f_n \mathrm{~d} \mu \rightarrow \int_X f \mathrm{~d} \mu$, og at $\int_X f_n^2 \mathrm{~d} \mu \rightarrow \int_X f^2 \mathrm{~d} \mu$ for $n \rightarrow \infty$.
+\end{enumerate}
+\solution
+\begin{enumerate}
+    \item Idet $\left\{f_n^2 \mid n \in \mathbb{N}\right\}$ er uniformt integrabel, er $\sup _{n \in \mathbb{N}} \int_X\left|f_n\right|^2 \mathrm{~d} \mu<\infty$ jf. Sætning 3.1.4. Eksempel 3.1.7 med $p=2$ giver da, at $\left\{f_n \mid n \in \mathbb{N}\right\}$ er uniformt integrabel.
+
+    Antag nu yderligere, at der findes en funktion $f$ fra $\mathcal{M}(\mathcal{E})$, saledes at $f_n \rightarrow f$ i $\mu$-mal for $n \rightarrow \infty$.
+    \item Konvergensen i $\mu$-1-middel følger fra Sætning 3.2.1, idet $f_n \rightarrow f$ i $\mu$-măl og mængden $\left\{f_n \mid n \in \mathbb{N}\right\}$ er uniformt integrabel. Konvergensen i $\mu$-2-middel følger tilsvarende fra Korollar 3.2.2, idet $f_n \rightarrow f$ i $\mu$-mål $\operatorname{og}\left\{f_n^2 \mid n \in \mathbb{N}\right\}$ er uniformt integrabel.
+    \item Idet $f_n \rightarrow f$ i $\mu$-1-middel, galder der, at
+
+    $$
+    \left|\int_X f_n \mathrm{~d} \mu-\int_X f \mathrm{~d} \mu\right| \leq \int_X\left|f_n-f\right| \mathrm{d} \mu \rightarrow 0
+    $$
+    
+    
+    Dette viser, at $\int_X f_n \mathrm{~d} \mu \rightarrow \int_X f \mathrm{~d} \mu$.
+    Idet $f_n \rightarrow f$ i $\mu$-2-middel, ved vi fra Opgave 2.2 , at $f_n^2 \rightarrow f^2$ i $\mu$-1-middel. Pà sammme made som ovenfor følger det nu, at $\int_X f_n^2 \mathrm{~d} \mu \rightarrow \int_X f^2 \mathrm{~d} \mu$.
+\end{enumerate}
+\problem{4.1}
+\problem{4.7}
+Lad $\left(X_n\right)$ være en følge af i.i.d. stokastiske variable på sandsynlighedsfeltet $(\Omega, \mathcal{F}, \mathbb{P})$, og antag, at $X_1 \in \mathcal{L}^2(\mathbb{P})$. Sæt endvidere $\xi=\mathbb{E}\left[X_1\right], \sigma^2=\operatorname{Var}\left(X_1\right)$, og betragt for hvert $n \in \mathbb{N}$ de stokastiske variable
+
+$$
+S_n:=\sum_{k=1}^n X_k, \bar{X}_n:=\frac{S_n}{n}, S S_n:=\sum_{k=1}^n X_k^2, S S D_n:=\sum_{k=1}^n\left(X_k-\bar{X}_n\right)^2, s_n:=\frac{S S D_n}{n-1} .
+$$
+\begin{enumerate}
+    \item Vis, at $SSD_n=SS_n-\frac{S^2_n}{n}$ for alle $n\in\N$.
+    \item Beregn for hvert $n\in\N$ størrelserne: $\E[\bar{X_n}],\; \operatorname{Var}(\bar{X_n})$ og $\E[s_n]$
+    \item Vis, at $\bar{\X_n}\rightarrow \xi$ P-n.o. og i 2-middel.
+    \item Vis, at $s_n \rightarrow \sigma^2$ P-n.o. og i 1-middel.
+\end{enumerate}
+Resultaterne i (c)-(d) udtrykker, at $\bar{\X_n}$ og $s_n$ er konsistente estimatorer for hhv. $\xi$ og $\sigma^2$.
+\solution
+\begin{enumerate}
+    \item $$\begin{aligned}
+        &\text { For ethvert } n \in \mathbb{N} \text { har vi, at }\\
+        &\begin{aligned}
+        S S D_n & =\sum_{k=1}^n\left(X_k-\bar{X}_n\right)^2 \\
+        & =\sum_{k=1}^n X_k^2+\bar{X}_n^2-2 X_k \bar{X}_n \\
+        & =S S_n+n \bar{X}_n^2-2 \bar{X}_n \sum_{k=1}^n X_k \\
+        & =S S_n+\frac{S_n^2}{n}-2 \frac{S_n^2}{n} \\
+        & =S S_n-\frac{S_n^2}{n}
+        \end{aligned}
+        \end{aligned}$$
+    \item $$\begin{aligned}
+        &\text { For ethvert } n \in \mathbb{N} \text { har vi, at }\\
+        &\begin{aligned}
+        S S D_n & =\sum_{k=1}^n\left(X_k-\bar{X}_n\right)^2 \\
+        & =\sum_{k=1}^n X_k^2+\bar{X}_n^2-2 X_k \bar{X}_n \\
+        & =S S_n+n \bar{X}_n^2-2 \bar{X}_n \sum_{k=1}^n X_k \\
+        & =S S_n+\frac{S_n^2}{n}-2 \frac{S_n^2}{n} \\
+        & =S S_n-\frac{S_n^2}{n}
+        \end{aligned}
+        \end{aligned}$$
+    \item Vi benytter $\mathcal{L}^2$-udgaven af Store Tals Lov. Vi ser, at
+
+    $$
+    \sum_{k=1}^{\infty} \frac{\operatorname{Var}\left(X_k\right)}{k^2}=\sum_{k=1}^{\infty} \frac{\sigma^2}{k^2}<\infty
+    $$
+    
+    
+    Da har vi (jf. Sætning 4.3.2), at $\bar{X}_n-\xi \rightarrow 0 \mathbb{P}$-n.o. og i 2-middel. Dette viser, at $\bar{X}_n \rightarrow \xi \mathbb{P}$-n.o. og i 2 -middel.
+    \item Store Tals Stærke Lov (Sætning 4.3.6) giver, at $\frac{S S_n}{n} \rightarrow \mathbb{E}\left[X_1^2\right] \mathbb{P}$-n.o. og i 1middel. Det følger fra (c) og Opgave 2.2, at $\bar{X}_n^2 \rightarrow \xi^2 \mathbb{P}$-n.o. og i 1-middel. Vi ser nu, at
+
+    $$
+    \frac{S S D_n}{n}=\frac{S S_n}{n}-\bar{X}_n^2 \rightarrow \mathbb{E}\left[X_1^2\right]-\xi^2=\mathbb{E}\left[X_1^2\right]-\mathbb{E}\left[X_1\right]^2=\operatorname{Var}\left(X_1\right)=\sigma^2
+    $$
+    
+    
+    P-n.o. og i 1-middel jf. Opgave 2.8. Vi har nu, at
+    
+    $$
+    s_n=\frac{S S D_n}{n-1}=\frac{n}{n-1} \frac{S S D_n}{n} \rightarrow \sigma^2
+    $$
+    
+    $\mathbb{P}$-n.o. Vi ser desuden, at
+    
+    $$
+    \begin{aligned}
+    \mathbb{E}\left[\left|s_n-\sigma^2\right|\right] & =\mathbb{E}\left[\left|\frac{n}{n-1} \frac{S S D_n}{n}-\sigma^2\right|\right] \\
+    & \leq \mathbb{E}\left[\left|\frac{n}{n-1} \frac{S S D_n}{n}-\frac{S S D_n}{n}\right|\right]+\mathbb{E}\left[\left|\frac{S S D_n}{n}-\sigma^2\right|\right] \\
+    & =\left|\frac{n}{n-1}-1\right| \mathbb{E}\left[\frac{S S D_n}{n}\right]+\mathbb{E}\left[\left|\frac{S S D_n}{n}-\sigma^2\right|\right]
+    \end{aligned}
+    $$
+    
+    
+    Der gælder, at $\mathbb{E}\left[\left|\frac{S S D_n}{n}-\sigma^2\right|\right] \rightarrow 0$, samt at $\mathbb{E}\left[\frac{S S D_n}{n}\right] \rightarrow \sigma^2$, idet $\frac{S S D_n}{n} \rightarrow \sigma^2$ i 1-middel. Udregningen ovenfor viser da, at $s_n \rightarrow \sigma^2$ i 1-middel.
+\end{enumerate}
+\problem{4.8}
+Lad $\left(X_n\right)$ være en følge af uafhængige stokastiske variable defineret på sandsynlighedsfeltet $(\Omega, \mathcal{F}, \mathbb{P})$, og antag for hvert $n \in \mathbb{N}$, at $X_n$ er binomialfordelt med antalsparameter 1 og sandsynlighedsparameter $p_{\mathrm{n}} \in[0,1]$. Antag endvidere, at der findes $a \in[0,1]$, saledes at
+
+$$
+\frac{1}{n} \sum_{k=1}^n p_k \rightarrow a \text { for } n \rightarrow \infty
+$$
+\begin{enumerate}
+    \item Vis, at $\frac{1}{n}\sum_{k=1}^{n}X_k\rightarrow a\; \P$-n.o. for $n\rightarrow \infty$.
+    \item Vis for ethvert $r\in(0,\infty)$, at $ \frac{1}{n}\sum_{k=1}^{n}X_k\rightarrow a$ i $r$-middel for $n\rightarrow \infty$.
+\end{enumerate}
+\solution
+\begin{enumerate}
+    \item Vi benytter Sætning 4.3.2. Vi husker, at $\operatorname{Var}\left(X_k\right)=p_k\left(1-p_k\right) \leq 1 . \operatorname{Vi}$ ser, at
+
+    $$
+    \sum_{k=1}^{\infty} \frac{\operatorname{Var}\left(X_k\right)}{k^2} \leq \sum_{k=1}^{\infty} \frac{1}{k^2}<\infty
+    $$
+    
+    
+    Da giver Sætning 4.3.2, at $\frac{1}{n} \sum_{k=1}^n\left(X_k-p_k\right) \rightarrow 0 \mathbb{P}$-n.o. Vi har dermed, at
+    
+    $$
+    \frac{1}{n} \sum_{k=1}^n X_k=\frac{1}{n} \sum_{k=1}^n\left(X_k-p_k\right)+\frac{1}{n} \sum_{k=1}^n p_k \rightarrow a
+    $$
+    
+    $\mathbb{P}$-n.o.
+    \item Idet $X_n$ 'erne kun antager værdierne 0 og 1 , gælder der, at $0 \leq \frac{1}{n} \sum_{k=1}^n X_k \leq 1$ for alle $n$. For $r \in(0, \infty)$ gælder der derfor, at
+
+    $$
+    \left|\frac{1}{n} \sum_{k=1}^n X_k-a\right|^r \leq(1+a)^r
+    $$
+    
+    
+    Det følger, vha. domineret konvergens med majoranten $(1+a)^r$, at
+    
+    $$
+    \mathbb{E}\left[\left|\frac{1}{n} \sum_{k=1}^n X_k-a\right|^r\right] \rightarrow 0
+    $$
+    
+    idet $\frac{1}{n} \sum_{k=1}^n X_k \rightarrow a \mathbb{P}$-n.o. Dette viser, at $\frac{1}{n} \sum_{k=1}^n X_k \rightarrow a$ i $r$-middel som $\emptyset$ nsket.
+\end{enumerate}
+\problem{4.9}
+Lad $\left(X_n\right)$ være en følge af i.i.d. stokastiske variable defineret på sandsynlighedsfeltet $(\Omega, \mathcal{F}, \mathbb{P})$, og antag, at $\mathbb{E}\left[X_1^{-}\right]<\infty$, og at $\mathbb{E}\left[X_1^{+}\right]=\infty$. Opgaven går ud på at vise, at Store Tals Stærke Lov også gælder i denne situation, i den forstand at
+
+\begin{equation}
+    \frac{1}{n} \sum_{k=1}^n X_k \rightarrow \infty \quad \mathbb{P} \text {-n.o., }
+\end{equation}
+
+
+idet vi noterer, at $\mathbb{E}\left[X_1\right]=\infty$.
+\begin{enumerate}
+    \item Vis for ethvert $M\in(0,\infty)$, at $X_1\wedge M\in\lclass^1(\P)$, og at
+    $$\frac{1}{n}\sum_{k=1}^{n}X_k\wedge M \rightarrow \E[X_1\wedge M] \; \P\text{-n.o.}$$
+    \item Vis for ethvert $M \in(0, \infty)$, at
+
+    $$
+    \liminf _{n \rightarrow \infty} \frac{1}{n} \sum_{k=1}^n X_k \geq \mathbb{E}\left[X_1 \wedge M\right] \quad \text { P-n.o. }
+    $$
+    \item Udled (1) ved at lade $M \rightarrow \infty$ i (b).     
+\end{enumerate}
+\solution
+\begin{enumerate}
+    \item For ethvert $M \in(0, \infty)$ gælder der, at $\mathbb{E}\left[\left(X_1 \wedge M\right)^{-}\right]=\mathbb{E}\left[X_1^{-}\right]<\infty$, og at $\mathbb{E}\left[\left(X_1 \wedge M\right)^{+}\right] \leq M<\infty$. Dermed har vi, at $X_1 \wedge M \in \mathcal{L}^1(\mathbb{P})$. Store Tals Stærke Lov giver nu, at
+
+    $$
+    \frac{1}{n} \sum_{k=1}^n X_k \wedge M \rightarrow \mathbb{E}\left[X_1 \wedge M\right]
+    $$
+    
+    
+    P-n.o., idet $\left(X_n \wedge M\right)$ er en i.i.d. følge.
+    \item For ethvert $M \in(0, \infty)$ gælder der, at $\frac{1}{n} \sum_{k=1}^n X_k \geq \frac{1}{n} \sum_{k=1}^n X_k \wedge M$ for alle $n$. Dermed har vi, at
+
+    $$
+    \liminf _{n \rightarrow \infty} \frac{1}{n} \sum_{k=1}^n X_k \geq \liminf _{n \rightarrow \infty} \frac{1}{n} \sum_{k=1}^n X_k \wedge M=\mathbb{E}\left[X_1 \wedge M\right]
+    $$
+    
+    $\mathbb{P}$-n.o. jf. delopgave (a).
+    \item Ved anvendelse af generaliseret monoton konvergens, făr vi, at
+
+    $$
+    \mathbb{E}\left[X_1 \wedge M\right] \rightarrow \mathbb{E}\left[X_1\right]=\infty
+    $$
+    
+    for $M \rightarrow \infty$. Delopgave (b) giver så, at
+    
+    $$
+    \liminf _{n \rightarrow \infty} \frac{1}{n} \sum_{k=1}^n X_k=\infty
+    $$
+    
+    $\mathbb{P}$-n.o. Idet $\limsup _{n \rightarrow \infty} \frac{1}{n} \sum_{k=1}^n X_k \geq \liminf _{n \rightarrow \infty} \frac{1}{n} \sum_{k=1}^n X_k$, gælder der altså, at
+    
+    $$
+    \limsup _{n \rightarrow \infty} \frac{1}{n} \sum_{k=1}^n X_k=\liminf _{n \rightarrow \infty} \frac{1}{n} \sum_{k=1}^n X_k=\infty
+    $$
+    
+    $\mathbb{P}$-n.o. Dette viser (1).
+\end{enumerate}
+\end{document}
