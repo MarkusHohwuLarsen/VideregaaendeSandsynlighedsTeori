@@ -226,7 +226,7 @@ Altså at $\psi$ tilhører alle kontinuerte funktioner med kompakt støtte.
 \begin{theorem-box}
     \begin{proposition}[Differentiabilitet for den karakteristiske funktion]
         \begin{enumerate}
-            \item[\textnormal{(i)}] Lad $\mu$ være et sandsynligehdsmål på $(\R, \B(\R))$, og antag at $p\in\N_0$, således at $\int_\R|x|^p\mu(\deriv x)<\infty$.
+            \item[\textnormal{(i)}] Lad $\mu$ være et sandsynlighedsmål på $(\R, \B(\R))$, og antag at $p\in\N_0$, således at $\int_\R|x|^p\mu(\deriv x)<\infty$.
             \\Da er $\hat{\mu}$ p-gange differentiabel med afledede
             $$\hat{\mu}^{(k)}(t)=\icomp^k\int_{\R}\mathsf{x}^ke^{\icomp\mathsf{x}t}\mu(\deriv x), \quad (t\in\R, k=0,1,\dots, p).$$
             \item[\textnormal{(ii)}] Lad $\X$ være en stokastisk variabel defineret på $\pfield$, og antag, at $p\in\N_0$, således at $\E[|\X|^p]<\infty$.
@@ -1434,4 +1434,183 @@ Da gælder følgende udsagn:
 \end{enumerate}
     \end{proposition}
 \end{theorem-box}
+\subsection{Kontinuitetssætningen}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\left(\mathsf{X}_k\right)_{h C N}$ æare en stram folge af $d$-dimensionale stokastiske vektorer, og antag, at
+
+$$
+\lim _{k \rightarrow \infty} \varphi_{\mathsf{X}_k}(t) \text { eksisterer } i \mathbb{C} \text { for alle } t i \mathbb{R}^d .
+$$
+
+
+Da findes et sandsynlighedsmål $\mu$ på $\mathbb{R}^d$, således at $\X_k \xrightarrow{\sim} \mu$ for $k \rightarrow \infty$.
+Der gælder yderligere, at
+
+$$
+\hat{\mu} (t)=\lim _{k \rightarrow \infty} \varphi_{\X_k}(t) \text { for alle } t i \mathbb{R}^d
+$$
+
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Kontinuitetssætningen for karakteristiske funktioner]
+        For en følge $\left(\X_k\right)_{k \in \mathbb{N}}$ af d-dimensionale stokastiske vektorer er følgende betingelser ækvivalente:
+\begin{enumerate}
+    \item[\textnormal{(i)}]  Der findes et ssh-mål $\mu$ på $\left(\mathbb{R}^d, \mathcal{B}\left(\mathbb{R}^d\right)\right)$, således at $X_k \xrightarrow{\sim} \mu$.
+    \item[\textnormal{(ii)}] Der findes en funktion $\gamma: \mathbb{R}^d \rightarrow \mathbb{C}$, som er kontinuert i 0 , således at
+
+    $$
+    \lim _{k \rightarrow \infty} \varphi_{\X_k}(t)=\gamma(t) \quad \text { for alle } t i \mathbb{R}^d
+    $$
+    
+\end{enumerate}
+I bekræftende fald gælder der yderligere, at
+
+$$
+\hat{\mu}(t)=\gamma(t) \quad \text { for alle } t \;\text{i}\; \mathbb{R}^d
+$$
+
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\X, \X_1, \X_2, \X_3, \ldots$ være d-dimensionale stokastiske vektorer og $\Y, \Y_1, \Y_2, \Y_3, \ldots m$-dimensionale stokastiske vektorer.
+
+Antag endvidere, at $\X_n$ og $\Y_n$ er uafhængige for ethvert $n \text{ i } \mathbb{N}$, samt at $\X_n \xrightarrow{\sim} \X$ og $\Y_n \xrightarrow{\sim} \Y$.
+
+Da gælder der også, at $\left(\X_n, \Y_n\right) \xrightarrow{\sim} P_{\X} \otimes P_{\Y}$.
+    \end{corollary}
+\end{theorem-box}
+\section{Centrale Grænseværdisætninger}
+\subsection{Laplaces version}
+\begin{theorem-box}
+    \begin{proposition}[Laplaces CLT]
+        Lad $\left(\X_n\right)_{n \in \mathbb{N}}$ være en følge af i.i.d. stokastiske variable, således at $\mathbb{E}\left[\X_1^2\right]<\infty$.
+
+Sæt endvidere
+
+$$
+\sigma^2:=\mathbb{V}\left[\X_1\right], \quad \text { og } \quad \mu:=\mathbb{E}\left[\X_1\right]
+$$
+
+
+Da gælder der, at
+
+$$
+\frac{\sum_{k=1}^n \X_k-n \mu}{\sqrt{n \sigma^2}}=\mathrm{U}_n:=\frac{1}{\sqrt{n \sigma^2}} \sum_{k=1}^n\left(\X_k-\mu\right) \stackrel{\sim}{\rightarrow} N(0,1) .
+$$
+
+    \end{proposition}
+\end{theorem-box}
+\subsection{Lindebergs version}
+\begin{theorem-box}
+    \begin{definition}
+        Et uafhængigt trekantsskema er en familie $\left\{\X_{n k} \mid n \in \mathbb{N}, k \in\{1, \ldots, n\}\right\}$ af stokastiske variable, således at
+
+$$
+\X_{n 1}, \ldots, \X_{n n} \quad \text { er uafhængige for alle } n \text { i } \mathbb{N} \text {. }
+$$
+
+
+Et uafhængigt trekantsskema anskuelliggøres ofte på formen:
+
+$$
+\begin{aligned}
+& \X_{11} \\
+& \X_{21}, \X_{22} \\
+& \X_{31}, \X_{32}, \X_{33} \\
+& \vdots \\
+& \vdots \\
+& \X_{n 1}, \X_{n 2}, \ldots \ldots, \X_{n n}
+\end{aligned}
+$$
+
+    \end{definition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{problemstilling}
+        Lad $\{\X_{nk}|n\in\N,1\leq k \leq n\}$ være et uafhængigt trekantsskema. Det tilhørende CLT-problem udgøres da af følgende spørgsmål. Findes der:
+        \begin{itemize}
+            \item en familie $\{m_{nk}|n\in\N,  1\leq k \leq n\}$ af reelle tal,
+            \item en familie $\{a_n|n\in\N\}$ af (strengt) positive tal,
+            \item et ikke-udartet sandsynlighedsmål $\mu$ på $(\R, \mathcal{B}(\R))$,
+        \end{itemize}
+        således at 
+        $$\frac{1}{a_n} \sum_{k=1}^n\left(\X_{n k}-m_{n k}\right) \underset{n \rightarrow \infty}{\sim} \mu ?$$
+    \end{problemstilling}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Lindebergs CLT]
+        Lad $\left\{\X_{n k} \mid n \in \mathbb{N}, 1 \leq k \leq n\right\}$ være et uafhængigt trekantsskema, således at $\mathbb{E}\left[\X_{n k}^2\right]<\infty$ for alle $n, k$. Sæt
+
+$$
+\mu_{n k}=\mathbb{E}\left[\X_{n k}\right], \quad \sigma_{n k}^2=\mathbb{V}\left[\X_{n k}\right], \quad \text { og } \quad s_n=\left(\sigma_{n 1}^2+\sigma_{n 2}^2+\cdots+\sigma_{n n}^2\right)^{1 / 2}
+$$
+
+for alle $n, k$, og antag, at $s_n>0$ for alle $n$.
+Sæt yderligere
+
+$$
+\mathrm{U}_n=\frac{1}{s_n} \sum_{k=1}^n\left(\X_{n k}-\mu_{n k}\right), \quad(n \in \mathbb{N})
+$$
+
+
+Antag endvidere Lindebergs betingelse:
+
+$$
+\forall \epsilon>0: \lim _{n \rightarrow \infty} \frac{1}{s_n^2} \sum_{k=1}^n \int_{\left\{\left|\mathsf{X}_{n k}-\mu_{n k}\right|>\epsilon s_n\right\}}\left(\X_{n k}-\mu_{n k}\right)^2 \mathrm{~d} P=0 .
+$$
+
+
+Da gælder der, at $\mathrm{U}_n \xrightarrow{\sim} N(0,1)$.
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $z_1, \ldots, z_n$ og $w_1, \ldots, w_n$ være komplekse tal, således at $\left|z_k\right| \leq 1$ og $\left|w_k\right| \leq 1$ for alle $k i\{1,2, \ldots, n\}$.
+
+Da gælder uligheden:
+
+$$
+\left|\prod_{k=1}^n z_k-\prod_{k=1}^n w_k\right| \leq \sum_{k=1}^n\left|z_k-w_k\right|
+$$
+
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        For ethvert $x$ i $[0,\infty)$ gælder uligheden:
+        $$\left|e^{-x}-1+x\right|\leq \frac{1}{2}x^2.$$
+    \end{lemma}
+\end{theorem-box}
+\subsection{Bevis for Laplaces version}
+\subsection{Lyapounovs version}
+\begin{theorem-box}
+    \begin{proposition}[Lyapounovs CLT]
+        Lad $\left\{\X_{n k} \mid n \in \mathbb{N}, 1 \leq k \leq n\right\}$ være et uafhængigt trekantsskema, således at $\mathbb{E}\left[\X_{n k}^2\right]<\infty$ for alle $n, k$. Sæt
+
+$$
+\mu_{n k}=\mathbb{E}\left[\X_{n k}\right], \quad \sigma_{n k}^2=\mathbb{V}\left[\X_{n k}\right], \quad \text { og } \quad s_n=\left(\sigma_{n 1}^2+\sigma_{n 2}^2+\cdots+\sigma_{n n}^2\right)^{1 / 2}
+$$
+
+for alle $n, k$, og antag, at $s_n>0$ for alle $n$.
+Sæt yderligere
+
+$$
+\mathrm{U}_n=\frac{1}{s_n} \sum_{k=1}^n\left(\X_{n k}-\mu_{n k}\right), \quad(n \in \mathbb{N})
+$$
+
+
+Antag endvidere Lyapounov's betingelse:
+
+$$
+\exists \alpha>2: \lim _{n \rightarrow \infty} \frac{1}{s_n^\alpha} \sum_{k=1}^n \mathbb{E}\left[\left|\X_{n k}-\mu_{n k}\right|^\alpha\right]=0
+$$
+
+
+Da gælder der, at $\mathrm{U}_n \xrightarrow{\sim} N(0,1)$.
+    \end{proposition}
+\end{theorem-box}
+
 \end{document}
