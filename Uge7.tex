@@ -1,0 +1,166 @@
+\documentclass{Class}
+\input{Preamble}
+\author{Markus Hohwü Larsen}
+\title{title}
+\begin{document}
+
+
+
+
+\problem{4.10}
+Lad $\left(X_n\right)$ være en følge af i.i.d. stokastiske variable defineret på sandsynlighedsfeltet $(\Omega, \mathcal{F}, \mathbb{P})$. Antag, at $X_1 \in \mathcal{L}^2(\mathbb{P})$, og at $\mathbb{E}[X]=0$. Sæt endvidere $\sigma^2=\operatorname{Var}\left(X_1\right)$, og antag, at $\sigma^2>0$. Sæt endelig $S_n=\sum_{k=1}^n X_k$ for ethvert $n \in \mathbb{N}$.
+\begin{enumerate}
+    \item Vis for ethvert $q \in(0,2)$, at $n^{-1 / q} S_n \rightarrow 0$ i 2 -middel for $n \rightarrow \infty$.
+    \item Vis for ethvert $q \in(0,2)$, at $n^{-1 / q} S_n \rightarrow 0 \mathbb{P}$-n.o. for $n \rightarrow \infty$.
+    \item Vis, at følgen $\left(n^{-1 / 2} S_n\right)$ ikke er konvergent i 2-middel.
+\end{enumerate}
+\solution
+\begin{enumerate}
+    \item For $m \neq n$ bemærker vi først, at
+
+    $$
+    \mathbb{E}\left[X_m X_n\right]=\mathbb{E}\left[X_m\right] \mathbb{E}\left[X_n\right]=0
+    $$
+    
+    idet $X_m$ og $X_n$ er uafhængige. Dette viser, at elementerne i følgen $\left(X_n\right)$ er parvist ortogonale i $\mathcal{L}^2(\mathbb{P})$. Det følger fra Pythagoras' Sætning (Sætning 9.2.3 (ii) i $[\mathrm{M} \& \mathrm{I}]$ ), at
+    
+    $$
+    \mathbb{E}\left[\left(n^{-1 / q} S_n\right)^2\right]=n^{-2 / q} \mathbb{E}\left[\left(\sum_{k=1}^n X_k\right)^2\right]=n^{-2 / q} \sum_{k=1}^n \mathbb{E}\left[X_k^2\right]=n^{-2 / q} n \sigma^2 \rightarrow 0
+    $$
+    
+    som ønsket.
+    \item Jf. Kroneckers Lemma (Lemma 4.3.1) med $b_n=n^{1 / q}$ og $a_n=X_n$ er det nok at vise, at $\sum_{k=1}^{\infty} \frac{X_k}{k^{1 / q}}$ er konvergent $\mathbb{P}$-n.o. Ifølge Korollar 4.2.8 er følger dette, hvis vi kan vise, at $\sum_{k=1}^{\infty} \frac{X_k}{k^{1 / q}}$ er konvergent i $\mathbb{P}$ - $r$-middel for et $r \in(0, \infty)$. Vi bemærker, at elementerne i følgen $\left(n^{-1 / q} X_k\right)$ er parvist ortogonale. Det følger da fra Sætning 9.2.3 (iii) i [M\&I], at $\sum_{k=1}^{\infty} \frac{X_k}{k^{1 / q}}$ er konvergent i $\mathbb{P}$-2-middel, hvis blot $\sum_{k=1}^{\infty} \mathbb{E}\left[\left(k^{-1 / q} X_k\right)^2\right]<\infty$. Vi ser, at
+
+    $$
+    \sum_{k=1}^{\infty} \mathbb{E}\left[\left(k^{-1 / q} X_k\right)^2\right]=\sum_{k=1}^{\infty} k^{-2 / q} \mathbb{E}\left[X_k^2\right]=\sum_{k=1}^{\infty} k^{-2 / q} \sigma^2<\infty
+    $$
+    
+    idet $2 / q>1$. Vi har dermed vist, at $n^{-1 / q} S_n \rightarrow 0 \mathbb{P}$-n.o. for $n \rightarrow \infty$.
+    \item Hvis $\left(n^{-1 / 2} S_n\right)$ er konvergent i 2-middel, er følgen nødvendigvis også Cauchy i 2 -middel. Det er således nok at vise, at følgen ikke er Cauchy i 2-middel. For $n>m$ ser vi først, at
+    $$
+    \mathbb{E}\left[\left(S_n-S_m\right) S_m\right]=\mathbb{E}\left[\left(\sum_{k=m+1}^n X_k\right) S_m\right]=\mathbb{E}\left[\sum_{k=m+1}^n X_k\right] \mathbb{E}\left[S_m\right]=0
+    $$
+    Dette viser, at $\left(S_n-S_m\right)$ og $S_m$ er ortogonale i $\mathcal{L}^2(\mathbb{P})$. Ved at anvende Pythagoras' Sætning får vi, at
+    $$
+    \begin{aligned}
+    \mathbb{E}\left[\left(n^{-1 / 2} S_n-m^{-1 / 2} S_m\right)^2\right] & =\mathbb{E}\left[\left(n^{-1 / 2}\left(S_n-S_m\right)+\left(n^{-1 / 2}-m^{-1 / 2}\right) S_m\right)^2\right] \\
+    & =\mathbb{E}\left[n^{-1}\left(S_n-S_m\right)^2\right]+\mathbb{E}\left[\left(n^{-1 / 2}-m^{-1 / 2}\right)^2 S_m^2\right] \\
+    & =n^{-1} \mathbb{E}\left[\left(\sum_{k=m+1}^n X_k\right)^2\right]+\left(n^{-1 / 2}-m^{-1 / 2}\right)^2 \mathbb{E}\left[\left(\sum_{k=1}^m X_k\right)^2\right] \\
+    & =n^{-1} \sum_{k=m+1}^n \mathbb{E}\left[X_k^2\right]+\left(n^{-1 / 2}-m^{-1 / 2}\right)^2 \sum_{k=1}^m \mathbb{E}\left[X_k^2\right] \\
+    & =n^{-1}(n-m) \sigma^2+\left(n^{-1 / 2}-m^{-1 / 2}\right)^2 m \sigma^2 \\
+    & =\sigma^2-n^{-1} m \sigma^2+n^{-1} m \sigma^2+\sigma^2-2 n^{-1 / 2} m^{-1 / 2} m \sigma^2 \\
+    & =\sigma^2\left(2-2 n^{-1 / 2} m^{1 / 2}\right)
+    \end{aligned}
+    $$
+    Vi ser dermed, at $\mathbb{E}\left[\left(n^{-1 / 2} S_n-m^{-1 / 2} S_m\right)^2\right] i k k e$ går mod 0 for $m, n \rightarrow \infty$. Altså er ( $n^{-1 / 2} S_n$ ) ikke Cauchy i 2-middel og således heller ikke konvergent i 2-middel.
+\end{enumerate}
+
+\problem{5.2}
+Lad $\X, \X_1,\X_2,\ldots$ være absolut kontinuerte stokastiske variable med tætheder hhv. $g,g_1, g_2,\ldots$ med hensyn til lebesgue-målet $\lambda$
+\begin{enumerate}
+    \item Vis, at hvis $g_n\rightarrow g$ i 1-middel for $n\rightarrow \infty$, da gælder der, at $\X_n\xrightarrow{\sim}$ for $n\rightarrow \infty$, og at $\lim_{n\rightarrow\infty} P(X_n\in A)=P(\X\in A)$ for enhvert Borel-mængde $A$ i $\R$.
+    \item Vis, at hvis $g_n\rightarrow g\; \lambda$-n.o. for $n\rightarrow\infty$, da gælder der, at $\X_n\xrightarrow{\sim}\X$ for $n\rightarrow\infty$.
+    \item Vis, at hvis $g_n\rightarrow g\; \lambda$-n.o. for $n\rightarrow \infty$, da gælder der, at $\lim_{n\rightarrow\infty}P(\X_n\in A)=P(\X\in A)$ for enhvert Borel-mængde $A$ i $\mathcal{B}(R)$.
+\end{enumerate}
+\solution
+\begin{enumerate}
+    \item Vi ved, at $$\int|g_n-g|\deriv\lambda\rightarrow 0 \; for \; n\rightarrow\infty$$ Vi skal give at $\X_n\xrightarrow{\sim}\X$ dsv $\Prob_{\X_n}\xrightarrow{\mathrm{w}}\Prob_\X$, altså
+    $$\forall f\in C_b(S):\E[f(\X_n)]=\int_\R f(s)\Prob_{\X_n}(\deriv s)\xrightarrow[n\rightarrow\infty]{}\int_\R f(s)\Prob_\X(\deriv s)=\E[f(\X)]$$
+    Så lad $f\in C_b(S)$. Så har vi:
+    $$\E[f(\X_n)]=\int_\R f(s)\deriv\Prob_{\X_n}=\int_\R f(s)g_n(s)\deriv\lambda$$
+    men $f$ er en kontinuert funktion og da $g_n\rightarrow g$ i $\lambda$-mål så 
+    $$\xrightarrow{\lambda}\int_\R f(s)g(s)\deriv\lambda \stackrel{5.1.6}{\Rightarrow} \E[f(\X_n)]\xrightarrow{\sim}\E[f(\X)]$$
+    Lad nu $A\in\mathcal{B}(\R)$. Så er $$\Prob(\X_n\in A)=\Prob_{\X_n}(A)=\int_Ag_n\deriv\lambda$$
+    $$0\leq \left| \Prob(\X\in A)-\Prob(\X_n\in A)\right|=|\Prob_\X(A)-\Prob_{\X_n}(A)|=\left|\int_A g\deriv\lambda-\int_Ag_n\deriv\lambda\right|=\left|\int_Ag-g_n\deriv\lambda\right|\leq \int_A|g-g_n|\deriv\lambda \xrightarrow[n\rightarrow\infty]{}$$
+    $$\Rightarrow \lim_{n\rightarrow \infty}\Prob_{\X_n}(A)=\Prob_\X(A)\forall A\in\mathcal{B}(\R)$$
+    \item Vi ved at $\lambda(\{x\in\R|\lim_{n\rightarrow\infty}g_n(x)=g(x)\}^C)=0$
+    $$\Rightarrow \lim_{n\rightarrow\infty}\int_\R |g_n|\deriv\lambda =\lim_{n\rightarrow\infty}\int_\R g_n\deriv\lambda =\int_\R g\deriv\lambda = \int_\R |g|\deriv\lambda$$ da tætheder altid er positive. Scheffes lemma giver at dette er ækvivalent med at $g_n\rightarrow g$ i 1-middel. Det følger da af a) at $\X_n\xrightarrow{\sim}\X$.
+    \item Det følger af b) at $g_n\rightarrow g$ i 1-middel for $n\rightarrow \infty$. Delopgave a) giver nu at $\lim_{n\rightarrow\infty}P(\X_n\in A)=P(\X\in A)$ for enhver Borel-mængde $A\in\mathcal{B}(R)$.
+\end{enumerate}
+
+\problem{5.4}
+Lad $\left(X_n\right)_{n \geq 1}$ være en følge af stokastiske variable defineret på sandsynlighedsfeltet $(\Omega, \mathcal{F}, \mathbb{P})$, og antag, at $X_n \xrightarrow{\sim} N(0,1)$. Vis da, at der findes et sandsynlighedsmål $\mu$ på $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$, således at $X_n^2 \xrightarrow{\sim} \mu$, og bestem $\mu$.
+
+\solution
+Lad $X$ være en stokastisk variabel (defineret på et eller andet sandsynlighedsfelt), således at $X \sim N(0,1)$. Idet $X_n \xrightarrow{\sim} X$ giver Sætning 5.2.5 (i), at $X_n^2 \xrightarrow{\sim} X^2$ (funktionen $x \mapsto x^2$ er jo kontinuert!). Dvs. at hvis vi lader $\mu$ være fordelingen af $X^2$, har vi $X_n^2 \xrightarrow{\sim} \mu$ som $\varnothing$ nsket.
+\\Eks. 11.1.5 (B) i [M\&I] viser, at $\mu$ er absolut kontinuert mht. Lebesgue-målet med tæthed
+$$
+f(x)=\frac{1}{\sqrt{2 \pi}} x^{-1 / 2} e^{-x / 2} \mathbf{1}_{(0, \infty)}(x)
+$$
+Dvs. at $\mu=\chi^2(1)$ (altså chi-i-anden-fordelingen med 1 frihedsgrad).
+
+\problem{5.3}
+Lad $X, X_1, Y_1, X_2, Y_2, \ldots$ være stokastiske variable på sandsynlighedsfeltet $(\Omega, \mathcal{F}, \mathbb{P})$, og antag, at $X_n \xrightarrow{\sim} X$ for $n \rightarrow \infty$.
+\begin{enumerate}
+    \item Vis, at hvis $\mathbb{P}\left(X_n<0\right)=0$ for alle $n$, så gælder der også, at $\mathbb{P}(X<0)=0$.
+    \item Vis, at hvis $X_n-Y_n \xrightarrow{\sim} 0$, så gælder der også, at $Y_n \xrightarrow{\sim} X$.
+\end{enumerate}
+\solution
+\begin{enumerate}
+    \item Mængden $(-\infty, 0)$ er åben, så det følger fra Sætning 5.2.3 (iii), at
+
+    $$
+    \mathbb{P}(X \in(-\infty, 0)) \leq \liminf _{n \rightarrow \infty} \mathbb{P}\left(X_n \in(-\infty, 0)\right)=0
+    $$
+    
+    hvilket viser det ønskede.
+    \item Idet 0 er udartet (ikke-stokastisk) følger det fra Sætning 5.2.5 (ii), at ( $X_n, X_n$ $\left.Y_n\right) \xrightarrow{\sim}(X, 0)$. Lad nu $f(x, y)=x-y$, og bemærk at $f$ er kontinuert på hele $\mathbb{R}^2$. Da giver Sætning 5.2.5 (i), at
+
+    $$
+    Y_n=f\left(X_n, X_n-Y_n\right) \xrightarrow{\sim} f(X, 0)=X
+    $$
+    
+    som ønsket.
+\end{enumerate}
+
+\problem{5.6}
+5.6. En stokastisk variabel $X$ kaldes udartet (eller degenereret), hvis der findes en konstant $a \in \mathbb{R}$, således at $\mathbb{P}(X=a)=1$.
+
+Betragt nu en følge $\left(X_n\right)$ af udartede stokastiske variable med tilhørende følge af konstanter $\left(a_n\right)$. Vis da, at følgende betingelser er ækvivalente:
+\begin{enumerate}
+    \item[(i)] $\lim _{n \rightarrow \infty} a_n$ eksisterer i $\mathbb{R}$ (i sædvanlig forstand).
+    \item[(ii)] $\left(X_n\right)$ er konvergent $\mathbb{P}$-n.o.
+    \item[(iii)] $\left(X_n\right)$ er konvergent i sandsynlighed.
+    \item[(iv)] $\left(X_n\right)$ er konvergent i fordeling.
+\end{enumerate}
+\solution
+Vi ser først, at implikationerne '(ii) $\Rightarrow$ (iii)' og '(iii) $\Rightarrow$ (iv)' følger fra hhv. Sætning 2.4.2 (i) og Sætning 5.1.6.
+
+Antag nu, at (i) er opfyldt, og sæt $a=\lim _{n \rightarrow \infty} a_n$. For hvert $n \in \mathbb{N}$ kan vi vælge en $\mathbb{P}$-nulmængde $N_n$, således at $X_n(\omega)=a_n$ for alle $\omega \in N_n{ }^c$. Sæt så $N=\bigcup_{n \in \mathbb{N}} N_n$, og bemærk at $N$ er en $\mathbb{P}$-nulmængde. For $\omega \in N^c=\bigcap_{n \in \mathbb{N}} N_n{ }^c$ gælder der, at $X_n(\omega)=a_n \rightarrow a$. Dette viser, at $X_n \rightarrow a \mathbb{P}$-n.o., så specielt er (ii) opfyldt.
+
+Vi mangler implikationen '(iv) $\Rightarrow$ (i)'. Antag derfor, at (iv) er opfyldt. Dvs. at der eksisterer et sandsynlighedsmål $\mu$, således at $X_n \xrightarrow{\sim} \mu$. Vælg jf. Lemma A.5.9 (viii) i [M\&I] to delfølger $\left(a_{n_k}\right) \operatorname{og}\left(a_{m_k}\right)$, således at
+
+$$
+\lim _{k \rightarrow \infty} a_{n_k}=\limsup _{n \rightarrow \infty} a_n, \quad \text { og } \quad \lim _{k \rightarrow \infty} a_{m_k}=\liminf _{n \rightarrow \infty} a_n
+$$
+
+
+Vi ønsker nu at vise, at grænseværdierne for $\left(a_{n_k}\right)$ og $\left(a_{m_k}\right)$ ligger i $\mathbb{R}$ (dvs. at de ikke er $\infty$ og $-\infty$ ). Dette følger, hvis vi kan vise, at følgen $\left(a_n\right)$ er begrænset. Idet $\left(X_n\right)$ er konvergent i fordeling, er $\left(X_n\right)$ stram jf. Sætning 5.3.3. Vi kan derfor vælge en kompakt mængde $K \subseteq \mathbb{R}$, således at $\sup _{n \in \mathbb{N}} \mathbb{P}\left(X_n \in K^c\right) \leq \frac{1}{2}$. Da gælder der nødvendigvis, at $a_n \in K$ for alle $n$, hvilket viser, at følgen $\left(a_n\right)$ er begrænset (idet kompakte mængder er begrænsede). Vi har nu vist, at $\lim _{k \rightarrow \infty} a_{n_k}$ og $\lim _{k \rightarrow \infty} a_{m_k}$ eksisterer i $\mathbb{R}$. Da følger det fra ovenstående (implikationen '(i) $\Rightarrow$ (iv)', at $X_{n_k} \xrightarrow{\sim} \lim \sup _{n \rightarrow \infty} a_n$ og $X_{m_k} \xrightarrow{\sim} \liminf _{n \rightarrow \infty} a_n$. Samtidig har vi, at $X_{n_k} \xrightarrow{\sim} \mu$ og $X_{m_k} \xrightarrow{\sim} \mu$. Pr. entydighed af grænsefordeling (Korollar 5.1.5) gælder der, at $\lim \sup _{n \rightarrow \infty} a_n \sim \mu$, samt at $\liminf _{n \rightarrow \infty} a_n \sim \mu$. Vi konkluderer, at $\limsup \operatorname{sim}_{n \rightarrow \infty} a_n=\liminf _{n \rightarrow \infty} a_n$, hvilket viser, at grænseværdien $\lim _{n \rightarrow \infty} a_n$ eksisterer.
+
+\problem{5.7}
+Denne opgave går ud på at vise, at enhver ikke-tom, åben delmængde $G$ af $\mathbb{R}$ kan skrives på formen: $G=\bigcup_{i \in I}\left(a_i, b_i\right)$, hvor
+\begin{enumerate}
+    \item[(i)] $I=\mathbb{N}$, eller $I=\{1, \ldots, N\}$ for et $N \in \mathbb{N}$.
+    \item[(ii)] $-\infty \leq a_i<b_i \leq \infty$ for alle $i \in I$.
+    \item[(iii)] Intervallerne ( $a_i, b_i$ ) er disjunkte.
+\end{enumerate}
+Vi sætter indledningsvist $Q=G \cap \mathbb{Q} \neq \emptyset$. For hvert $q \in Q$ sætter vi endvidere
+
+$$
+q_1=\inf \{a \in \mathbb{R} \mid(a, q] \subseteq G\}, \quad q_2=\sup \{b \in \mathbb{R} \mid[q, b) \subseteq G\}, \quad \text { og } \quad I(q)=\left(q_1, q_2\right)
+$$
+\begin{enumerate}
+    \item Vis, at $I(q) \subseteq G$ for alle $q \in Q$.
+    \item Vis, at der for alle $q, r \in Q$ gælder implikationen: $q \in I(r) \Longrightarrow I(q)=I(r)$.
+    \\Lad nu $\mathcal{J}$ betegne systemet af forskellige intervaller fra $\{I(q) \mid q \in Q\}$.
+    \item Redegør for, at $\mathcal{J}$ kan skrives på formen: $\mathcal{J}=\left\{\left(a_i, b_i\right) \mid i \in I\right\}$, hvor $I, a_i, b_i$ og $\left(a_i, b_i\right)$ opfylder (1)-(3) ovenfor.
+    \item Vis, at $G=\bigcup_{i \in I}\left(a_i, b_i\right)$.
+\end{enumerate}
+\solution
+\begin{enumerate}
+    \item Lad $q \in Q$ og $s \in I(q)$. Hvis $s \leq q$ kan vi pr. definition af $q_1$ vælge $a \in \mathbb{R}$, således at $(a, q] \subseteq G$, og $q_1<a<s$. Da ser vi, at $s \in(a, q] \subseteq G$. Hvis $s \geq q$ vælger vi i stedet $b \in \mathbb{R}$, således at $[q, b) \subseteq G$, og $s<b<q_1$. Da har vi, at $s \in[q, b) \subseteq G$. Altså har vi vist, at $I(q) \subseteq G$.
+    \item Lad $q, r \in Q$, og antag, at $q \in I(r)$. Vi viser først, at $I(r) \subseteq I(q)$. Lad derfor $s \in I(r)$. Hvis $s \geq q$ kan vi vælge $\epsilon>0$, således at $[q, s+\epsilon) \subseteq I(r) \subseteq G$ (vælg f.eks. $\epsilon=\left(r_2-s\right) / 2$ ). I så fald er $q_2 \geq s+\epsilon>s$, hvilket medfører, at $s \in\left[q, q_2\right) \subseteq I(q)$. Hvis $s \leq q$ vælger vi $\epsilon>0$, således at $(s-\epsilon, q] \subseteq I(r) \subseteq G$. Da har vi, at $q_1 \leq s-\epsilon<s$, hvilket giver, at $s \in\left(q_1, q\right] \subseteq I(q)$. Vi har dermed vist, at $I(r) \subseteq I(q)$. Specielt gælder der så, at $r \in I(q)$ (da $r \in I(r))$. Så giver ovenstående (med $q$ og $r$ byttet rundt), at $I(q) \subseteq I(r)$. Vi konkluderer således, at $I(q)=I(r)$.
+    \item Idet $Q \subseteq \mathbb{Q}$, er $Q$ højst tællelig. Derfor må $\mathcal{J}$ også højst have tælleligt mange elementer. Samtidig er elementerne i $\mathcal{J}$ ikke-tomme, åbne intervaller. Vi kan derfor skrive $\mathcal{J}=\left\{\left(a_i, b_i\right) \mid i \in I\right\}$, hvor $I$ opfylder (1), og hvor der gælder implikationen: $i \neq j \Longrightarrow\left(a_i, b_i\right) \neq\left(a_j, b_j\right)$. Betragt nu forskellige intervaller $\left(a_i, b_i\right) \neq\left(a_j, b_j\right)$. For ethvert $q \in\left(a_i, b_i\right)$ gælder der da, at $q \notin\left(a_j, b_j\right)$ jf. delopgave (b). Altså er (3) ligeledes opfyldt.
+    \item For ethvert $i \in I$ husker vi, at $\left(a_i, b_i\right)=I(q) \subseteq G$, hvor $q \in Q$. Altså gælder der, at $G \supseteq \bigcup_{i \in I}\left(a_i, b_i\right)$. Lad nu $g \in G$. Vælg først $\epsilon>0$, således at $(g-\epsilon, g+\epsilon) \subseteq G$, og vælg så $q \in(g-\epsilon, g+\epsilon) \cap \mathbb{Q} \subseteq Q$. Så gælder der, at $(g-\epsilon, q] \subseteq G \operatorname{og}[q, g+\epsilon) \subseteq G$. Det følger, at $(g-\epsilon, g+\epsilon) \subseteq I(q)$. Vi har således vist, at $g \in I(q)$ for et $q \in Q$. Der findes derfor $i \in I$ med $g \in\left(a_i, b_i\right)$. Dette viser, at $G \subseteq \bigcup_{i \in I}\left(a_i, b_i\right)$
+\end{enumerate}
+\end{document}
