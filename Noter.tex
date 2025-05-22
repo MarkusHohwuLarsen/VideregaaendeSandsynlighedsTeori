@@ -53,6 +53,7 @@
 \newtheorem{remark}[theorem]{Bemærkning} 
 \newtheorem{proposition}[theorem]{Sætning} 
 \newtheorem{example}[theorem]{Eksempel} 
+\newtheorem{terminology}[theorem]{Terminologi}
 \newtheorem{problemstilling}[theorem]{Problemstilling} 
 
 \usepackage{geometry}
@@ -1612,5 +1613,1894 @@ $$
 Da gælder der, at $\mathrm{U}_n \xrightarrow{\sim} N(0,1)$.
     \end{proposition}
 \end{theorem-box}
+\section{Betingede middelværdier}
+\subsection{Definition, eksistens og entydighed}
+\begin{theorem-box}
+    \begin{definition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}($ dvs. $\mathcal{B} \subseteq \mathcal{F})$.
+Lad videre X være en stokastisk variabel fra $\mathcal{L}^1(P)$.
+En betinget middelværdi af X givet $\mathcal{B}$ er en stokastisk variabel U på $(\Omega, \mathcal{F}, P)$, der opfylder følgende tre betingelser:
+\begin{enumerate}
+    \item $U \in \mathcal{L}^1(P)$.
+    \item U er $\mathcal{B}$-målelig.
+    \item Der gælder, at
 
+    $$
+    \int_B \mathrm{U} \mathrm{~d} P=\int_B \mathrm{xd} P \quad \text { for alle } B \text { i } \mathcal{B} .
+    $$
+\end{enumerate}
+    \end{definition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}[Restriktion af mål til del-$\sigma$-algebra.]
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$. Da defineres ved formlen:
+
+$$
+P_{\mathcal{B}}(B)=P(B), \quad(B \in \mathcal{B})
+$$
+
+et sandsynlighedsmål på $(\Omega, \mathcal{B})$, som kaldes restriktionen af $P$ til $\mathcal{B}$.
+Der gælder endvidere, at
+
+$$
+\mathcal{L}\left(P_{\mathcal{B}}\right)=\mathcal{L}(P) \cap \overline{\mathcal{M}}(\mathcal{B}), \quad \text { og } \quad \mathcal{L}^1\left(P_{\mathcal{B}}\right)=\mathcal{L}^1(P) \cap \mathcal{M}(\mathcal{B})
+$$
+
+samt at
+
+$$
+\int_{\Omega} \mathrm{U} \mathrm{~d} P_{\mathcal{B}}=\int_{\Omega} \mathrm{U} \mathrm{~d} P \quad \text { for alle } \mathrm{U} \in \mathcal{L}\left(P_{\mathcal{B}}\right) \subseteq \mathcal{L}(P)
+$$
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$.
+
+Lad videre $\mathcal{D}$ være et $\cap$-stabilt frembringersystem for $\mathcal{B}$, således at $\Omega \in \mathcal{D}$.
+Lad endelig U og $\mathrm{U}^{\prime}$ være to $\mathcal{B}$-målelige stokastiske variable fra $\mathcal{L}^1(P)$.
+Da gælder følgende bi-implikationer:
+\begin{enumerate}
+    \item[\textnormal{(i)}] $\mathrm{U} \leq \mathrm{U}^{\prime}$ P-n.o. $\Longleftrightarrow \int_B \mathrm{U} \mathrm{d} P \leq \int_B \mathrm{U}^{\prime} \mathrm{d} P$ for alle $B$ i $\mathcal{B}$.
+    \item[\textnormal{(ii)}] $\mathrm{U}=\mathrm{U}^{\prime}$ P-n.o. $\Longleftrightarrow \int_B \mathrm{U} \mathrm{d} P=\int_B \mathrm{U}^{\prime} \mathrm{d} P$ for alle $B ; \mathcal{D}$.
+\end{enumerate}
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$.
+
+For enhver stokastisk variabel X i $\mathcal{L}^1(P)$ findes da en betinget middelværdi U af X givet $\mathcal{B}$.
+
+Hvis U, U' begge er betingede middelværdier af X givet $\mathcal{B}$, da gælder der, at $\mathrm{U}=\mathrm{U}^{\prime} P-n . o$.
+
+Enhver betinget middelværdi af X givet $\mathcal{B}$ betegnes med $\mathbb{E}[\X| \mathcal{B}]$.
+    \end{proposition}
+\end{theorem-box}
+\subsection{Egenskaber for betingede middelværdier}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et ssh-felt, og lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$. Antag videre, at $\X, \Y \in \mathcal{L}^1(P)$, og at $a \in \mathbb{R}$. Da gæ/der følgende udsagn:
+\begin{enumerate}
+    \item[\textnormal{(i)}]$\mathbb{E}[\mathbb{E}[\X \mid \mathcal{B}]]=\mathbb{E}[\X]$.
+    \item[\textnormal{(ii)}] $\mathbb{E}[a \X+\Y \mid \mathcal{B}]=a \mathbb{E}[\X \mid \mathcal{B}]+\mathbb{E}[\Y \mid \mathcal{B}]$ P-n.o.
+    \item[\textnormal{(iii)}] Hvis $\X \leq \Y P$-n.o. gælder følgende udsagn:
+    \begin{enumerate}
+        \item $\mathbb{E}[\X \mid \mathcal{B}] \leq \mathbb{E}[\Y \mid \mathcal{B}]$ P-n.o.
+        \item Hvis $\X=\Y$ P-n.o., har vi også, at $\mathbb{E}[\X \mid \mathcal{B}]=\mathbb{E}[\Y \mid \mathcal{B}] P$-n.o.
+        \item Hvis $\X<\Y$ P-n.o., har vi også, at $\mathbb{E}[\X \mid \mathcal{B}]<\mathbb{E}[\Y \mid \mathcal{B}] P$-n.o.
+        \item Sættes $A=\{\mathbb{E}[\X \mid \mathcal{B}]=\mathbb{E}[\Y \mid \mathcal{B}]\}$, har vi, at $\X 1_A=\Y 1_A$ P-n.o.
+    \end{enumerate}
+    \item[\textnormal{(iv)}] Hvis X er $\mathcal{B}$-målelig, gælder der, at $\mathbb{E}[\X \mid \mathcal{B}]=\X P$-n.o.
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$, og antag, at $\X \in \mathcal{L}^1(P)$.
+
+Lad videre I være et interval i $\mathbb{R}$ med endepunkter:
+
+$$
+v \in[-\infty, \infty), \quad \text { og } \quad h \in(-\infty, \infty]
+$$
+
+og antag, at $P(\X \in I)=1$. Da gælder der, at
+
+$$
+P(\mathbb{E}[\X \mid \mathcal{B}] \in I)=1
+$$
+
+og at
+
+$$
+\X=v \text {-n.o. på }\{\mathbb{E}[\X \mid B]=v\}
+$$
+
+og at
+
+$$
+\X=h \text {-n.o. på }\{\mathbb{E}[\X \mid B]=h\} .
+$$
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{terminology}
+        Lad X og Y være stokastiske variable på $(\Omega, \mathcal{F}, P)$, og lad $A$ være en mængde fra $\mathcal{F}$.
+
+        Vi siger da (f.eks.), at $\X \geq \Y P$-n.o. på $A$, hvis følgende ækvivalente betingelser er opfyldte:
+        \begin{enumerate}
+            \item[(1)] $P(A \backslash\{\X \geq \Y\})=0$.
+            \item[(2)] $P(A \cap\{\X \geq \Y\})=P(A)$.
+            \item[(3)] $\X \1_A \geq \Y \1_A P$-n.o.
+        \end{enumerate}
+    
+        Bemærk nemlig, at
+        
+        $$
+        P(A)=P(A \backslash\{\X \geq \Y\})+P(A \cap\{\X \geq \Y\})
+        $$
+        
+        og at
+        
+        $$
+        P\left(\X \1_A<\Y \1_A\right)=P(A \cap\{\X<\Y\})=P(A \backslash\{\X \geq \Y\})
+        $$
+        
+    \end{terminology}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Tårnegenskaben]
+        $\operatorname{Lad}(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, lad X være en integrabel stokastisk variabel herpå, og lad $\mathcal{B}, \mathcal{B}_1$ være del- $\sigma$-algebraer af $\mathcal{F}$.
+
+Hvis $\mathcal{B}_1 \subseteq \mathcal{B}$, gælder der, at
+
+$$
+\mathbb{E}\left[\mathbb{E}[\X \mid \mathcal{B}] \mid \mathcal{B}_1\right]=\mathbb{E}\left[\X \mid \mathcal{B}_1\right]=\mathbb{E}\left[\mathbb{E}\left[\X \mid \mathcal{B}_1\right] \mid \mathcal{B}\right] \quad \text { P-n.o. }
+$$
+    \end{proposition}
+\end{theorem-box}
+\subsection{Jensens ulighed for betingede middelværdier}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad I være et interval i $\mathbb{R}$, og lad $\varphi: I \rightarrow \mathbb{R}$ være en konveks funktion.
+Da findes en følge $\left(\ell_n\right)_{n \in \mathbb{N}}$ af affine funktioner på $\mathbb{R}$, således at
+
+$$
+\varphi(t) \geq \sup _{n \in \mathbb{N}} \ell_n(t) \quad \text { for alle } t i l,
+$$
+
+og
+
+$$
+\varphi(t)=\sup _{n \in \mathbb{N}} \ell_n(t) \quad \text { for alle } t i l^{\circ} .
+$$
+
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$. Lad videre Z være en stokastisk variabel i $\mathcal{L}^1(P)$.
+
+For enhver mængde $A$ fra $\mathcal{B}$ gælder der da, at
+
+$$
+\mathbb{E}\left[\1_A \mathrm{Z} \mid \mathcal{B}\right]=\1_A \mathbb{E}[\mathrm{Z} \mid \mathcal{B}] \quad \text { P-n.o. }
+$$
+
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Jensens ulighed for betingede middelværdier.]
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$, og antag, at $\X \in \mathcal{L}^1(P)$.
+
+Lad videre $\varphi: \mathbb{R} \rightarrow \mathbb{R}$ være en Borel-funktion, som er konveks på et interval $I \subseteq \mathbb{R}$.
+
+Antag, at $P(\X \in I)=1$, og at $\varphi(\X) \in \mathcal{L}^1(P)$.
+Da gælder der, at
+
+$$
+P(\mathbb{E}[\X \mid \mathcal{B}] \in I)=1, \quad \text { og } \quad \varphi(\mathbb{E}[\X \mid \mathcal{B}]) \leq \mathbb{E}[\varphi(\X) \mid \mathcal{B}] \text { P-n.o. }
+$$
+    \end{proposition}
+\end{theorem-box}
+\subsection{Konvergens resultater for betingede middelværdier}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$.
+
+For ethvert r i $[1, \infty)$ gælder da implikationen:
+
+$$
+\X \in \mathcal{L}^r(P) \Longrightarrow \mathbb{E}[\X \mid \mathcal{B}] \in \mathcal{L}^r(P)
+$$
+
+
+Hvis $\X, \Y \in \mathcal{L}^1(P)$, og $\X-\Y \in \mathcal{L}^r(P)$, gæ/der der endvidere, at
+
+$$
+\|\mathbb{E}[\X \mid \mathcal{B}]-\mathbb{E}[\Y \mid \mathcal{B}]\|_r \leq\|\X-\Y\|_r
+$$
+
+
+For stokastiske variable $\X, \X_1, \X_2, \X_3, \ldots$ i $\mathcal{L}^1(P)$, kan vi derfor slutte, at
+
+$$
+\X_n \rightarrow \X \text { i } r \text {-middel } \Longrightarrow \mathbb{E}\left[\X_n \mid \mathcal{B}\right] \rightarrow \mathbb{E}[\X \mid \mathcal{B}] \text { i } r \text {-middel. }
+$$
+
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Monoton konvergens for betingede middelværdier]
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$, og lad $\X, \X_1, \X_2, \X_3, \ldots$ være stokastiske variable i $\mathcal{L}^1(P)$.
+        \begin{enumerate}
+            \item[\textnormal{(i)}] Hvis $\X_n \uparrow \X$ P-n.o., da gælder der også, at $\mathbb{E}\left[\X_n \mid \mathcal{B}\right] \uparrow \mathbb{E}[\X \mid \mathcal{B}]$ P-n.o. og i 1-middel.
+            \item[\textnormal{(ii)}] Hvis $\X_n \downarrow \X$ P-n.o., da gælder der også, at $\mathbb{E}\left[\X_n \mid \mathcal{B}\right] \downarrow \mathbb{E}[\X \mid \mathcal{B}]$ P-n.o. og i 1-middel. 
+        \end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}[Fatous lemma for betingede middelværdier]
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$.
+
+Lad videre $\X, \X_1, \X_2, \X_3, \ldots$ være stokastiske variable i $\mathcal{L}^1(P)$, og antag, at $\X_n \geq 0$-n.o. for alle $n$ i $\mathbb{N}$, samt at $\X \leq \liminf _{n \rightarrow \infty} \X_n P$-n.o.
+
+Da gælder uligheden:
+
+$$
+\mathbb{E}[\X \mid \mathcal{B}] \leq \liminf _{n \rightarrow \infty} \mathbb{E}\left[\X_n \mid \mathcal{B}\right] \text { P-n.o. }
+$$
+
+
+Hvis $\lim \inf _{n \rightarrow \infty} \X_n \in \mathcal{L}^1(P)$, kan vi specielt slutte, at (?)
+
+$$
+\mathbb{E}\left[\liminf _{n \rightarrow \infty} \X_n \mid \mathcal{B}\right] \leq \liminf _{n \rightarrow \infty} \mathbb{E}\left[\X_n \mid \mathcal{B}\right] \text { P-n.o. }
+$$
+
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Domineret konvergens for betingede middelværdier]
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$, og lad $\X, \X_1, \X_2, \X_3, \ldots$ være stokastiske variable på $(\Omega, \mathcal{F}, P)$.
+
+Antag, at
+- $\X_n \rightarrow \X$ P-n.o. for $n \rightarrow \infty$.
+- Der findes en stokastisk variabel $\Y$ fra $\mathcal{L}^1(P)^{+}$, således at $\left|\X_n\right| \leq \Y$ $P$-n.o. for alle $n$ i $\mathbb{N}$.
+
+Da gælder der, at $\X \in \mathcal{L}^1(P)$, at $\X_n \in \mathcal{L}^1(P)$ for alle $n$, og at
+
+$$
+\mathbb{E}\left[\X_n \mid \mathcal{B}\right] \underset{n \rightarrow \infty}{\longrightarrow} \mathbb{E}[\X \mid \mathcal{B}] \quad \text { P-n.o. og i 1-middel. }
+$$
+    \end{proposition}
+\end{theorem-box}
+\subsection{$\mathcal{B}$-målelige variable som konstanter}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$, og lad X være en stokastisk variabel i $\mathcal{L}^1(P)$.
+
+Betragt endvidere to $\mathcal{B}$-målelige stokastiske variable $\mathrm{U}_1$ og $\mathrm{U}_2$, og antag, at
+
+$$
+P\left(\mathrm{U}_1 \leq \X \leq \mathrm{U}_2\right)=1
+$$
+
+
+Da gælder der også, at
+
+$$
+P\left(\mathrm{U}_1 \leq \mathbb{E}[\X \mid \mathcal{B}] \leq \mathrm{U}_2\right)=1 .
+$$
+
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$, og lad X være en stokastisk variabel i $\mathcal{L}^1(P)$.
+Betragt videre en $\mathcal{B}$-målelig stokastisk variabel U , således at $\mathrm{UX} \in \mathcal{L}^1(P)$.
+Da gælder der, at
+
+$$
+\mathbb{E}[\mathrm{UX} \mid \mathcal{B}]=\mathrm{U} \mathbb{E}[\X \mid \mathcal{B}] \text { P-n.o. }
+$$
+
+    \end{proposition}
+\end{theorem-box}
+\subsection{Uafhængighed vs. betinget middelværdi}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, lad $\mathcal{B}$ være en del- $\sigma$-algebra af $\mathcal{F}$, og lad X være en stokastisk variabel i $\mathcal{L}^1(P)$.
+
+Antag videre, at X og $\mathcal{B}$ er uafhængige.
+Da gælder der, at
+
+$$
+\mathbb{E}[\X \mid \mathcal{B}]=\mathbb{E}[\X] \quad \text { P-n.o. }
+$$
+
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, lad $\mathcal{B}, \mathcal{B}_1$ være del- $\sigma$-algebraer af $\mathcal{F}$, og lad X være en stokastisk variabel i $\mathcal{L}^1(P)$.
+
+Antag, at $(\X, \mathcal{B})$ og $\mathcal{B}_1$ er uafhængige, dvs. at
+
+$$
+\sigma(\sigma(\X) \cup \mathcal{B}) \text { og } \mathcal{B}_1 \text { er uafhængige. }
+$$
+
+
+Da gælder formlen:
+
+$$
+\mathbb{E}\left[\X \mid \sigma\left(\mathcal{B} \cup \mathcal{B}_1\right)\right]=\mathbb{E}[\X \mid \mathcal{B}] \quad \text { P-n.o. }
+$$
+
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, lad X, Y være stokastiske variable herpå, og lad $\mathcal{B}$ være en del- $\sigma$-alg. af $\mathcal{F}$.
+
+Antag, at X og $\mathcal{B}$ er uafhængige, og at Y er $\mathcal{B}$-målelig.
+Betragt endvidere en begrænset Borel-funktion $H: \mathbb{R}^2 \rightarrow \mathbb{R}$, og indfør funktionen $\tilde{H}: \mathbb{R} \rightarrow \mathbb{R}$ givet ved
+
+$$
+\tilde{H}(y)=\mathbb{E}[H(\X, y)], \quad(y \in \mathbb{R})
+$$
+
+
+Da gælder formlen:
+
+$$
+\mathbb{E}[H(\X, \Y) \mid \mathcal{B}]=\tilde{H}(\Y) \text { P-n.o. }
+$$
+
+    \end{proposition}
+\end{theorem-box} 
+\subsection{Uniform integrabilitet af betingede middelværdier}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad $\left(\mathcal{B}_i\right)_{i \in I}$ være en familie af del- $\sigma$-algebraer af $\mathcal{F}$.
+
+Lad videre $\mathcal{H}$ være en uniformt integrabel familie af stokastiske variable på $(\Omega, \mathcal{F}, P)$.
+
+Da er familien
+
+$$
+\left\{\mathbb{E}\left[\mathrm{X} \mid \mathcal{B}_i\right] \mid \mathrm{x} \in \mathcal{H}, \quad i \in I\right\}
+$$
+
+igen uniformt integrabel.
+    \end{proposition}
+\end{theorem-box}
+\subsection{Betinget middelværdi givet en stokastisk funktion}
+\begin{theorem-box}
+    \begin{definition}[Betinget middelværdi af $\X$ givet $\Y$]
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad X være en stokastisk variabel i $\mathcal{L}^1(P)$.
+
+        Betragt videre en stokastisk funktion $\mathrm{Y}: \Omega \rightarrow E$ med værdier i et måleligt rum $(E, \mathcal{E})$, og definér:
+        
+        $$
+        \sigma(\mathrm{Y}):=\mathrm{Y}^{-1}(\mathcal{E})=\left\{\mathrm{Y}^{-1}(B) \mid B \in \mathcal{E}\right\}=\{\{\mathrm{Y} \in B\} \mid B \in \mathcal{E}\} \subseteq \mathcal{F}
+        $$
+        
+        
+        En betinget middelværdi $\mathbb{E}[\mathrm{X} \mid \mathrm{Y}]$ af X givet Y defineres da ved:
+        
+        $$
+        \mathbb{E}[\mathrm{X} \mid \mathrm{Y}]=\mathbb{E}[\mathrm{X} \mid \sigma(\mathrm{Y})] \quad P \text {-n.o. }
+        $$
+        
+        M.a.o. er $\mathbb{E}[\mathrm{X} \mid \mathrm{Y}]$ en integrabel, $\sigma(\mathrm{Y})$-målelig stokastisk variabel, så
+        
+        $$
+        \int_{\{\mathrm{Y} \in B\}} \mathbb{E}[\mathrm{X} \mid \mathrm{Y}] \mathrm{d} P=\int_{\{\mathrm{Y} \in B\}} \mathrm{X} \mathrm{~d} P \quad \text { for alle } B \mathrm{i} \mathcal{E}
+        $$        
+    \end{definition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad X være en stokastisk variabel i $\mathcal{L}^1(P)$. Betragt videre en stokastisk funktion $\mathrm{Y}: \Omega \rightarrow E$ med værdier i et måleligt rum $(E, \mathcal{E})$.
+\begin{enumerate}
+    \item[\textnormal{(i)}] Der findes en funktion $\varphi: E \rightarrow \mathbb{R}$ fra $\mathcal{M}(\mathcal{E})$, således at $\mathbb{E}[\mathrm{X} \mid \mathrm{Y}]=\varphi(\mathrm{Y})$ P-n.o.
+
+    \item[\textnormal{(ii)}] Hvis $\varphi \in \mathcal{M}(\mathcal{E})$ og opfylder, at $\mathbb{E}[\mathrm{X} \mid \mathrm{Y}]=\varphi(\mathrm{Y})$ P-n.o., så gælder der automatisk, at $\varphi \in \mathcal{L}^1\left(P_{\mathrm{Y}}\right)$.
+    \item[\textnormal{(iii)}]  Antag, at $\varphi, \psi$ er to funktioner fra $\mathcal{M}(\mathcal{E})$, således at
+
+    $$
+    \varphi(\mathrm{Y})=\mathbb{E}[\mathrm{X} \mid \mathrm{Y}]=\psi(\mathrm{Y}) \quad \text { P-n.o. }
+    $$
+    Så gælder der automatisk, at $\psi(y)=\varphi(y)$ for $P_Y-n$.a. y i $E$.
+\end{enumerate}
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{definition}[Betinget middelværdi af $\X$ givet $\Y$]
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad X være en stokastisk variabel i $\mathcal{L}^1(P)$.
+
+Betragt videre en stokastisk funktion $\mathrm{Y}: \Omega \rightarrow E$ med værdier i et måleligt $\operatorname{rum}(E, \mathcal{E})$.
+
+Enhver funktion $\varphi$ i $\mathcal{M}(\mathcal{E})$ der opfylder, at
+
+$$
+\mathbb{E}[\mathrm{X} \mid \mathrm{Y}]=\varphi(\mathrm{Y}), P \text {-n.o., }
+$$
+
+kaldes en betinget middelværdi af X givet værdien af Y .
+Man benytter ofte notationen:
+
+$$
+\varphi(y)=\mathbb{E}[\mathrm{X} \mid \mathrm{Y}=y], \quad(y \in E)
+$$
+
+    \end{definition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, lad X være en stokastisk variabel i $\mathcal{L}^1(P)$, og lad $Y: \Omega \rightarrow E$ være en stokastisk funktion med værdier i et måleligt rum $(E, \mathcal{E})$.
+
+Betragt videre en funktion $\varphi: E \rightarrow \mathbb{R}$ fra $\mathcal{M}(\mathcal{E})$.
+Da er $\varphi$ en betinget middelværdi af X givet værdien af Y , hvis og kun hvis den opfylder følgende to betingelser:
+\begin{enumerate}
+    \item[\textnormal{(i)}] $\varphi \in \mathcal{L}^1\left(P_{\mathrm{Y}}\right)$.
+    \item[\textnormal{(ii)}] $\int_B \varphi(y) P_{\mathrm{Y}}(\mathrm{d} y)=\int_{\{\mathrm{Y} \in B\}} \mathrm{X} \mathrm{d} P \quad$ for alle $B$ fra $\mathcal{E}$. 
+\end{enumerate}
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        $\operatorname{Lad}(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad $\mathrm{X}, \tilde{\mathrm{x}}, \mathrm{x}_1, \mathrm{X}_2, \mathrm{X}_3, \ldots$ være stokastiske variable fra $\mathcal{L}^1(P)$. Lad videre $\mathrm{Y}: \Omega \rightarrow E$ være en stokastisk funktion med værdier $i(E, \mathcal{E})$.
+\begin{enumerate}
+    \item[\textnormal{(i)}] For ethvert $\alpha i \mathbb{R}$ gælder der, at
+
+    $$
+    \mathbb{E}[\alpha \mathrm{X}+\tilde{\mathrm{X}} \mid \mathrm{Y}=y]=\alpha \mathbb{E}[\mathrm{X} \mid \mathrm{Y}=y]+\mathbb{E}[\tilde{\mathrm{X}} \mid \mathrm{Y}=y] \quad \text { for } P_{\mathrm{Y}}-\text { n.a. } y .
+    $$
+    \item[\textnormal{(ii)}] Hvis $\tilde{\mathrm{X}} \leq \mathrm{X}$ P-n.o., gælder der også, at $\mathbb{E}[\tilde{\mathrm{X}} \mid \mathrm{Y}=y] \leq \mathbb{E}[\mathrm{X} \mid \mathrm{Y}=y]$ fo $P_Y-$ n.a. $y$.
+    \item[\textnormal{(iii)}] Hvis $\mathrm{X}_n \uparrow \mathrm{X}$ P-n.o., gælder der også, at $\mathbb{E}\left[\mathrm{X}_n \mid \mathrm{Y}=y\right] \uparrow \mathbb{E}[\mathrm{X} \mid \mathrm{Y}=y]$ for $P_Y-n . a . y$.
+    \item[\textnormal{(iv)}] Hvis $\mathrm{X}_n \downarrow \mathrm{X}$ P-n.o., gælder der også, at $\mathbb{E}\left[\mathrm{X}_n \mid \mathrm{Y}=y\right] \downarrow \mathbb{E}[\mathrm{X} \mid \mathrm{Y}=y]$ for $P_{\mathrm{Y}}-$ n.a. $y$.
+\end{enumerate}
+\end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\mathrm{X}, \mathrm{X}^{\prime}$ være stokastiske variable i $\mathcal{L}^1(P)$, og lad $\mathrm{Y}, \mathrm{Y}^{\prime}: \Omega \rightarrow E$ være to stokastiske funktioner med værdier i et måleligt rum $(E, \mathcal{E})$.
+
+Antag, at
+
+$$
+(\mathrm{X}, \mathrm{Y}) \sim\left(\mathrm{x}^{\prime}, \mathrm{Y}^{\prime}\right), \quad \text { altså at } \quad P_{(\mathrm{x}, \mathrm{Y})}=P_{\left(\mathrm{x}^{\prime}, \mathrm{Y}^{\prime}\right)} p \text { å }(\mathbb{R} \times E, \mathcal{B}(\mathbb{R}) \otimes \mathcal{E})
+$$
+
+Da vil enhver betinget middelværdi af X givet værdien af Y også være en betinget middelværdi af $\mathrm{X}^{\prime}$ givet værdien af $\mathrm{Y}^{\prime}$.
+
+For $\varphi$ i $\mathcal{M}(\mathcal{E})$ gælder der således implikationen:
+
+$$
+\mathbb{E}[\mathrm{X} \mid \mathrm{Y}]=\varphi(\mathrm{Y}) \text { P-n.o. } \quad \Longrightarrow \mathbb{E}\left[\mathrm{X}^{\prime} \mid \mathrm{Y}^{\prime}\right]=\varphi\left(\mathrm{Y}^{\prime}\right) \text { P-n.o. }
+$$
+    \end{proposition}
+\end{theorem-box}
+\section{Betingede fordelinger}
+\subsection{Definition, eksempler og entydighed}
+\begin{theorem-box}
+    \begin{definition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad X og Y være stok. fkt. med værdier i mâlelige rum hhv. $\left(E_1, \mathcal{E}_1\right)$ og $\left(E_2, \mathcal{E}_2\right)$.
+
+En betinget fordeling af X givet (værdien af) Y er en afbildning $\varphi: \mathcal{E}_1 \times E_2 \rightarrow[0,1]$, der opfylder følgende tre betingelser:
+\begin{enumerate}
+    \item For hvert fast $y$ i $E_2$ er afbildningen
+
+$$
+\varphi(\cdot, y): A \mapsto \varphi(A, y): \mathcal{E}_1 \rightarrow[0,1]
+$$
+
+et sandsynlighedsmâl på ( $E_1, \mathcal{E}_1$ ).
+\item For enhver fast mængde $A$ i $\mathcal{E}_1$ er afbildningen
+
+$$
+\varphi(A, \cdot): y \mapsto \varphi(A, y): E_2 \rightarrow[0,1]
+$$
+
+$\mathcal{E}_2$-målelig.
+\item For enhver mængde $A$ i $\mathcal{E}_1$ og enher mængde $B$ i $\mathcal{E}_2$ gælder der, at
+
+$$
+\int_B \varphi(A, y) P_Y(\mathrm{~d} y)=P(\mathrm{X} \in A, \mathrm{Y} \in B)
+$$
+
+\end{enumerate}
+Man skriver ofte $P_{\mathbf{X}}(A \mid \mathrm{Y}=y)$ i stedet for $\varphi(A, y)$.
+For hvert $y$ i $E_2$ kaldes sandsynlighedsmâlet
+
+$$
+\varphi(\cdot, y)=P_{\mathrm{x}}(\cdot \mid \mathrm{Y}=y)
+$$
+
+for den betingede fordeling af X givet $\mathrm{Y}=y$.
+    \end{definition}
+\end{theorem-box}
+\begin{remark}\end{remark}
+\begin{example}
+    Lad X og Y være stokastiske variable på $(\Omega, \mathcal{F}, P)$, og antag, at Y er Poisson fordelt med parameter $\ell>0$.
+
+Vi definerer så $\varphi: \mathcal{B}(\mathbb{R}) \times \mathbb{R} \rightarrow[0,1]$ ved
+
+$$
+\begin{aligned}
+\varphi(A, y) & = \begin{cases}\frac{P(\mathbb{X} \in A, \mathrm{Y}=y)}{P(\mathrm{Y}=y)}, & \text { hvis } y \in \mathbb{N}_0 \\
+\delta_0(A), & \text { hvis } y \in \mathbb{R} \backslash \mathbb{N}_0\end{cases} \\
+& = \begin{cases}\frac{P(\mathbb{X} \in A, \mathrm{Y}=y)}{\mathrm{e}^{-\varepsilon_{\ell} y / y!},} & \text { hvis } y \in \mathbb{N}_0 \\
+\delta_0(A), & \text { hvis } y \in \mathbb{R} \backslash \mathbb{N}_0\end{cases}
+\end{aligned}
+$$
+
+
+Da er $\varphi$ en betinget fordeling af X givet værdien af Y .
+Bemærk, at der for alle $A$ i $\mathcal{B}(\mathbb{R})$ og y i $\mathbb{R}$ gælder formlen:
+
+$$
+\varphi(A, y)=\delta_0(A) 1_{\mathrm{R} \backslash \mathrm{~N}_0}(y)+\sum_{n=0}^{\infty} \frac{P(\mathrm{X} \in A, \mathrm{Y}=n)}{\mathrm{e}^{-\ell \ell^n / n!}} 1_{\{n\}}(y)
+$$
+
+\end{example}
+\begin{example}
+    Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad X og Y være stokastiske variable herpå.
+
+Antag, at $P_{(\mathrm{x}, \mathrm{Y})}$ er absolut kontinuert med tæthed $f \in \mathcal{M}\left(\mathcal{B}\left(\mathbb{R}^2\right)\right)^{+}$med hensyn til $\lambda_2$.
+
+Husk, at $P_{\mathrm{X}}$ og $P_{\mathrm{Y}}$ da automatisk er absolut kontinuerte mht. $\lambda$, med tætheder givet ved (jvf. 13.3.4 i [M\&l]):
+
+$$
+f_{\mathrm{X}}(x)=\int_{\mathbb{R}} f(x, t) \lambda(\mathrm{d} t), \quad \text { og } \quad f_{\mathrm{Y}}(y)=\int_{\mathbb{R}} f(s, y) \lambda(\mathrm{d} s), \quad(x, y \in \mathbb{R})
+$$
+
+
+Det følger da, at der ved formlen:
+
+$$
+\varphi(A, y)=\left\{\begin{array}{ll}
+\frac{1}{f_Y(y)} \int_A f(x, y) \lambda(\mathrm{d} x), & \text { hvis } f_Y(y)>0, \\
+\delta_0(A), & \text { hvis } f_Y(y)=0,
+\end{array}(A \in \mathcal{B}(\mathbb{R}), y \in \mathbb{R}),\right.
+$$
+
+defineres en betinget fordeling af $X$ givet (værdien af) $Y$.
+(a) For fast $y$ i $\mathbb{R}$ ses det umiddelbart, at $A \mapsto \varphi(A, y)$ er et sandsynlighedsmål på $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$. Hvis $f_{\mathrm{Y}}(y)>0$ er det målet med tæthed $f_{\mathrm{Y}}(y)^{-1} f(\cdot, y)$ med hensyn til $\lambda$.
+(b) For fast $A$ i $\mathcal{B}(\mathbb{R})$ følger det fra Tonelli's Sætning, at funktionen
+
+$$
+y \mapsto \int_A f(x, y) \lambda(\mathrm{d} x)=\int_{\mathbf{R}} f(x, y) 1_A(x) \lambda(\mathrm{d} x)
+$$
+
+er $\mathcal{B}(\mathbb{R})$-målelig.
+Dermed sikrer Sætning 4.4.3 i [M\&I], at
+
+$$
+y \mapsto \varphi(A, y)= \begin{cases}\frac{1}{f_{\mathrm{Y}}(y)} \int_A f(x, y) \lambda(\mathrm{d} x), & \text { hvis } f_{\mathrm{Y}}(y)>0 \\ \delta_0(A), & \text { hvis } f_{\mathrm{Y}}(y)=0\end{cases}
+$$
+
+er $\mathcal{B}(\mathbb{R})$-målelig.
+$$
+\begin{aligned}
+&\text { (c) For endnu en Borel-mængde } B \text { i } \mathcal{B}(\mathbb{R}) \text { finder vi endelig, at }\\
+&\begin{aligned}
+\int_B \varphi(A, y) P_{\mathrm{Y}}(\mathrm{~d} y) & =\int_{B \cap\left\{f_{\mathrm{Y}}>0\right\}} \varphi(A, y) f_{\mathrm{Y}}(y) \lambda(\mathrm{d} y) \\
+& =\int_{B \cap\left\{f_{\mathrm{Y}}>0\right\}}\left(\frac{1}{f_{\mathrm{Y}}(y)} \int_A f(x, y) \lambda(\mathrm{d} x)\right) f_{\mathrm{Y}}(y) \lambda(\mathrm{d} y) \\
+& =\int_{B \cap\left\{f_{\mathrm{r}}>0\right\}}\left(\int_A f(x, y) \lambda(\mathrm{d} x)\right) \lambda(\mathrm{d} y) \\
+& =\int_B\left(\int_A f(x, y) \lambda(\mathrm{d} x)\right) \lambda(\mathrm{d} y) \stackrel{\text { Tonelli }}{=} \int_{A \times B} f \mathrm{~d} \lambda_2 \\
+& =P((\mathrm{X}, \mathrm{Y}) \in A \times B) \\
+& =P(\mathrm{X} \in A, \mathrm{Y} \in B)
+\end{aligned}
+\end{aligned}
+$$
+\end{example}
+\begin{example}
+    Antag, at (X,Y) er 2-dimensionalt normalfordelt med middelværdi-vektor $\left[\begin{array}{l}0 \\ 0\end{array}\right]$ og kovariansmatrix $\Sigma=\left(\begin{array}{ll}5 & 2 \\ 2 & 1\end{array}\right)$.
+Mao. er ( $\mathrm{X}, \mathrm{Y}$ ) absolut kontinuert med $\lambda_2$-tæthed givet ved
+
+$$
+\begin{aligned}
+f_{(\mathrm{X}, \mathrm{Y})}(x, y) & =\frac{1}{\sqrt{(2 \pi)^2 \operatorname{det}(\Sigma)}} \exp \left(-\frac{1}{2}\left\langle\Sigma^{-1}\binom{x}{y},\binom{x}{y}\right\rangle\right) \\
+& =\frac{1}{2 \pi} \exp \left(-\frac{1}{2}\left\langle\left(\begin{array}{cc}
+1 & -2 \\
+-2 & 5
+\end{array}\right)\binom{x}{y},\binom{x}{y}\right\rangle\right) \\
+& =\frac{1}{2 \pi} \exp \left(-\frac{1}{2}\left(x^2-4 x y+5 y^2\right)\right)
+\end{aligned}
+$$
+
+
+Bemærk også, at Y $\sim N(0,1)$, dvs. Y har $\lambda$-tæthed:
+
+$$
+f_{\mathrm{Y}}(y)=\frac{1}{\sqrt{2 \pi}} \exp \left(-\frac{1}{2} y^2\right)
+$$
+Det følger derfor fra Eksempel 8.1.4, at $P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=y)$ er målet med $\lambda$-tæthed:
+
+$$
+\begin{aligned}
+x \mapsto \frac{f_{(\mathrm{X}, \mathrm{Y})}(x, y)}{f_{\mathrm{Y}}(y)} & =\frac{\frac{1}{2 \pi} \exp \left(-\frac{1}{2}\left(x^2-4 x y+5 y^2\right)\right)}{\frac{1}{\sqrt{2 \pi}} \exp \left(-\frac{1}{2} y^2\right)} \\
+& =\frac{1}{\sqrt{2 \pi}} \exp \left(-\frac{1}{2}\left(x^2-4 x y+4 y^2\right)\right) \\
+& =\frac{1}{\sqrt{2 \pi}} \exp \left(-\frac{1}{2}(x-2 y)^2\right)
+\end{aligned}
+$$
+
+
+Det følger således at, $P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=y)=N(2 y, 1)$ for alle $y$ i $\mathbb{R}$.
+\end{example}
+\begin{example}
+Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad X og Y være stok. fkt. med værdier i målelige rum hhv. $\left(E_1, \mathcal{E}_1\right)$ og $\left(E_2, \mathcal{E}_2\right)$.
+
+Da er X og Y uafhængige, hvis og kun hvis der findes et sandsynlighedsmål $\mu$ på $\left(E_1, \mathcal{E}_1\right)$, således at der ved
+
+$$
+\varphi(A, y)=\mu(A), \quad\left(A \in \mathcal{E}_1, y \in E_2\right)
+$$
+
+defineres en betinget fordeling af $X$ givet (værdien af) $Y$.
+I bekræftende fald gælder der, at $\mu=P_{\mathrm{X}}$.
+Antag nemlig, at X og Y er uafhængige, og definér $\varphi: \mathcal{E}_1 \times E_2 \rightarrow[0,1]$ ved
+
+$$
+\varphi(A, y)=P_{\mathrm{X}}(A), \quad\left(A \in \mathcal{E}_1, y \in E_2\right)
+$$
+(i) Det er klart, at $A \mapsto \varphi(A, y)$ er et sandsynlighedsmål for ethvert $y$ i $E_2$.
+\\(ii) For enher fast mængde $A$ i $\mathcal{E}_1$ er det også klart, at $y \mapsto \varphi(A, y)$ er $\mathcal{E}_2$-målelig.
+\\(iii) For en vilkårlig mængde $B$ fra $\mathcal{E}_2$ finder vi endelig, at
+
+$$
+\begin{aligned}
+\int_B \varphi(A, y) P_{\mathrm{Y}}(\mathrm{~d} y) & =\int_B P_{\mathrm{X}}(A) P_{\mathrm{Y}}(\mathrm{~d} y)=P_{\mathrm{X}}(A) P_{\mathrm{Y}}(B) \\
+& =P(\mathrm{X} \in A) P(\mathrm{Y} \in B)=P(\mathrm{X} \in A, \mathrm{Y} \in B)
+\end{aligned}
+$$
+Antag omvendt, at der findes et ssh-mål $\mu$ på $\left(E_1, \mathcal{E}_1\right)$, således at
+
+$$
+\varphi(A, y)=\mu(A), \quad\left(A \in \mathcal{E}_2, y \in E_2\right)
+$$
+
+definerer en betinget fordeling af $X$ givet (værdien af) $Y$.
+For vilkårlige $A$ i $\mathcal{E}_1$ og $B$ i $\mathcal{E}_2$ følger det da, at
+
+$$
+\begin{aligned}
+P(\mathrm{X} \in A, \mathrm{Y} \in B) & =\int_B \varphi(A, y) P_{\mathrm{Y}}(\mathrm{~d} y)=\int_B \mu(A) P_{\mathrm{Y}}(\mathrm{~d} y) \\
+& =\mu(A) P_{\mathrm{Y}}(B)=\mu(A) P(\mathrm{Y} \in B)
+\end{aligned}
+$$
+
+
+Sættes specielt $B=E_2$, fremgår det, at
+
+$$
+P(\mathrm{X} \in A)=P\left(\mathrm{X} \in A, \mathrm{Y} \in E_2\right)=\mu(A) P\left(\mathrm{Y} \in E_2\right)=\mu(A)
+$$
+
+således at $\mu=P_{\mathbf{x}}$.
+Dermed viser udregningen ovenfor videre, at
+
+$$
+P(\mathrm{x} \in A, \mathrm{Y} \in B)=P_{\mathrm{X}}(A) P(\mathrm{Y} \in B)=P(\mathrm{X} \in A) P(\mathrm{Y} \in B) .
+$$
+
+\end{example}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad X og Y være stokastiske funktioner med værdier i målelige rum hhv. $\left(E_1, \mathcal{E}_1\right)$ og $\left(E_2, \mathcal{E}_2\right)$.
+
+Antag, at $\varphi, \tilde{\varphi}: \mathcal{E}_1 \times E_2 \rightarrow[0,1]$ er to betingede fordelinger af X givet (værdien af) Y.
+
+Antag endvidere, at $\mathcal{E}_1$ er tælleligt frembragt.
+Da findes en mængde $N$ fra $\mathcal{E}_2$, således at
+\begin{enumerate}
+    \item[\textnormal{(i)}] $P(Y \in N)=0$.
+    \item[\textnormal{(ii)}] $\varphi(A, y)=\tilde{\varphi}(A, y)$ for alle $A$ i $\mathcal{E}_1$ og $y$ i $N^c$.
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\subsection{Transformation og integration med funktioner af én variabel}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad X og Y være stokastiske funktioner herpå med værdier i målelige rum hhv. $\left(E_1, \mathcal{E}_1\right)$ og $\left(E_2, \mathcal{E}_2\right)$.
+
+Lad $\left(E_3, \mathcal{E}_3\right)$ være endnu et måleligt rum, og betragt en $\mathcal{E}_1-\mathcal{E}_3$-målelig afbildning $\psi: E_1 \rightarrow E_3$.
+
+Antag, at der findes en betinget fordeling
+
+$$
+P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=\cdot): \mathcal{E}_1 \times E_2 \rightarrow[0,1]
+$$
+
+af X givet værdien af Y . Da er afbildningen
+
+$$
+\varphi(C, y)=P_{\mathrm{X}}\left(\psi^{-1}(C) \mid \mathrm{Y}=y\right), \quad\left(C \in \mathcal{E}_3, y \in E_2\right),
+$$
+
+en betinget fordeling af $\psi(\mathrm{X})$ givet værdien af Y .
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et ssh.-felt, og lad X og Y være stok. fkt. med værdier i målelige rum $h \boldsymbol{h} \boldsymbol{v} .\left(E_1, \mathcal{E}_1\right)$ og $\left(E_2, \mathcal{E}_2\right)$.
+Antag, at der findes en betinget fordeling $P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=\cdot$ ) af X givet (værdien af) Y.
+Antag videre, at $\psi: E_1 \rightarrow \mathbb{R}$ er en $\mathcal{E}_1-\mathcal{B}(\mathbb{R})$-målelig funktion, således at $\mathbb{E}[\|\psi(\mathrm{X})\|<\infty$.
+\begin{enumerate}
+    \item[\textnormal{(i)}] Mængden $N_\psi:=\left\{y \in E_2 \mid \psi \notin \mathcal{L}^1\left(P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=y)\right)\right\}$ er element $i \mathcal{E}_2$, og $P\left(Y \in N_\psi\right)=0$.
+    \item[\textnormal{(ii)}]Funktionen
+
+$$
+w(y)= \begin{cases}\int_{E_1} \psi(x) P_{\mathrm{X}}(\mathrm{~d} x \mid \mathrm{Y}=y), & \text { hvis } y \in N_\psi^c \\ 0, & \text { hvis } y \in N_\psi\end{cases}
+$$
+er en version af $y \mapsto \mathbb{E}[\psi(\mathrm{X}) \mid \mathrm{Y}=y]$.
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{example}
+    Antag, at ( $\mathrm{X}, \mathrm{Y}$ ) er 2-dimensionalt normalfordelt med middelværdi-vektor $\underline{0}$ og kovariansmatrix $\Sigma=\left(\begin{array}{ll}5 & 2 \\ 2 & 1\end{array}\right)$.
+
+Vi har tidligere set, at $P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=y)=N(2 y, 1)$ for alle $y$ i $\mathbb{R}$.
+Vha. Sætning 8.2.2 følger det så specielt for $P_Y$-n.a. $y$, at
+
+$$
+\begin{gathered}
+\mathbb{E}[\mathrm{X} \mid \mathrm{Y}=y]=\int_{\mathbb{R}} x P_{\mathrm{X}}(\mathrm{~d} x \mid \mathrm{Y}=y)=\int_{\mathbb{R}} x N(2 y, 1)(\mathrm{d} x)=2 y \\
+\mathbb{E}\left[\mathrm{X}^2 \mid \mathrm{Y}=y\right]=\int_{\mathbb{R}} x^2 P_{\mathrm{X}}(\mathrm{~d} x \mid \mathrm{Y}=y)=\int_{\mathbb{R}} x^2 N(2 y, 1)(\mathrm{d} x)=1+4 y^2
+\end{gathered}
+$$
+
+således at $\mathbb{E}[\mathrm{X} \mid \mathrm{Y}]=2 \mathrm{Y}, \mathbb{E}\left[\mathrm{X}^2 \mid \mathrm{Y}\right]=1+4 \mathrm{Y}^2$, og $\mathbb{V}[\mathrm{X} \mid \mathrm{Y}]=1$.
+\end{example}
+\subsection{Transformation og integration med funktioner af to variable}
+\begin{theorem-box}
+    \begin{lemma}
+           Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad X og Y være stok. fkt. med værdier i målelige rum hhv. $\left(E_1, \mathcal{E}_1\right)$ og $\left(E_2, \mathcal{E}_2\right)$.
+
+Antag, at der findes en betinget fordeling $P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=\cdot$ ) af X givet (værdien af) Y.
+
+For enhver mængde H i $\mathcal{E}_1 \otimes \mathcal{E}_2$ gælder der da, at funktionen
+
+$$
+w_H(y):=\int_{E_1} 1_H(x, y) P_{\mathrm{X}}(\mathrm{~d} x \mid \mathrm{Y}=y), \quad\left(y \in E_2\right)
+$$
+
+er en version af $y \mapsto \mathbb{E}\left[1_H(\mathrm{X}, \mathrm{Y}) \mid \mathrm{Y}=y\right]$.
+Der gælder altså, at
+
+$$
+\mathbb{E}\left[1_H(\mathrm{X}, \mathrm{Y}) \mid \mathrm{Y}=y\right]=\int_{E_1} 1_H(x, y) P_{\mathrm{X}}(\mathrm{~d} x \mid \mathrm{Y}=y), \quad\left(y \in E_2\right)
+$$
+     
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad X og Y være stok. fkt. med værdier i målelige rum hhv. $\left(E_1, \mathcal{E}_1\right)$ og $\left(E_2, \mathcal{E}_2\right)$.
+
+Antag, at der findes en betinget fordeling $P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=\cdot)$ af X givet (værdien af) Y.
+
+Antag videre, at $\left(E_3, \mathcal{E}_3\right)$ er et måleligt rum, og at $\psi: E_1 \times E_2 \rightarrow E_3$ er en $\mathcal{E}_1 \otimes \mathcal{E}_2-\mathcal{E}_3$-målelig funktion.
+
+Da er afbildningen $\varphi: \mathcal{E}_3 \times E_2 \rightarrow[0,1]$ givet ved
+
+$$
+\varphi(C, y)=P_{\mathrm{X}}\left(\psi(\cdot, y)^{-1}(C) \mid \mathrm{Y}=y\right), \quad\left(C \in \mathcal{E}_3, y \in E_2\right)
+$$
+
+en betinget fordeling af $\psi(\mathrm{X}, \mathrm{Y})$ givet (værdien af) Y.
+Med andre ord gælder der altså, at
+
+$$
+P_{\psi(\mathrm{X}, \mathrm{Y})}(\cdot \mid \mathrm{Y}=y)=P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=y) \circ \psi(\cdot, y)^{-1} \quad \text { for } P_{\mathrm{Y}}-\text { n.a. } \text { y } \text { i } E_2 \text {. }
+$$
+
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad X og Y være stok. fkt. med værdier i målelige rum hhv. $\left(E_1, \mathcal{E}_1\right)$ og $\left(E_2, \mathcal{E}_2\right)$.
+
+Antag, at der findes en betinget fordeling $P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=\cdot$ ) af X givet (værdien af) Y.
+
+Antag videre, at $\psi: E_1 \times E_2 \rightarrow \mathbb{R}$ er en $\mathcal{E}_1 \otimes \mathcal{E}_2-\mathcal{B}(\mathbb{R})$-målelig funktion, således at $\mathbb{E}[\|\psi(\mathrm{X}, \mathrm{Y})\|<\infty$.
+\begin{enumerate}
+    \item[\textnormal{(i)}] Mængden $N:=\left\{y \in E_2 \mid \psi(\cdot, y) \notin \mathcal{L}^1\left(P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=y)\right)\right\}$ er element $i$ $\mathcal{E}_2, \operatorname{og} P(\mathrm{Y} \in N)=0$.
+    \item[\textnormal{(ii)}]  Funktionen
+
+$$
+W(y)= \begin{cases}\int_{E_1} \psi(x, y) P_{\mathrm{X}}(\mathrm{~d} x \mid \mathrm{Y}=y), & \text { hvis } y \in N^c \\ 0, & \text { hvis } y \in N\end{cases}
+$$
+
+er en version af $y \mapsto \mathbb{E}[\psi(\mathrm{X}, \mathrm{Y}) \mid \mathrm{Y}=y]$.
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{example}
+    Antag, at ( $\mathrm{X}, \mathrm{Y}$ ) er 2-dimensionalt normalfordelt med middelværdi-vektor $\underline{0}$ og kovariansmatrix $\Sigma=\left(\begin{array}{ll}5 & 2 \\ 2 & 1\end{array}\right)$.
+Vi ønsker at bestemme $\mathbb{E}[\cos (\mathrm{XY}) \mid \mathrm{Y}]$.
+Vi har tidligere set, at $P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=y)=N(2 y, 1)$ for alle $y$ i $\mathbb{R}$.
+Vi finder så ved brug af Sætning 8.3.4, at
+
+$$
+\begin{aligned}
+\mathbb{E} & {[\cos (\mathrm{XY}) \mid \mathrm{Y}=y]=\int_{\mathbb{R}} \cos (x y) P_{\mathrm{X}}(\mathrm{~d} x \mid \mathrm{Y}=y) } \\
+& =\int_{\mathbb{R}} \cos (x y) N(2 y, 1)(\mathrm{d} x)=\operatorname{Re}\left(\int_{\mathbb{R}} \mathrm{e}^{\mathrm{i} x y} N(2 y, 1)(\mathrm{d} x)\right) \\
+& =\operatorname{Re}(\widehat{N(2 y, 1)}(y)) \stackrel{1.1 .3}{\stackrel{\downarrow}{=}} \operatorname{Re}\left(\mathrm{e}^{\mathrm{i} 2 y(y)} \mathrm{e}^{-y^2 / 2}\right)=\cos \left(2 y^2\right) \mathrm{e}^{-y^2 / 2} .
+\end{aligned}
+$$
+
+
+Vi kan dermed slutte, at
+
+$$
+\mathbb{E}[\cos (\mathrm{XY}) \mid \mathrm{Y}]=\cos \left(2 \mathrm{Y}^2\right) \mathrm{e}^{-\mathrm{Y}^2 / 2}
+$$
+
+\end{example}
+\subsection{Eksistens af betingede fordelinger}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad X være en reel stokastisk variabel på $(\Omega, \mathcal{F}, P)$, og lad Y være en stokastisk funktion på $(\Omega, \mathcal{F}, P)$ med værdier $i$ et måleligt rum $(E, \mathcal{E})$.
+
+Da findes en betinget fordeling $P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=\cdot)$ af X givet værdien af Y .
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $G: \mathbb{Q} \rightarrow[0,1]$ være en voksende funktion, således at
+
+$$
+\lim _{n \rightarrow \infty} G(-n)=0, \quad \text { og } \quad \lim _{n \rightarrow \infty} G(n)=1
+$$
+
+
+Definér funktionen $F: \mathbb{R} \rightarrow[0,1]$ ved
+
+$$
+F(x)=\inf \{G(q) \mid q \in(x, \infty) \cap \mathbb{Q}\}, \quad(x \in \mathbb{R})
+$$
+
+
+Da er F voksende, højrekontinuert, og der gælder at
+
+$$
+\lim _{x \rightarrow-\infty} F(x)=0, \quad \text { og } \quad \lim _{x \rightarrow \infty} F(x)=1
+$$
+
+
+Med andre ord er $F$ fordelingsfunktionen for et sandsynlighedsmål på $\mathbb{R}$ (Lebesgue-Stieltjes målet hørende til F - jvf. 3.5.7 i [M\&I]).
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{definition}
+        Et måleligt rum $(E, \mathcal{E})$ kaldes for et Borel-rum, hvis der findes en mængde $M$ i $\mathcal{B}(\mathbb{R})$, og en afbildning $\psi: E \rightarrow M$, således at
+        \begin{enumerate}
+            \item $\psi$ er bijektiv.
+            \item $\psi$ er $\mathcal{E}-\mathcal{B}(\mathbb{R})_M$-målelig.
+            \item $\psi^{\langle-1\rangle}: M \rightarrow E$ er $\mathcal{B}(\mathbb{R})_{M^{-}} \mathcal{E}$-målelig.
+        \end{enumerate}
+Husk, at
+
+$$
+\mathcal{B}(\mathbb{R})_M=\{M \cap A \mid A \in \mathcal{B}(\mathbb{R})\}=\{B \in \mathcal{B}(\mathbb{R}) \mid B \subseteq M\}
+$$
+
+    \end{definition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad X og Y være stokastiske funktioner herpå med værdier i målelige rum hhv. $\left(E_1, \mathcal{E}_1\right)$ og $\left(E_2, \mathcal{E}_2\right)$.
+
+Antag, at $\left(E_1, \mathcal{E}_1\right)$ er et Borel-rum.
+Da findes en betinget fordeling
+
+$$
+P_{\mathrm{X}}(\cdot \mid \mathrm{Y}=\cdot): \mathcal{E}_1 \times E_2 \rightarrow[0,1]
+$$
+
+af X givet værdien af Y.
+    \end{proposition}
+\end{theorem-box}
+
+\section{Martingaler}
+\subsection{Definition, eksempler og grundlæggende egenskaber}
+\begin{theorem-box}
+    \begin{definition}
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt.
+        \begin{enumerate}
+            \item Et filter på $(\Omega, \mathcal{F})$ er en voksende følge $\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ af del- $\sigma$-algebraer af $\mathcal{F}$.
+            \item Hvis $\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er et filter på $(\Omega, \mathcal{F})$, siges $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ at være et filtreret sandsynlighedsfelt.
+            \item En følge $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ af stokastiske variable på $(\Omega, \mathcal{F}, P)$ kaldes tilpasset med hensyn til et filter $\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}$, hvis $X_n$ er $\mathcal{F}_n$-målelig for alle $n$ i $\mathbb{N}_0$.
+            \item En følge $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ af stokastiske variable på $(\Omega, \mathcal{F}, P)$ kaldes forudsigelig (eller predictabel) med hensyn til et filter $\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}$, hvis $\mathrm{x}_n$ er $\mathcal{F}_{(n-1) \vee 0^{-m a l e l i g}}$ for alle $n$ i $\mathbb{N}_0$.
+        \end{enumerate}
+    \end{definition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{definition}[Martingaler, sub-martingaler og super-martingaler]
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ være en følge af stokastiske variable herpå. Antag, at
+\begin{enumerate}
+    \item[(a)] $\mathrm{X}_n \in \mathcal{L}^1(P)$ for alle $n$.
+    \item[(b)] $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ er tilpasset med hensyn til $\left(\mathcal{F}_n\right)$.
+    \\Vi siger da, at
+        \item[(c1)] $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en martingal, hvis $\mathbb{E}\left[\mathrm{X}_{n+1} \mid \mathcal{F}_n\right]=\mathrm{X}_n P$-n.o. for alle $n$.
+        \item[c2] $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en sub-martingal, hvis $\mathbb{E}\left[\mathrm{X}_{n+1} \mid \mathcal{F}_n\right] \geq \mathrm{X}_n P$-n.o. for alle $n$.
+        \item[c3]  $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en super-martingal, hvis $\mathbb{E}\left[\mathrm{X}_{n+1} \mid \mathcal{F}_n\right] \leq \mathrm{X}_n$ P-n.o. for alle $n$.
+\end{enumerate}
+    \end{definition}
+\end{theorem-box}
+\begin{remark}
+    Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n\right)$ være en følge af stokastiske variable.
+    \begin{enumerate}
+        \item Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en martingal, gælder der, at
+        
+        $$
+        \mathbb{E}\left[\mathrm{X}_m \mid \mathcal{F}_n\right] \stackrel{\substack{.2 .4}}{\stackrel{1}{=}} \mathbb{E}\left[\mathbb{E}\left[\mathrm{X}_m \mid \mathcal{F}_{m-1}\right] \mid \mathcal{F}_n\right]=\mathbb{E}\left[\mathrm{X}_{m-1} \mid \mathcal{F}_n\right]=\cdots=\mathbb{E}\left[\mathrm{X}_n \mid \mathcal{F}_n\right]=\mathrm{X}_n
+        $$
+        
+        for alle $m, n$ i $\mathbb{N}$, så $n<m$. Specielt ses, at $\mathbb{E}\left[\mathrm{X}_m\right]=\mathbb{E}\left[\mathrm{X}_n\right]$.
+        \item Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en sub-martingal, gælder der, at
+        
+        $$
+        \mathbb{E}\left[\mathrm{X}_m \mid \mathcal{F}_n\right]=\mathbb{E}\left[\mathbb{E}\left[\mathrm{X}_m \mid \mathcal{F}_{m-1}\right] \mid \mathcal{F}_n\right] \geq \mathbb{E}\left[\mathrm{X}_{m-1} \mid \mathcal{F}_n\right] \geq \cdots \geq \mathbb{E}\left[\mathrm{X}_n \mid \mathcal{F}_n\right]=\mathrm{X}_n
+        $$
+        
+        for alle $m, n$ i $\mathbb{N}$, så $n<m$. Specielt ses, at $\mathbb{E}\left[\mathrm{X}_m\right] \geq \mathbb{E}\left[\mathrm{X}_n\right]$.
+        \item Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en super-martingal, gælder der, at $\mathbb{E}\left[\mathrm{X}_m \mid \mathcal{F}_n\right] \leq \mathrm{X}_n \quad$ og $\quad \mathbb{E}\left[\mathrm{X}_m\right] \leq \mathbb{E}\left[\mathrm{X}_n\right] \quad$ for alle $m, n$ i $\mathbb{N}$, så $n<m$.
+    \end{enumerate}
+    Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ være en følge af stokastiske variable herpå.
+
+Der gælder da, at
+
+$$
+\left(\mathrm{X}_n, \mathcal{F}_n\right) \text { er en sub-MG } \Longleftrightarrow\left(-\mathrm{X}_n, \mathcal{F}_n\right) \text { er en super-MG, }
+$$
+
+og
+$\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en $\mathrm{MG} \Longleftrightarrow\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er både en sub-MG og en super-MG.
+\end{remark}
+\begin{example}
+    En spiller deltager i en (uendelig) følge af uafhængige spil på et casino.
+For hvert $n$ i $\mathbb{N}_0$ sætter vi
+
+$$
+\mathrm{X}_n=\text { gevinsten (eller tabet) ved det } n \text { 'te spil. }
+$$
+
+
+Vi antager, at hvert spil er fair, dvs. at $\mathbb{E}\left[\mathrm{X}_n\right]=0$ for alle $n$ i $\mathbb{N}_0$ (specielt antages det, at $\left.\mathrm{X}_n \in \mathcal{L}^1(P)\right)$.
+
+Vi sætter endelig
+
+$$
+\mathrm{S}_n=\text { spillerens samlede gevinst (eller tab) efter det } n \text { 'te spil }
+$$
+
+
+$$
+=\sum_{j=0}^n \mathrm{X}_j
+$$
+
+
+Da er $\left(\mathrm{S}_n\right)_{n \in \mathbb{N}_0}$ en martingal med hensyn til følgen:
+
+$$
+\mathcal{F}_n=\sigma\left(\mathrm{X}_0, \ldots, \mathrm{X}_n\right), \quad\left(n \in \mathbb{N}_0\right)
+$$
+
+\end{example}
+\begin{example}[Lévy martingaler]
+    Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad X være en stokastisk variabel i $\mathcal{L}^1(P)$.
+
+Sæt $\mathrm{X}_n=\mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_n\right]$ for alle $n$ i $\mathbb{N}_0$.
+Da er $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ en martingal.
+Det er nemlig klart, at $\mathrm{X}_n=\mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_n\right]$ er integrabel og $\mathcal{F}_n$-målelig for ethvert $n$ i $\mathbb{N}_0$.
+
+For hvert $n$ i $\mathbb{N}_0$ finder vi videre, at
+
+$$
+\mathbb{E}\left[\mathrm{X}_{n+1} \mid \mathcal{F}_n\right]=\mathbb{E}\left[\mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_{n+1}\right] \mid \mathcal{F}_n\right] \stackrel{7.2 .4}{\stackrel{\downarrow}{\rightleftharpoons}} \mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_n\right] \stackrel{?}{=} \mathrm{X}_n \quad \text { P-n.o. }
+$$
+
+
+Ifølge 7.7.1 er $\left\{\mathrm{X}_n \mid n \in \mathbb{N}_0\right\}$ uniformt integrabel.
+\end{example}
+\begin{example}
+Se øvelse 9.1
+\end{example}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ og $\left(\mathrm{Y}_n\right)_{n \in \mathbb{N}_0}$ være følger af stokastiske variable herpå.
+\begin{enumerate}
+    \item[\textnormal{(i)}]  Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ og $\left(\mathrm{Y}_n, \mathcal{F}_n\right)$ er martingaler, og $a, b \in \mathbb{R}$, da er $\left(a \mathrm{X}_n+b \mathrm{Y}_n, \mathcal{F}_n\right)$ igen en martingal.
+    \item[\textnormal{(ii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ og $\left(\mathrm{Y}_n, \mathcal{F}_n\right)$ er sub-martingaler, og $a, b \in[0, \infty)$, da er $\left(a \mathrm{X}_n+b \mathrm{Y}_n, \mathcal{F}_n\right)$ igen en sub-martingal.
+    \item[\textnormal{(iii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ og $\left(\mathrm{Y}_n, \mathcal{F}_n\right)$ er super-martingaler, og $a, b \in[0, \infty)$, da er $\left(a \mathrm{X}_n+b \mathrm{Y}_n, \mathcal{F}_n\right)$ igen en super-martingal.
+\end{enumerate}
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Konvekse transformationer af martingaler og sub-martingaler]
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ være en følge af stokastiske variable herpå.
+
+Lad videre $\varphi: \mathbb{R} \rightarrow \mathbb{R}$ være en konveks-funktion, således at $\varphi\left(\mathrm{X}_n\right) \in \mathcal{L}^1(P)$ for alle $n$.
+
+Da gælder følgende udsagn:
+\begin{enumerate}
+    \item[\textnormal{(i)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en martingal, da er $\left(\varphi\left(\mathrm{X}_n\right), \mathcal{F}_n\right)$ en submartingal.
+    \item[\textnormal{(ii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en sub-martingal, og $\varphi$ yderligere er voksende, da er $\left(\varphi\left(\mathrm{X}_n\right), \mathcal{F}_n\right)$ igen en submartingal.
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+       Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret ssh-felt, og lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ være en følge af stokastiske variable herpå.
+\begin{enumerate}
+    \item[\textnormal{(i)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en sub-martingal, så gæ/der der, at
+
+    $$
+    \sup _{n \in \mathbb{N}_0} \mathbb{E}\left[\left|\mathrm{X}_n\right|\right]<\infty \Longleftrightarrow \sup _{n \in \mathbb{N}_0} \mathbb{E}\left[\mathrm{X}_n^{+}\right]<\infty .
+    $$
+    \item[\textnormal{(ii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en sub-MG, og der findes en stok. var. $Z$ i $\mathcal{L}^1(P)$, så $\mathrm{X}_n \leq Z$ P-n.o. for alle $n$, da er $\sup _{n \in \mathbb{N}_0} \mathbb{E}\left[\left|\mathrm{X}_n\right|\right]<\infty$.
+
+    \item[\textnormal{(iii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en super-martingal, så gæ/der der, at
+
+    $$
+    \sup _{n \in \mathbb{N}_0} \mathbb{E}\left[\left|\mathrm{X}_n\right|\right]<\infty \Longleftrightarrow \sup _{n \in \mathbb{N}_0} \mathbb{E}\left[\mathrm{X}_n^{-}\right]<\infty
+    $$
+    \item[\textnormal{(iv)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en super-MG, og der findes en stok. var. $Z$ i $\mathcal{L}^1(P)$, så $\mathrm{X}_n \geq Z$ P-n.o. for alle $n$, da er $\sup _{n \in \mathbb{N}_0} \mathbb{E}\left[\left|\mathrm{X}_n\right|\right]<\infty$.
+\end{enumerate}
+    \end{lemma}
+\end{theorem-box}
+\subsection{Konstruktioner med martingaler}
+\begin{theorem-box}
+    \begin{proposition}[Doob-dekompositionen]
+        $\operatorname{Lad}\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ være en tilpasset følge af stokastiske variable fra $\mathcal{L}^1(P)$.
+Da kan $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ dekomponeres på formen:
+
+$$
+\mathrm{X}_n=\mathrm{M}_n+\mathrm{A}_n, \quad\left(n \in \mathbb{N}_0\right)
+$$
+
+hvor
+\begin{enumerate}
+    \item  $\left(\mathrm{M}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en martingal.
+    \item $\mathrm{A}_0 \equiv 0$, og $\mathrm{A}_n \in \mathcal{L}^1(P)$, og $\mathrm{A}_n$ er $\mathcal{F}_{n-1}$-målelig for alle $n i \mathbb{N}$.
+\end{enumerate}
+
+Hvis $\mathrm{X}_n=\tilde{\mathrm{M}}_n+\tilde{\mathrm{A}}_n$ er endnu en dekomposition af $\mathrm{X}_n$, således at (a) og (b) er opfyldte, da gælder der, at
+
+$$
+\mathrm{M}_n=\tilde{\mathrm{M}}_n \quad P \text {-n.o. } \quad \text { og } \quad \mathrm{A}_n=\tilde{\mathrm{A}}_n \quad P \text {-n.o. } \quad \text { for alle } n i \mathbb{N}_0 .
+$$
+
+
+Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en sub-martingal (hhv. en super-martingal), da er følgen $\left(\mathrm{A}_n\right)_{n \in \mathbb{N}_0}$ voksende P-n.o. (hhv. aftagende P-n.o.)
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Martingal transforms]
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ være en tilpasset følge af stokastiske variable fra $\mathcal{L}^1(P)$.
+Lad endvidere $\left(\mathrm{V}_n\right)_{n \in \mathbb{N}_0}$ være en forudsigelig proces (dvs. $\mathrm{V}_n$ er $\mathcal{F}_{0 \vee(n-1)}$-målelig for alle $n$ ), og antag, at hvert $\mathrm{V}_n$ er begrænset.
+Definér nu
+
+$$
+\Delta \mathrm{X}_n=\mathrm{X}_n-\mathrm{X}_{n-1} \quad \text { for alle } n i \mathbb{N},
+$$
+
+og
+
+$$
+\mathrm{V} \bullet \mathrm{X}_n=\mathrm{V}_0 \mathrm{X}_0+\sum_{k=1}^n \mathrm{~V}_k \Delta \mathrm{X}_k \quad \text { for alle } n i \mathbb{N}_0
+$$
+\begin{enumerate}
+    \item[\textnormal{(i)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en martingal, da er $\left(\mathrm{V} \bullet \mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ igen en $M G$.
+    \item[\textnormal{(ii)}]  Hvis $\mathrm{V}_n \geq 0$ for alle $n$, og $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en sub-MG (hhv. super- $M G$ ), da er $\left(\mathrm{V} \bullet \mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ igen en sub-MG (hhv. super-MG).
+
+\end{enumerate}
+\end{proposition}
+\end{theorem-box}
+\subsection{Stoppetider}
+\begin{theorem-box}
+    \begin{definition}[Stoppetider]
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt.
+En stoppetid (med hensyn til filteret $\left.\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}\right)$ er en afbildning
+$\tau: \Omega \rightarrow \mathbb{N}_0 \cup\{+\infty\}$, der opfylder betingelsen:
+
+$$
+\{\tau>n\} \in \mathcal{F}_n \quad \text { for alle } n \text { i } \mathbb{N}_0
+$$
+
+
+Betingelsen kan ækvivalent formuleres som:
+
+$$
+\{\tau \leq n\} \in \mathcal{F}_n \quad \text { for alle } n \text { i } \mathbb{N}_0
+$$
+
+eller som
+
+$$
+\{\tau=n\} \in \mathcal{F}_n \quad \text { for alle } n \text { i } \mathbb{N}_0
+$$
+
+
+Specielt følger det, at $\tau$ er $\mathcal{F}-\mathcal{P}\left(\mathbb{N}_0 \cup\{\infty\}\right)$-målelig.
+\\En stoppetid $\tau: \Omega \rightarrow \mathbb{N}_0 \cup\{\infty\}$ kaldes
+\\- endelig, hvis $P(\tau<\infty)=1$.
+\\- begrænset, hvis der findes en konstant $K$ i $\mathbb{N}$, således at $\tau(\omega) \leq K$ for alle $\omega$ i $\Omega$.
+\end{definition}
+\end{theorem-box}
+\begin{remark}
+    
+\end{remark}
+\begin{example}
+    \begin{enumerate}
+        \item $\text { For ethvert } n \text { i } \mathbb{N}_0 \cup\{\infty\} \text { er } \tau \equiv n \text { en stoppetid. }$
+        \item Antag, at $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ er en tilpasset følge af stokastiske variable, og at $\left(A_n\right)_{n \in \mathbb{N}_0}$ er en følge af Borel-mængder i $\mathbb{R}$.
+
+        Da definerer udtrykket
+        
+        $$
+        \tau_A(\omega)=\inf \left\{k \in \mathbb{N}_0 \mid x_k(\omega) \in A_k\right\}, \quad(\omega \in \Omega)
+        $$
+        
+        en stoppetid.
+        Her benyttes konventionen: $\inf (\emptyset)=\infty$.
+        For ethvert $n$ i $\mathbb{N}_0$ har vi nemlig, at
+        
+        $$
+        \{\tau>n\}=\left\{\mathrm{x}_0 \notin A_0\right\} \cap\left\{\mathrm{X}_1 \notin A_1\right\} \cap \cdots \cap\left\{\mathrm{X}_n \notin A_n\right\} \stackrel{?}{\in} \mathcal{F}_n .
+        $$
+        \item (C) En afbildning $\tau: \Omega \rightarrow \mathbb{N}_0 \cup\{\infty\}$ er en stoppetid, hvis og kun hvis der findes en følge $\left(F_n\right)_{n \in \mathbb{N}_0}$ af hændelser, således at
+
+        $$
+        \tau(\omega)=\inf \left\{k \in \mathbb{N}_0 \mid \omega \in F_k\right\}
+        $$
+        (*)
+        og
+        
+        $$
+        F_n \in \mathcal{F}_n \quad \text { for alle } n \text { i } \mathbb{N}_0
+        $$
+        (**)
+        
+        Hvis (*) og (**) er opfyldte, har vi nemlig for heert $n$ i $\mathbb{N}_0$, at
+        
+        $$
+        \{\tau>n\}=F_0^c \cap \cdots \cap F_n^c \stackrel{?}{\in} \mathcal{F}_n .
+        $$
+        
+        
+        Omvendt kan vi for en givet stoppetid $\tau$ definere
+        
+        $$
+        F_n=\{\tau \leq n\}, \quad\left(n \in \mathbb{N}_0\right)
+        $$
+        
+        hvorved (*) og (**) er opfyldte.
+    \end{enumerate}
+\end{example}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $(\Omega, \mathcal{F}, \mathcal{F}_n, P)$ være et filtreret sandsynligheds-felt. 
+
+        Da gælder følgende udsagn:
+        \begin{enumerate}
+            \item[\textnormal{(i)}] Lad $\tau_1,\tau_1$ være stoppetider på $(\Omega, \mathcal{F}, \mathcal{F}_n, P)$.\\Da er $\tau_1+\tau_2, \tau_1\vee\tau_2$ og $\tau_1\wedge\tau_2$ igen stoppetider. 
+            \item[\textnormal{(ii)}] Lad $(\tau_k)_{k\in\N}$ være en følge af stoppetider på $(\Omega, \mathcal{F}, \mathcal{F}_n, P)$.\\Da er $\sup_{k\in\N}\tau_k, \inf_{k\in\N}\tau_k$ og $\sum_{k=1}^{\infty}\tau_k$ igen stoppetider. 
+        \end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{definition}[$\sigma$-algebraen $\mathcal{F}_\tau$]
+        Lad $(\Omega, \mathcal{F}, P)$ være et sandsynlighedsfelt, og lad $\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ være et filter herpå.
+
+        Vi definerer så
+        
+        $$
+        \mathcal{F}_{\infty}=\sigma\left(\bigcup_{n \in \mathbb{N}_0} \mathcal{F}_n\right) .
+        $$
+        
+        
+        Lad videre $\tau: \Omega \rightarrow \mathbb{N}_0 \cup\{\infty\}$ være en stoppetid mht. $\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}$.
+        Vi definerer så
+        
+        $$
+        \mathcal{F}_\tau=\left\{F \in \mathcal{F}_{\infty} \mid F \cap\{\tau=n\} \in \mathcal{F}_n \text { for alle } n \text { i } \mathbb{N}_0\right\}
+        $$
+        
+        
+        Bemærk, at for $F$ fra $\mathcal{F}_\tau$ gælder der automatisk, at
+        
+        $$
+        F \cap\{\tau=\infty\} \in \mathcal{F}_{\infty}
+        $$
+        
+        idet $F \in \mathcal{F}_{\infty}$, og $\{\tau=\infty\}=\bigcap_{k \in \mathbb{N}_0}\{\tau>k\} \in \mathcal{F}_{\infty}$.
+    \end{definition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt.
+\begin{enumerate}
+    \item[\textnormal{(i)}]  For enhver stoppetid $\tau: \Omega \rightarrow \mathbb{N}_0 \cup\{\infty\}$ er $\mathcal{F}_\tau$ en $\sigma$-algebra.
+    \item[\textnormal{(ii)}]  For enhver $\mathcal{F}_\tau$-målelig stokastisk variabel $\mathrm{Y}: \Omega \rightarrow \mathbb{R}$ gælder der, at $\mathrm{Y} 1_{\{\tau=n\}}$ er $\mathcal{F}_n$-målelig for alle $n i \mathbb{N}_0 \cup\{\infty\}$.
+\end{enumerate}
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\tau$ være en stoppetid med hensyn til filteret $\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}$.
+Da gælder følgende udsagn:
+\begin{enumerate}
+    \item[\textnormal{(i)}] $A \cap\{\tau=n\} \in \mathcal{F}_\tau \cap \mathcal{F}_n$ for alle $n i \mathbb{N}_0 \cup\{\infty\}$ og $A$ i $\mathcal{F}_n$.
+    \item[\textnormal{(ii)}] $\tau \operatorname{er} \mathcal{F}_\tau-\mathcal{P}\left(\mathbb{N}_0 \cup\{\infty\}\right)$-målelig.
+    \item[\textnormal{(iii)}] For ethvert $n$ i $\mathbb{N}_0 \cup\{\infty\}$ og X i $\mathcal{L}^1(P)$ gælder formlen:
+
+    $$
+    \mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_\tau\right] 1_{\{\tau=n\}}=\mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_n\right] 1_{\{\tau=n\}} \stackrel{7.3 .2}{\stackrel{\downarrow}{=}} \mathbb{E}\left[\mathrm{X} 1_{\{\tau=n\}} \mid \mathcal{F}_n\right] \quad \text { P-n.o. }
+    $$
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynligheds-felt, og lad $\tau, \tau_1, \tau_2$ være stoppetider herpå.
+\begin{enumerate}
+    \item[\textnormal{(i)}] Hvis $\tau \equiv n \in \mathbb{N}_0 \cup\{\infty\}$, gælder der, at $\mathcal{F}_\tau=\mathcal{F}_n$.
+    \item[\textnormal{(ii)}]Hvis $\tau_1 \leq \tau_2$, gælder der, at $\mathcal{F}_{\tau_1} \subseteq \mathcal{F}_{\tau_2}$.
+    \item[\textnormal{(iii)}] $\mathcal{F}_{\tau_1 \wedge \tau_2}=\mathcal{F}_{\tau_1} \cap \mathcal{F}_{\tau_2}$.
+    \item[\textnormal{(iv)}]  $\{\tau \leq n\} \in \mathcal{F}_\tau \cap \mathcal{F}_n=\mathcal{F}_{n \wedge \tau}$ for alle $n i \mathbb{N}_0$.
+    \item[\textnormal{(v)}] For alle $A$ i $\mathcal{F}_{\tau_1}$ gælder der, at
+
+    $$
+    A \cap\left\{\tau_1<\tau_2\right\} \in \mathcal{F}_{\tau_1 \wedge \tau_2}, \quad \text { og } \quad A \cap\left\{\tau_1 \leq \tau_2\right\} \in \mathcal{F}_{\tau_1 \wedge \tau_2}
+    $$
+    \item[\textnormal{(vi)}] For enhver mængde $A$ i $\mathcal{F}_{\tau_1 \wedge \tau_2}$ er $\tau_A:=\tau_1 1_A+\tau_2 1_{A^c}$ igen en stoppetid.
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynligheds-felt, og lad $\tau$ være en stoppetid herpå.
+
+Da gælder formlen:
+
+$$
+\mathcal{F}_\tau=\sigma\left(\bigcup_{n \in \mathbb{N}_0} \mathcal{F}_{\tau \wedge n}\right)
+$$
+
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, lad $\sigma, \tau$ være stoppetider herpå, og betragt de tilhørende $\sigma$-algebraer $\mathcal{F}_\tau$ og $\mathcal{F}_\sigma$.
+
+For enhver stokastisk variabel X fra $\mathcal{L}^1(P)$ gælder da følgende udsagn:
+\begin{enumerate}
+    \item[\textnormal{(i)}]Hvis $\mathrm{X} @ \mathcal{F}_\tau$, gælder formlen:
+
+    $$
+    \mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_\sigma\right]=\mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_{\sigma \wedge \tau}\right] .
+    $$
+    \item[\textnormal{(ii)}] Generelt gælder formlen:
+
+    $$
+    \mathbb{E}\left[\mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_\tau\right] \mid \mathcal{F}_\sigma\right]=\mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_{\sigma \wedge \tau}\right]=\mathbb{E}\left[\mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_\sigma\right] \mid \mathcal{F}_\tau\right]
+    $$
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\subsection*{Den stokastiske variabel $\X_\tau$}
+Lad $\left(\mathrm{X}_{n \in \mathbb{N}}\right)$ være en tilpasset følge af stok. var. på $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$.
+Vi definerer da den stokastiske variable $\mathrm{X}_{\infty}: \Omega \rightarrow \mathbb{R}$ ved
+
+$$
+\mathrm{X}_{\infty}(\omega)= \begin{cases}\lim _{n \rightarrow \infty} \mathrm{X}_n(\omega), & \text { hvis } \lim _{n \rightarrow \infty} \mathrm{X}_n(\omega) \text { eksisterer i } \mathbb{R} \\ 0, & \text { ellers }\end{cases}
+$$
+
+
+Det følger fra Korollar 4.3.11 i [M\&I], at $\mathrm{X}_{\infty}$ er $\mathcal{F}_{\infty}-\mathcal{B}(\mathbb{R})$-målelig.
+For enhver stoppetid $\tau$ definerer vi den stok. var. $\mathrm{X}_\tau$ ved formlen:
+
+$$
+\begin{aligned}
+\mathrm{X}_\tau(\omega) & =\mathrm{X}_{\tau(\omega)}(\omega)= \begin{cases}\mathrm{X}_n(\omega), & \text { hvis } \tau(\omega)=n \text { for et } n \text { i } \mathbb{N}_0 \\
+\mathrm{X}_{\infty}(\omega), & \text { hvis } \tau(\omega)=\infty\end{cases} \\
+& =\mathrm{X}_{\infty}(\omega) 1_{\{\tau=\infty\}}(\omega)+\sum_{k=0}^{\infty} \mathrm{X}_k(\omega) 1_{\{\tau=k\}}(\omega)
+\end{aligned}
+$$
+
+
+Specielt viser (2), at $\mathrm{X}_\tau @ \mathcal{F}_{\infty}$.
+Husk: $\quad \mathrm{X}_\tau(\omega)= \begin{cases}\mathrm{X}_n(\omega), & \text { hvis } \tau(\omega)=n \text { for et } n \text { i } \mathbb{N}_0, \\ \mathrm{X}_{\infty}(\omega), & \text { hvis } \tau(\omega)=\infty,\end{cases}$
+Alternativt kan vi skrive $\mathrm{X}_\tau$ på formen:
+
+$$
+\begin{aligned}
+\mathrm{X}_\tau(\omega) & = \begin{cases}\mathrm{X}_n(\omega), & \text { hvis } \tau(\omega)=n \text { for et } n \mathrm{i} \mathbb{N}_0, \\
+\lim _{k \rightarrow \infty} \mathrm{X}_k(\omega), & \text { hvis } \tau(\omega)=\infty, \text { og } \lim _{k \rightarrow \infty} \mathrm{X}_k(\omega) \text { eksisterer } \mathrm{i} \mathbb{R}, \\
+0, & \text { ellers }\end{cases} \\
+& = \begin{cases}\lim _{k \rightarrow \infty} \mathrm{X}_{\tau(\omega) \wedge k}(\omega), & \text { hvis grænseværdien eksisterer } \mathrm{i} \mathbb{R}, \\
+0, & \text { ellers. }\end{cases}
+\end{aligned}
+$$
+
+
+Specielt ser vi, at
+
+$$
+\left|\mathrm{X}_\tau\right| \leq \liminf _{k \rightarrow \infty}\left|\mathrm{X}_{\tau \wedge k}\right| .
+$$
+\begin{theorem-box}
+    \begin{definition}
+        For enhver stoppetid $\tau$ definerer vi den stok. var. $\mathrm{X}_\tau$ ved formlen:
+
+$$
+\begin{aligned}
+\mathrm{X}_\tau(\omega) & =\mathrm{X}_{\tau(\omega)}(\omega)= \begin{cases}\mathrm{X}_n(\omega), & \text { hvis } \tau(\omega)=n \text { for et } n \text { i } \mathbb{N}_0 \\
+\mathrm{X}_{\infty}(\omega), & \text { hvis } \tau(\omega)=\infty\end{cases} \\
+& =\mathrm{X}_{\infty}(\omega) 1_{\{\tau=\infty\}}(\omega)+\sum_{k=0}^{\infty} \mathrm{X}_k(\omega) 1_{\{\tau=k\}}(\omega)
+\end{aligned}
+$$
+    \end{definition}
+\end{theorem-box}
+\begin{remark}
+    Alternativt kan vi skrive $\mathrm{X}_\tau$ på formen:
+
+$$
+\begin{aligned}
+\mathrm{X}_\tau(\omega) & = \begin{cases}\mathrm{X}_n(\omega), & \text { hvis } \tau(\omega)=n \text { for et } n \mathrm{i} \mathbb{N}_0, \\
+\lim _{k \rightarrow \infty} \mathrm{X}_k(\omega), & \text { hvis } \tau(\omega)=\infty, \text { og } \lim _{k \rightarrow \infty} \mathrm{X}_k(\omega) \text { eksisterer } \mathrm{i} \mathbb{R}, \\
+0, & \text { ellers }\end{cases} \\
+& = \begin{cases}\lim _{k \rightarrow \infty} \mathrm{X}_{\tau(\omega) \wedge k}(\omega), & \text { hvis grænseværdien eksisterer } \mathrm{i} \mathbb{R}, \\
+0, & \text { ellers. }\end{cases}
+\end{aligned}
+$$
+
+\end{remark}
+\begin{theorem-box}
+    \begin{proposition}
+        $\operatorname{Lad}\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynligheds-felt, og lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}}$ være en tilpasset følge af stokastiske variable herpå.
+
+Lad videre $\tau$ være en stoppetid på $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$.
+Da gælder følgende udsagn:
+\begin{enumerate}
+    \item[\textnormal{(i)}] $\mathrm{X}_\tau \Subset \mathcal{F}_\tau$.
+    \item[\textnormal{(ii)}]Hvis $\sup _{n \in \mathbb{N}} \mathbb{E}\left[\left|\mathrm{X}_{\tau \wedge n}\right|\right]<\infty$, gælder der, at $\mathrm{X}_\tau \in \mathcal{L}^1(P)$.
+    \item[\textnormal{(iii)}]Hvis $\tau$ er begrænset, og $\mathrm{X}_n \in \mathcal{L}^1(P)$ for alle $n$ i $\mathbb{N}$, gælder der, at $\mathrm{X}_\tau \in \mathcal{L}^1(P)$.
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\subsection{Optional sampling(første version)}
+\begin{theorem-box}
+    \begin{proposition}
+        $\operatorname{Lad}\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, lad $\tau$ være en stoppetid, og lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ være en følge af stokastiske variable.
+
+Da gælder følgende udsagn:
+\begin{enumerate}
+    \item[\textnormal{(i)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en sub-martingal, da er $\left(\mathrm{X}_{n \wedge \tau}, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ igen en sub-martingal.
+    \item[\textnormal{(ii)}]Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en super-martingal, da er $\left(\mathrm{X}_{n \wedge \tau}, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ igen en super-martingal.
+    \item[\textnormal{(iii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en martingal, da er $\left(\mathrm{X}_{n \wedge \tau}, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ igen en martingal.
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\sigma, \tau$ være begrænsede stoppetider, således at $\sigma \leq \tau$.
+\begin{enumerate}
+    \item[\textnormal{(i)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en sub-martingal, gælder der, at $\mathrm{X}_\sigma, \mathrm{X}_\tau \in \mathcal{L}^1(P)$, og at
+
+    $$
+    \mathbb{E}\left[\mathrm{x}_0\right] \leq \mathbb{E}\left[\mathrm{x}_\sigma\right] \leq \mathbb{E}\left[\mathrm{x}_\tau\right], \quad \text { og } \quad \mathbb{E}\left[\mathrm{x}_\tau \mid \mathcal{F}_\sigma\right] \geq \mathrm{X}_\sigma \quad \text { P-n.o. }
+    $$
+    
+    \item[\textnormal{(ii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en super-martingal, gælder der, at $\mathrm{X}_\sigma, \mathrm{X}_\tau \in \mathcal{L}^1(P)$, og at
+
+    $$
+    \mathbb{E}\left[\mathrm{x}_0\right] \geq \mathbb{E}\left[\mathrm{x}_\sigma\right] \geq \mathbb{E}\left[\mathrm{X}_\tau\right], \quad \text { og } \quad \mathbb{E}\left[\mathrm{X}_\tau \mid \mathcal{F}_\sigma\right] \leq \mathrm{X}_\sigma \quad \text { P-n.o. }
+    $$
+    \item[\textnormal{(iii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en martingal, gælder der, at $\mathrm{X}_\sigma, \mathrm{X}_\tau \in \mathcal{L}^1(P)$, og at $\quad \mathbb{E}\left[\mathrm{X}_0\right]=\mathbb{E}\left[\mathrm{X}_\sigma\right]=\mathbb{E}\left[\mathrm{X}_\tau\right], \quad$ og $\quad \mathbb{E}\left[\mathrm{X}_\tau \mid \mathcal{F}_\sigma\right]=\mathrm{X}_\sigma \quad$ P-n.o.
+  
+\end{enumerate}
+  \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        $\operatorname{Lad}\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\tau$ være en stoppetid. Lad videre $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}}$ være en tilpasset følge fra $\mathcal{L}^1(P)$.
+\begin{enumerate}
+    \item[\textnormal{(i)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en sub-MG (hhv. super-MG), da er $\left(\mathrm{X}_{n \wedge \tau}, \mathcal{F}_n\right)$ igen en sub-MG (hhv. super-MG), og der gælder implikationen:
+
+    $$
+    \sup _{n \in \mathbb{N}_0} \mathbb{E}\left[\left|\mathrm{X}_n\right|\right]<\infty \Longrightarrow \sup _{n \in \mathbb{N}_0} \mathbb{E}\left[\left|\mathrm{X}_{n \wedge \tau}\right|\right]<\infty
+    $$
+    \item[\textnormal{(ii)}]\begin{enumerate}
+        \item[\textnormal{(a)}]  Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en sub-MG og $\left\{\mathrm{X}_n^{+} \mid n \in \mathbb{N}_0\right\}$ er uniformt integrabel, da er $\left\{\mathrm{X}_{n \wedge \tau}^{+} \mid n \in \mathbb{N}_0\right\}$ ligeledes uniformt integrabel.
+        \item[\textnormal{(b)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en super- $M G$ og $\left\{\mathrm{X}_n^{-} \mid n \in \mathbb{N}_0\right\}$ er uniformt integrabel, da er $\left\{\mathrm{X}_{n \wedge \tau}^{-} \mid n \in \mathbb{N}_0\right\}$ ligeledes uniformt integrabel.
+        \item[\textnormal{(c)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en uniformt integrabel $M G$, da er $\left\{\mathrm{X}_{n \wedge \tau} \mid n \in \mathbb{N}_0\right\}$ ligeledes uniformt integrabel.
+    \end{enumerate} 
+\end{enumerate}
+    \end{corollary}
+\end{theorem-box}
+\subsection{Martingale Maximal-uligheder}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}}$ være en tilpasset følge af integrable stokastiske variable, og lad $\ell$ være et strengt positivt tal.
+
+
+
+        \begin{enumerate}
+            \item[\textnormal{(i)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en sub-MG, da gælder for hvert $n$ i $\mathbb{N}$ uligheden:
+
+            $$
+            \ell P\left(\max _{0 \leq k \leq n} \mathrm{X}_k>\ell\right) \leq \int_{\left\{\max _{0 \leq k \leq n} \mathrm{x}_k>\ell\right\}} \mathrm{X}_n \mathrm{~d} P \leq \mathbb{E}\left[\mathrm{X}_n^{+}\right] .
+            $$
+            \item[\textnormal{(ii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en sub-MG, da gælder for hvert $n$ i $\mathbb{N}$ uligheden:
+
+            $$
+            \ell P\left(\min _{0 \leq k \leq n} \mathrm{X}_k<-\ell\right) \leq \mathbb{E}\left[\mathrm{X}_n^{+}\right]-\mathbb{E}\left[\mathrm{X}_0\right] .
+            $$
+            \item[\textnormal{(iii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en sub-MG eller en super-MG, da gælder for hvert $n i$ $\mathbb{N}$ ulighederne:
+
+            $$
+            \ell P\left(\max _{0 \leq k \leq n}\left|\mathrm{X}_k\right|>\ell\right) \leq 2 \mathbb{E}\left[\left|\mathrm{X}_n\right|\right]+\mathbb{E}\left[\left|\mathrm{X}_0\right|\right] \leq 3 \max _{0 \leq k \leq n} \mathbb{E}\left[\left|\mathrm{X}_k\right|\right]
+            $$
+                    
+            \item[\textnormal{(iv)}]
+            Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en sub-MG eller en super-MG, da gælder uligheden:
+            
+            $$
+            \ell P\left(\sup _{k \in \mathbb{N}_0}\left|\mathrm{x}_k\right|>\ell\right) \leq 3 \sup _{k \in \mathbb{N}_0} \mathbb{E}\left[\left|\mathrm{x}_k\right|\right] .
+            $$
+        \end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        $\operatorname{Lad}\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ være en sub-MG eller en super-MG. Antag, at
+
+$$
+\sup _{n \in \mathbb{N}_0} \mathbb{E}\left[\left|\mathrm{X}_n\right|\right]<\infty
+$$
+
+
+Da gælder der, at
+
+$$
+P\left(\sup _{n \in \mathbb{N}_0}\left|\mathrm{X}_n\right|<\infty\right)=1
+$$
+
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        $\operatorname{Lad}\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ være en tilpasset følge, således at $\left(\left|\mathrm{X}_n\right|, \mathcal{F}_n\right)$ er en sub-MG.
+
+Lad videre $p$ være et tal $i(1, \infty)$, og lad q $i(1, \infty)$ være bestemt ved, at $\frac{1}{p}+\frac{1}{q}=1$.
+\begin{enumerate}
+    \item[\textnormal{(i)}] For ethvert $n i \mathbb{N}_0$ gælder uligheden:
+
+    $$
+    \left\|\max _{0 \leq k \leq n}\left|\mathrm{X}_k\right|\right\|_p \leq q\left\|\mathrm{X}_n\right\|_p
+    $$
+    \item[\textnormal{(ii)}] Der gælder endvidere uligheden:
+
+    $$
+    \mathbb{E}\left[\sup _{n \in \mathbb{N}_0}\left|\mathrm{X}_n\right|^p\right] \leq q^p \sup _{n \in \mathbb{N}_0} \mathbb{E}\left[\left|\mathrm{X}_n\right|^p\right]
+    $$    
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{lemma}
+        Lad X og Y være ikke-negative stokastiske variable på $(\Omega, \mathcal{F}, P)$, og antag, at
+
+$$
+\forall \ell>0: \ell P(\mathrm{x}>\ell) \leq \int_{\{\mathrm{x}>\ell\}} \mathrm{Y} \mathrm{~d} P .
+$$
+
+
+For ethvert p i $(1, \infty)$ gælder da uligheden:
+
+$$
+\mathbb{E}\left[\mathrm{X}^p\right]^{1 / p} \leq \frac{p}{p-1} \mathbb{E}\left[\mathrm{Y}^p\right]^{1 / p} .
+$$
+
+    \end{lemma}
+\end{theorem-box}
+\subsection{Opkrydsninger og Martingal Konvergens Sætningen}
+Definition af opkrydsninger
+Lad $r, s$ være reelle tal, således at $r<s$.
+For en følge $\left(x_n\right)_{n \in \mathbb{N}_0}$ af reelle tal, definerer vi tallene
+
+$$
+0 \leq \tau_1 \leq \sigma_1 \leq \tau_2 \leq \sigma_2 \leq \tau_3 \leq \sigma_3 \leq \cdots
+$$
+
+ved:
+
+$$
+\begin{array}{lll}
+\tau_1=\inf \left\{n \in \mathbb{N}_0 \mid x_n<r\right\}, & \text { og } & \sigma_1=\inf \left\{n>\tau_1 \mid x_n>s\right\} \\
+\tau_2=\inf \left\{n>\sigma_1 \mid x_n<r\right\}, & \text { og } & \sigma_2=\inf \left\{n>\tau_2 \mid x_n>s\right\}
+\end{array}
+$$
+
+og generelt for $k i\{2,3,4, \ldots\}$ sætter vi
+
+$$
+\tau_k=\inf \left\{n>\sigma_{k-1} \mid x_n<r\right\}, \quad \text { og } \quad \sigma_k=\inf \left\{n>\tau_k \mid x_n>s\right\} .
+$$
+
+
+Som sædvanlig benytter vi her konventionen: $\inf (\emptyset)=+\infty$.
+Bemærk, at der for ethvert $k \mathbf{i} \mathbb{N}$ gælder implikationerne:
+
+$$
+\tau_k=\sigma_k \Longrightarrow \tau_k=\infty, \quad \text { og } \quad \sigma_k=\tau_{k+1} \Longrightarrow \sigma_k=\infty
+$$
+Vi definerer derefter antallet af opkrydsninger fra $r$ til $s$ for $\left(x_n\right)_{n \in \mathbb{N}_0}$ ved formlen:
+
+$$
+\begin{aligned}
+U_{r, s}=\sum_{k=1}^{\infty} 1_{[0, \infty)}\left(\sigma_k\right)= & \#\left\{k \in \mathbb{N} \mid \sigma_k<\infty\right\} \\
+= & \begin{cases}0, & \text { hvis } \sigma_1=\infty \\
+m, & \text { hvis } \sigma_m<\infty, \text { og } \sigma_{m+1}=\infty \\
+\infty, & \text { hvis } \sigma_m<\infty \text { for alle } m \text { i } \mathbb{N}\end{cases}
+\end{aligned}
+$$
+
+
+Vi definerer endvidere antallet af opkrydsninger fra $r$ til $s i$ "tidsintervallet" $[0, n]$ for $\left(x_n\right)_{n \in \mathbb{N}_0}$ ved formlen:
+
+$$
+\begin{aligned}
+U_{r, s}^{(n)}=\sum_{k=1}^{\infty} 1_{[0, n]}\left(\sigma_k\right) & =\#\left\{k \in \mathbb{N} \mid \sigma_k \leq n\right\} \\
+& = \begin{cases}0, & \text { hvis } \sigma_1>n \\
+m, & \text { hvis } \sigma_m \leq n, \text { og } \sigma_{m+1}>n .\end{cases}
+\end{aligned}
+$$
+\begin{remark}
+    \begin{enumerate}
+        \item For ethvert $n$ i $\mathbb{N}$ gælder der, at
+
+        $$
+        U_{r, s}^{(n)} \leq\left[\frac{n+1}{2}\right] .
+        $$
+        
+\item Vi finder ved anvendelse af Monoton Konvergens, at
+
+$$
+U_{r, s}^{(n)}=\sum_{k=1}^{\infty} 1_{[0, n]}\left(\sigma_k\right) \uparrow \sum_{k=1}^{\infty} 1_{[0, \infty)}\left(\sigma_k\right)=U_{r, s}
+$$
+
+for $n \rightarrow \infty$.
+ \item Der gælder bi-implikationen:
+
+ $$
+ U_{r, s}=\infty \Longleftrightarrow \#\left\{k \in \mathbb{N}_0 \mid x_k<r\right\}=+\infty=\#\left\{k \in \mathbb{N}_0 \mid x_k>s\right\} .
+ $$
+ 
+    \end{enumerate}
+\end{remark}
+\begin{theorem-box}
+    \begin{lemma}
+        For enhver følge $\left(x_n\right)_{n \in \mathbb{N}_0}$ af reelle tal er følgende udsagn ækvivalente:
+\begin{enumerate}
+    \item[\textnormal{(i)}] $\lim _{n \rightarrow \infty} x_n$ eksisterer $i \overline{\mathbb{R}}$
+    \item[\textnormal{(ii)}] $U_{r, s}<\infty$ for alle $r$, s i $\mathbb{R}$, således at $r<s$.
+    \item[\textnormal{(iii)}]  $U_{r, s}<\infty$ for alle $r, s i \mathbb{Q}$, således at $r<s$.
+\end{enumerate}
+    \end{lemma}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}[Doobs opkrydsningsmulighed]
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ være en super-martingal herpå.
+
+Lad endvidere $r, s$ være reelle tal, således at $r<s$.
+Definér
+
+$$
+\tau_1=\inf \left\{n \in \mathbb{N}_0 \mid \mathrm{X}_n<r\right\}, \quad \text { og } \quad \sigma_1=\inf \left\{n>\tau_1 \mid \mathrm{X}_n>s\right\},
+$$
+
+og for $k i\{2,3,4, \ldots\}$
+
+$$
+\tau_k=\inf \left\{n>\sigma_{k-1} \mid \mathrm{X}_n<r\right\}, \quad \text { og } \quad \sigma_k=\inf \left\{n>\tau_k \mid \mathrm{X}_n>s\right\} .
+$$
+
+
+Definér endvidere,
+
+$$
+\mathrm{U}_{r, s}^{(n)}=\sum_{k=1}^{\infty} 1_{[0, n]}\left(\sigma_k\right), \quad(n \in \mathbb{N}),
+$$
+
+og
+
+$$
+\mathrm{U}_{r, s}=\sum_{k=1}^{\infty} 1_{[0, \infty)}\left(\sigma_k\right) .
+$$
+Da gælder følgende udsagn:
+\begin{enumerate}
+    \item[\textnormal{(i)}]  $\tau_k, \sigma_k$ er stoppetider for alle $k i \mathbb{N}$.
+    \item[\textnormal{(ii)}] For ethvert $n$ i $\mathbb{N}$ er $\mathrm{U}_{r, s}^{(n)} \mathcal{F}$-målelig, og der gælder ulighederne:
+
+    $$
+    (s-r) \mathbb{E}\left[\mathrm{U}_{r, s}^{(n)}\right] \leq \mathbb{E}\left[\mathrm{X}_n^{-}\right]+r^{+}
+    $$
+    \item[\textnormal{(iii)}] Også $\mathrm{U}_{r, s}$ er $\mathcal{F}$-målelig, og der gælder uligheden:
+
+    $$
+    (s-r) \mathbb{E}\left[\mathrm{U}_{r, s}\right] \leq r^{+}+\sup _{n \in \mathbb{N}_0} \mathbb{E}\left[\mathrm{X}_n^{-}\right]
+    $$
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{remark}
+    
+\end{remark}
+\begin{theorem-box}
+    \begin{proposition}[Martingal konvergenssætningen]
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ være en sub-martingal eller en super-martingal.
+
+Antag, at $\sup _{n \in \mathbb{N}_0} \mathbb{E}\left[\left|\mathrm{X}_n\right|\right]<\infty$.
+Da eksisterer $\lim _{n \rightarrow \infty} \mathrm{X}_n(\omega) i \mathbb{R}$ for P-n.a. $\omega$.
+Med andre ord gælder der, at $\mathrm{X}_n \rightarrow \mathrm{X}_{\infty}$ P-n.o., hvor
+
+$$
+\mathrm{X}_{\infty}(\omega)= \begin{cases}\lim _{n \rightarrow \infty} \mathrm{X}_n(\omega), & \text { hvis } \lim _{n \rightarrow \infty} \mathrm{X}_n(\omega) \text { eksisterer } i \mathbb{R}, \\ 0, & \text { ellers. }\end{cases}
+$$
+
+
+Der gæ/der endvidere, at
+
+$$
+\mathbb{E}\left[\left|\mathrm{X}_{\infty}\right|\right]<\infty .
+$$
+
+    \end{proposition}
+\end{theorem-box}
+\subsection{Uniformt integrable (sub- og super-)martingaler}
+\begin{theorem-box}
+    \begin{corollary}
+        $\operatorname{Lad}\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ være en sub-martingal eller en super-martingal.
+
+Hvis $\left\{\mathrm{X}_n \mid n \in \mathbb{N}_0\right\}$ er uniformt integrabel, gælder der, at $\mathrm{X}_n \rightarrow \mathrm{X}_{\infty} \quad$ n.o. og i 1-middel.
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        $\operatorname{Lad}\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ være en følge af stokastiske variable herpå.
+\begin{enumerate}
+    \item[\textnormal{(i)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en sub-martingal, og $\left\{\mathrm{X}_n^{+} \mid n \in \mathbb{N}_0\right\}$ er uniformt integrabel, så gælder der, at $\mathrm{X}_{\infty} \in \mathcal{L}^1(P)$, og
+
+    $$
+    \mathrm{X}_n \leq \mathbb{E}\left[\mathrm{X}_{\infty} \mid \mathcal{F}_n\right] \quad \text { for alle } n i \mathbb{N}_0
+    $$
+    \item[\textnormal{(ii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en martingal, og $\left\{\mathrm{X}_n \mid n \in \mathbb{N}_0\right\}$ er uniformt integrabel, så gælder der, at $\mathrm{X}_{\infty} \in \mathcal{L}^1(P)$, og
+
+    $$
+    \mathrm{X}_n=\mathbb{E}\left[\mathrm{X}_{\infty} \mid \mathcal{F}_n\right] \quad \text { for alle } n i \mathbb{N}_0
+    $$
+\end{enumerate}
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og sæt
+
+$$
+\mathcal{F}_{\infty}=\sigma\left(\bigcup_{n \in \mathbb{N}_0} \mathcal{F}_n\right)
+$$
+
+
+Lad videre X være en stokastisk variabel i $\mathcal{L}^1(P)$, og definér
+
+$$
+\mathrm{X}_n=\mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_n\right], \quad\left(n \in \mathbb{N}_0\right)
+$$
+
+
+Da gælder følgende udsagn:
+\begin{enumerate}
+    \item[\textnormal{(i)}]$\mathrm{X}_n \rightarrow \mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_{\infty}\right]$ P-n.o. og i 1-middel.
+    \item[\textnormal{(ii)}]Hvis X yderligere er $\mathcal{F}_{\infty}$-målelig, så gælder der, at $\mathrm{X}_n \rightarrow \mathrm{X}$ P-n.o. og i 1-middel.
+    \item[\textnormal{(iii)}] For enhver stoppetid $\tau$ med hensyn til $\left(\mathcal{F}_n\right)$ gælder der, at
+
+    $$
+    \mathbb{E}\left[\mathrm{X} \mid \mathcal{F}_\tau\right]=\mathrm{X}_\tau
+    $$
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+
+\subsection{Optional Sampling (anden version)}
+\begin{theorem-box}
+    \begin{definition}
+        Lad $\Omega, \mathcal{F}, \mathcal{F}_n, P$ være et filtreret sandsynlighedsfelt, og betragt enmm tilpasset følge $(Y_n)_{n\geq 0}$ af stokastiske variable herpå. Lad viodere $\tau$ være en stoppetid mht. $(\mathcal{F_n})$. Vi siger da, at $\tau$ er optional for $(Y_n)$, hvis familien $\{Y_{\tau \wedge n|n\in\N_0}\}$ er uniformt integrabel.
+    \end{definition}
+\end{theorem-box}
+\begin{remark}
+Bemærkninger om optionalitet
+Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{Y}_n\right)_{n \in \mathrm{~N}_0}$ være en tilpasset følge af stokastiske variable herpå.
+(1) Antag, at $\sigma$ og $\tau$ er to stoppetider, som begge er optionale for $\left(\mathrm{Y}_n\right)_{n \in \mathbb{N}_0}$.
+
+Da er $\sigma \wedge \tau$ og $\sigma \vee \tau$ igen optionale for $\left(\mathrm{Y}_n\right)_{n \in \mathrm{~N}_0}$.
+Vi har nemlig for ethvert $n$ i $\mathrm{N}_0$, at
+
+$$
+\left|\mathrm{Y}_{(\sigma \wedge \tau) \wedge n}\right|=\left|\mathrm{Y}_{\sigma \wedge n}\right| 1_{\{\sigma \leq \tau\}}+\left|\mathrm{Y}_{\tau \wedge n}\right| 1_{\{\sigma>\tau\}} \leq\left|\mathrm{Y}_{\sigma \wedge n}\right|+\left|\mathrm{Y}_{\tau \wedge n}\right|,
+$$
+
+og
+
+$$
+\left|\mathrm{Y}_{(\sigma \vee \tau) \wedge n}\right|=\left|\mathrm{Y}_{\tau \wedge n}\right| 1_{\{\sigma \leq \tau\}}+\left|\mathrm{Y}_{\sigma \wedge n}\right| 1_{\{\sigma>\tau\}} \leq\left|\mathrm{Y}_{\tau \wedge n}\right|+\left|\mathrm{Y}_{\sigma \wedge n}\right|,
+$$
+
+hvor $\left\{\left|\mathrm{Y}_{\sigma \wedge n}\right| \mid n \in \mathbb{N}_0\right\}+\left\{\left|\mathrm{Y}_{\tau \wedge n}\right| \mid n \in \mathbb{N}_0\right\}$ er UI (jvf. 3.1.5 og 3.1.3).
+\\(2) Hvis $\tau$ optional for $\left(\mathrm{Y}_n\right)_{n \in \mathrm{~N}_0}$, gælder der specielt, at $\mathrm{Y}_\tau \in \mathcal{L}^1(P)$. Der gælder nemlig
+
+$$
+\left(\mathrm{Y}_{\tau \wedge n}\right)_{n \in \mathbb{N}_0} \text { er UI } \stackrel{\substack{3.3.2 \\ \downarrow}}{\Longrightarrow} \sup _{n \in \mathbb{N}_0} \mathrm{E}\left[\left|\mathrm{Y}_{\tau \wedge n}\right|\right]<\infty \stackrel{9.3.13}{\Longrightarrow} \mathrm{Y}_\tau \in \mathcal{L}^1(P) .
+$$
+
+\end{remark}
+\begin{theorem-box}
+    \begin{lemma}[Kriterier for optionalitet]
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, lad $\left(\mathrm{Y}_n\right)_{n \in \mathbb{N}_0}$ være en tilpasset følge af stokastiske variable herpå, og lad $\tau$ være en stoppetid mht. $\left(\mathcal{F}_n\right)$.
+
+Da er følgende betingelser hver især tilstrækkelige for, at $\tau$ er optional for $\left(Y_n\right)_{n \in \mathbb{N}_0}$ :
+\begin{enumerate}
+    \item Der findes en stokastisk variabel Y i $\mathcal{L}^1(P)$, således at
+
+$$
+\sup _{n \in \mathbb{N}_0}\left|\mathrm{Y}_{\tau \wedge n}\right| \leq|\mathrm{Y}| P \text {-n.o. }
+$$
+[Jvf. Lemma 3.1.3(ii).]
+\item  Der findes $\alpha$ i $(1, \infty)$, således at $\sup _{n \in \mathbb{N}_0} \mathbb{E}\left[\left|\mathrm{Y}_{\tau \wedge n}\right|^\alpha\right]<\infty$.
+[Jvf. Eksempel 3.1.6.]
+\item $\mathrm{Y}_{\tau \wedge n} \in \mathcal{L}^1(P)$ for alle $n$, og der findes $Z$ i $\mathcal{L}^1(P)$, så $\mathrm{Y}_{\tau \wedge n} \rightarrow Z$ i 1 -middel for $n \rightarrow \infty$.
+[Jvf. Sætning 3.2.1.]
+\end{enumerate}
+    \end{lemma}
+\end{theorem-box}
+\begin{example}
+    (A) Betingelse (a) er specielt opfyldt, hvis $\mathrm{Y}_n \in \mathcal{L}^1(P)$ for alle $n$, og der findes en konstant $M$ i $\mathbb{N}$, saledes at $\tau \leq M P$-n.o.
+
+For ethvert $n$ i $\mathbb{N}_0$ har vi nemlig da, at
+
+$$
+\begin{aligned}
+\left|\mathrm{Y}_{\tau \wedge n}\right| & \stackrel{\mathrm{m.o.o} .}{=} \sum_{k=0}^M\left|\mathrm{Y}_{\tau \wedge n}\right| 1_{\{\tau \wedge n=k\}} \\
+& =\sum_{k=0}^M\left|\mathrm{Y}_k\right| 1_{\{\tau \wedge n=k\}} \leq \sum_{k=0}^M\left|\mathrm{Y}_k\right| \in \mathcal{L}^1(P)
+\end{aligned}
+$$
+\\(B) Betragt reelle tal $a<b$ og stoppetiden (jvf. 9.3.3)
+
+$$
+\tau_{a, b}=\inf \left\{n \in \mathbb{N}_0 \mid \mathrm{Y}_n \notin(a, b)\right\} .
+$$
+
+
+Antag, at $\mathrm{Y}_0 \in \mathcal{L}^1(P)$, og at der findes en konstant $M \mathrm{i}(0, \infty)$, således at $\left|\mathrm{Y}_n-\mathrm{Y}_{n-1}\right| \leq M P$-n.o. for alle $n$ i $\mathbb{N}$.
+
+Da er $\tau_{a, b}$ optional for $\left(\mathrm{Y}_n\right)_{n \in \mathbb{N}_0}$. For alle $n$ i $\mathbb{N}_0$ har vi nemlig, at
+
+$$
+\begin{aligned}
+& \left|\mathrm{Y}_{\tau_{a, b} \wedge n}\right|=\left|\mathrm{Y}_{\tau_{a, b}}\right| 1_{\left\{\tau_{a, b} \leq n\right\}}+\left|\mathrm{Y}_n\right| 1_{\left\{\tau_{a, b}>n\right\}} \\
+& =\left|\mathrm{Y}_0\right| 1_{\left\{\tau_{a, b}=0\right\}}+\left|\mathrm{Y}_{\tau_{a, b}-1}+\left(\mathrm{Y}_{\tau_{a, b}}-\mathrm{Y}_{\tau_{a, b}-1}\right)\right| 1_{\left\{1 \leq \tau_{a, b} \leq n\right\}} \\
+& \quad+\left|\mathrm{Y}_n\right| 1_{\left\{\tau_{a, b}>n\right\}} \\
+& \stackrel{\text { n.o. }}{\leq}\left|\mathrm{Y}_0\right|+((|a| \vee|b|)+M) 1_{\left\{1 \leq \tau_{a, b} \leq n\right\}}+(|a| \vee|b|) 1_{\left\{\tau_{a, b}>n\right\}} \\
+& =\left|\mathrm{Y}_0\right|+2(|a| \vee|b|)+M \in \mathcal{L}^1(P)
+\end{aligned}
+$$
+
+\end{example}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, lad $\left(\mathrm{Y}_n\right)_{n \in \mathbb{N}_0}$ være en tilpasset følge af stokastiske variable herpå, og lad $\tau$ være en endelig stoppetid mht. $\left(\mathcal{F}_n\right)$.
+
+Da er $\tau$ optional for $\left(\mathrm{Y}_n\right)_{n \in \mathbb{N}_0}$, hvis og kun hvis følgende 3 betingelser alle er opfyldte:
+\begin{enumerate}
+    \item $\mathbb{E}\left[\left|Y_\tau\right|\right]<\infty$,
+    \item $\int_{\{\tau>n\}}\left|\mathrm{Y}_n\right| \mathrm{d} P<\infty \quad$ for alle $n$ i $\mathbb{N}_0$,
+    \item $\lim _{n \rightarrow \infty} \int_{\{\tau>n\}}\left|\mathrm{Y}_n\right| \mathrm{d} P=0$.
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, lad $\left(\mathrm{Y}_n\right)_{n \in \mathbb{N}_0}$ være en tilpasset følge af stokastiske variable herpå, og lad $\sigma, \tau$ være stoppetider $m h t .\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}$.
+
+Antag, at $\sigma \leq \tau$, og at $\tau$ er optional for $\left(\mathrm{Y}_n\right)_{n \in \mathbb{N}_0}$.
+Da er $\sigma$ optional for $\left(\mathrm{Y}_n\right)_{n \in \mathbb{N}_0}$, hvis og kun hvis $\mathbb{E}\left[\left|\mathrm{Y}_\sigma\right|\right]<\infty$.
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{proposition}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ være en tilpasset følge af stokastiske variable herpå.
+Lad videre $\sigma$ og $\tau$ være stoppetider mht. $\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}$, og antag, at $\sigma \leq \tau$.
+\begin{enumerate}
+    \item[\textnormal{(i)}] Antag, at $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en sub-MG, og at $\tau$ er optional for $\left(\mathrm{X}_n^{+}\right)_{n \in \mathbb{N}_0}$. Da gælder der, at $\mathrm{X}_\sigma, \mathrm{X}_\tau \in \mathcal{L}^1(P)$, og at
+
+$$
+\mathbb{E}\left[\mathrm{X}_0\right] \leq \mathbb{E}\left[\mathrm{X}_\sigma\right] \leq \mathbb{E}\left[\mathrm{X}_\tau\right], \quad \text { samt } \quad \mathrm{X}_\sigma \leq \mathbb{E}\left[\mathrm{X}_\tau \mid \mathcal{F}_\sigma\right] \quad \text { P-n.o. }
+$$
+    \item[\textnormal{(ii)}] Antag, at $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en super-MG, og at $\tau$ er optional for $\left(\mathrm{X}_n^{-}\right)_{n \in \mathbb{N}_0}$. Da gælder der, at $\mathrm{X}_\sigma, \mathrm{X}_\tau \in \mathcal{L}^1(P)$, og at
+
+$$
+\mathbb{E}\left[\mathrm{X}_0\right] \geq \mathbb{E}\left[\mathrm{X}_\sigma\right] \geq \mathbb{E}\left[\mathrm{X}_\tau\right], \quad \text { samt } \quad \mathrm{X}_\sigma \geq \mathbb{E}\left[\mathrm{X}_\tau \mid \mathcal{F}_\sigma\right] \quad \text { P-n.o. }
+$$
+    \item[\textnormal{(iii)}] Antag, at $\left(\mathrm{X}_n, \mathcal{F}_n\right)$ er en MG, og at $\tau$ er optional for $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$. Da gælder der, at $\mathrm{X}_\sigma, \mathrm{X}_\tau \in \mathcal{L}^1(P)$, og at
+
+$$
+\mathbb{E}\left[\mathrm{X}_0\right]=\mathbb{E}\left[\mathrm{X}_\sigma\right]=\mathbb{E}\left[\mathrm{X}_\tau\right], \quad \text { samt } \quad \mathrm{X}_\sigma=\mathbb{E}\left[\mathrm{X}_\tau \mid \mathcal{F}_\sigma\right] \quad \text { P-n.o. }
+$$
+\end{enumerate}
+    \end{proposition}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, og lad $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ være en ikke-negativ super-martingal.
+\begin{enumerate}
+    \item[\textnormal{(i)}] For enhver stoppetid $\tau$ mht. $\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ gælder der, at $\mathrm{X}_\tau \in \mathcal{L}^1(P)$.
+    \item[\textnormal{(ii)}] Hvis $\sigma, \tau$ er stoppetider mht. $\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}$, og $\sigma \leq \tau$, gælder der, at
+
+$$
+\mathbb{E}\left[\mathrm{x}_0\right] \geq \mathbb{E}\left[\mathrm{x}_\sigma\right] \geq \mathbb{E}\left[\mathrm{x}_\tau\right] \geq \mathbb{E}\left[\mathrm{x}_{\infty}\right], \quad \text { og } \quad \mathrm{x}_\sigma \geq \mathbb{E}\left[\mathrm{x}_\tau \mid \mathcal{F}_\sigma\right] \text { P-n.o. }
+$$
+    \item[\textnormal{(iii)}] For et vilkårligt tal $\ell i(0, \infty)$ gælder der, at
+
+$$
+\ell P\left(\sup _{n \in \mathbb{N}_0} \mathrm{x}_n>\ell\right) \leq \mathbb{E}\left[\mathrm{x}_0\right]
+$$
+\end{enumerate}
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ være en tilpasset følge af stokastiske variable herpå, og lad $\sigma, \tau$ være stoppetider mht. $\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}$.
+        \begin{enumerate}
+            \item[\textnormal{(i)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en sub-MG, og $\tau$ er optional for $\left(\mathrm{X}_n^{+}\right)_{n \in \mathbb{N}_0}$, så gælder der, at
+
+$$
+\mathrm{X}_{\sigma \wedge \tau} \leq \mathbb{E}\left[\mathrm{X}_\tau \mid \mathcal{F}_\sigma\right] \quad \text { P-n.o. }
+$$
+            \item[\textnormal{(ii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en super-MG, og $\tau$ er optional for $\left(\mathrm{X}_n^{-}\right)_{n \in \mathbb{N}_0}$, så gælder der, at
+
+$$
+\mathrm{X}_{\sigma \wedge \tau} \geq \mathbb{E}\left[\mathrm{X}_\tau \mid \mathcal{F}_\sigma\right] \quad \text { P-n.o. }
+$$
+
+            \item[\textnormal{(iii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en MG, og $\tau$ er optional for $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$, så gælder der, at
+
+$$
+\mathrm{X}_{\sigma \wedge \tau}=\mathbb{E}\left[\mathrm{X}_\tau \mid \mathcal{F}_\sigma\right] \quad \text { P-n.o. }
+$$
+
+        \end{enumerate}
+    \end{corollary}
+\end{theorem-box}
+\begin{theorem-box}
+    \begin{corollary}
+        Lad $\left(\Omega, \mathcal{F}, \mathcal{F}_n, P\right)$ være et filtreret sandsynlighedsfelt, lad $\left(\mathrm{X}_n\right)_{n \in \mathbb{N}_0}$ være en tilpasset følge af stokastiske variable herpå, og lad $\sigma, \tau$ være stoppetider mht. $\left(\mathcal{F}_n\right)_{n \in \mathbb{N}_0}$, således at $\sigma \leq \tau$.
+        \begin{enumerate}
+            \item[\textnormal{(i)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en sub-MG, og $\left\{\mathrm{X}_n^{+} \mid n \in \mathbb{N}_0\right\}$ er UI, da gælder der, at $\mathrm{X}_\sigma, \mathrm{X}_\tau \in \mathcal{L}^1(P)$, og at
+$\mathbb{E}\left[\mathrm{X}_0\right] \leq \mathbb{E}\left[\mathrm{X}_\sigma\right] \leq \mathbb{E}\left[\mathrm{X}_\tau\right] \leq \mathbb{E}\left[\mathrm{X}_{\infty}\right], \quad$ samt at $\quad \mathrm{X}_\sigma \leq \mathbb{E}\left[\mathrm{X}_\tau \mid \mathcal{F}_\sigma\right] \quad$ P-n.o.
+            \item[\textnormal{(ii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en super-MG, og $\left\{\mathrm{X}_n^{-} \mid n \in \mathbb{N}_0\right\}$ er Ul, da gælder der, at $\mathrm{X}_\sigma, \mathrm{X}_\tau \in \mathcal{L}^1(P)$, og at
+$\mathbb{E}\left[\mathrm{X}_0\right] \geq \mathbb{E}\left[\mathrm{X}_\sigma\right] \geq \mathbb{E}\left[\mathrm{X}_\tau\right] \geq \mathbb{E}\left[\mathrm{X}_{\infty}\right], \quad$ samt at $\quad \mathrm{X}_\sigma \geq \mathbb{E}\left[\mathrm{X}_\tau \mid \mathcal{F}_\sigma\right] \quad$ P-n.o.
+            \item[\textnormal{(iii)}] Hvis $\left(\mathrm{X}_n, \mathcal{F}_n\right)_{n \in \mathbb{N}_0}$ er en $M G$, og $\left\{\mathrm{X}_n \mid n \in \mathbb{N}_0\right\}$ er UI, da gælder der, at $\mathrm{X}_\sigma, \mathrm{X}_\tau \in \mathcal{L}^1(P)$, og at
+$\mathbb{E}\left[\mathrm{X}_0\right]=\mathbb{E}\left[\mathrm{X}_\sigma\right]=\mathbb{E}\left[\mathrm{X}_\tau\right]=\mathbb{E}\left[\mathrm{X}_{\infty}\right], \quad$ samt at $\quad \mathrm{X}_\sigma=\mathbb{E}\left[\mathrm{X}_\tau \mid \mathcal{F}_\sigma\right] \quad$ P-n.o.
+        \end{enumerate}
+    \end{corollary}
+\end{theorem-box}
 \end{document}
